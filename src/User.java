@@ -2,11 +2,9 @@ public class User {
 	
 	private int accLimit = 5;
 	
-	private String		fName,
-						lName,
-						address;
+	private String fName, lName, address;
 	
-	private Account[]	accounts;
+	private Account[] accounts;
 	
 	public User() {
 		
@@ -74,7 +72,6 @@ public class User {
 	} public void setAddress(String addressI) {
 		
 		this.address = addressI;
-		
 	} 
 
 }
