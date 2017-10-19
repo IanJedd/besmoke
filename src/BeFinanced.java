@@ -12,6 +12,7 @@ public class BeFinanced extends Application {
     private final String SOFTWARE_NAME = "BeFinanced";
     private final int INIT_WIDTH = 400;
     private final int INIT_HEIGHT = 300;
+    private static User cUser;
 
     @Override
     public void start(Stage primaryStage) {
@@ -31,6 +32,15 @@ public class BeFinanced extends Application {
             System.out.println("Exception during Scene Update: " + e);
         }
     }
+
+    public static void setUser(User u) {
+        cUser = u;
+    }
+
+    public static User getUser() {
+        return cUser;
+    }
+
 
 
     public static void main(String[] args) {

@@ -5,7 +5,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <MenuBar prefHeight="0.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <menus>
@@ -23,10 +23,11 @@
          </menus>
       </MenuBar>
       <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <TextField layoutX="159.0" layoutY="39.0" />
-      <TextField layoutX="159.0" layoutY="78.0" />
+      <TextField fx:id="finAcctNameField" layoutX="159.0" layoutY="39.0" />
+      <TextField fx:id="finAcctInitBalanceField" layoutX="159.0" layoutY="78.0" />
       <Label layoutX="18.0" layoutY="39.0" prefHeight="39.0" prefWidth="149.0" text="Account name" AnchorPane.leftAnchor="10.0" />
       <Label layoutX="18.0" layoutY="78.0" prefHeight="39.0" prefWidth="149.0" text="Starting balance" AnchorPane.leftAnchor="10.0" />
-      <Button layoutX="510.0" layoutY="39.0" mnemonicParsing="false" text="Create" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="missingFields" layoutY="117.0" layoutX="159.0" />
+      <Button fx:id="createFinAcct" onAction="#newFinAcct" layoutX="510.0" layoutY="39.0" mnemonicParsing="false" text="Create" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
    </children>
 </AnchorPane>
