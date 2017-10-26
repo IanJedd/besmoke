@@ -19,15 +19,15 @@ public class Controller {
 
     // private variables with FXML access
     @FXML
-    private Button newDepsoit
+    private Button newDepsoit;
     @FXML
-    private Button newWithdrawal
+    private Button newWithdrawal;
     @FXML
-    private Button transactionDescription
+    private Button transactionDescription;
     @FXML
-    private Button finishTransaction
+    private Button finishTransaction;
     @FXML
-    private Button switchAccounts
+    private Button switchAccounts;
     @FXML
     private Button loginBtn;
     @FXML
