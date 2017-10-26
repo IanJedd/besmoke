@@ -59,6 +59,10 @@ public class Controller {
         }
     }
 
+    public void setUser(User u) {
+        currentUser = u;
+    }
+
     private Stage getEventWindow(Button b) {
         return (Stage) b.getScene().getWindow();
     }
@@ -78,7 +82,9 @@ public class Controller {
         try{
             Parent root = FXMLLoader.load(getClass().getResource(FXML_DIR + fxmlFile));
             currentScene = new Scene(root, width, height);
-            window.setScene(currentScene); System.out.println(currentUser);
+            window.setScene(currentScene); 
+            BeFinanced.setUser(
+            System.out.println(currentUser);
         }
         catch (Exception e) {
             System.out.println("Exception during Scene Update: " + e);
