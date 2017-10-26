@@ -88,11 +88,6 @@ public class Controller {
     {
 
     }
-    public void switchAccountsAction(ActionEvent e)
-    // Menu item
-    {
-
-    }
     public void finishAccountSwitch(ActionEvent e)
     // Finish switching button
     {
