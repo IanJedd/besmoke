@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
+    <children>
+        <TabPane layoutY="39.0" prefHeight="366.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0">
+            <tabs>
+            <Tab text="Account Info">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="160.0" layoutY="52.0" prefHeight="286.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Field" />
+                            <TableColumn prefWidth="75.0" text="Value" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Balance">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView layoutX="251.0" layoutY="30.0" prefHeight="286.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="Date" />
+                              <TableColumn prefWidth="127.0" text="Transaction" />
+                            <TableColumn prefWidth="91.0" text="Balance" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+                <Tab text="Deposits">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView layoutX="60.0" layoutY="14.0" prefHeight="305.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="Date" />
+                              <TableColumn prefWidth="113.0" text="Transaction" />
+                                        <TableColumn prefWidth="96.0" text="Amount" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="Withdrawals">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView layoutY="79.0" prefHeight="288.0" prefWidth="600.0" AnchorPane.bottomAnchor="-12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <columns>
+                                        <TableColumn prefWidth="75.0" text="Date" />
+                              <TableColumn prefWidth="120.0" text="Transaction" />
+                                        <TableColumn prefWidth="90.0" text="Amount" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+        <MenuBar fx:id="menuBar" prefHeight="0.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="File">
+                    <items>
+                        <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#logOutAction" text="Logout" /> 
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Accounts">
+                    <items>
+                        <MenuItem fx:id="createAccount" mnemonicParsing="false" onAction="#createAcctView" text="Create Account" />
+                        <MenuItem fx:id="deleteAccount" mnemonicParsing="false" onAction="#delAcctView" text="Delete Account" />
+                  <MenuItem fx:id="switchAccount" mnemonicParsing="false" text="Switch Accounts" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+      <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    </children>
+</AnchorPane>
