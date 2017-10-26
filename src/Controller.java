@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.EventTarget;
 import javafx.event.ActionEvent;
+
+import java.awt.MenuItem;
+
 public class Controller {
     private User currentUser = null;
     private Stage window;
@@ -18,7 +21,20 @@ public class Controller {
     private final String DEL_ACCT = "deleteAccount.fxml";
 
     // private variables with FXML access
-
+    @FXML
+    private ListView accountList
+    @FXML
+    private Button finishSwitch
+    @FXML
+    private TextField newDepsoit
+    @FXML
+    private TextField newWithdrawal
+    @FXML
+    private TextField transactionDescription
+    @FXML
+    private Button finishTransaction
+    @FXML
+    private MenuItem switchAccounts
     @FXML
     private Button loginBtn;
     @FXML
@@ -28,19 +44,40 @@ public class Controller {
     @FXML
     private Label failedLogIn, missingFields;
     @FXML
-    private MenuItem logOut;
+    private MenuItem logout;
     @FXML
-    private MenuItem createAcct;
+    private MenuItem createAaccount;
     @FXML
-    private MenuItem delAcct;
+    private MenuItem deleteAccount;
     @FXML
     private MenuBar menuBar;
     @FXML
-    private TextField finAcctNameField;
+    private TextField newAccountName;
     @FXML
-    private TextField finAcctInitBalanceField;
+    private TextField newBalance;
     @FXML
-    private Button createFinAcct;
+    private Button finishCreate;
+
+    public void finishCreateAction(ActionEvent e)
+    // Finish create account button
+    {
+
+    }
+    public void finishTransactionAction(ActionEvent e)
+    // Finish transaction button
+    {
+
+    }
+    public void switchAccountsAction(ActionEvent e)
+    // Menu item
+    {
+
+    }
+    public void finishAccountSwitch(ActionEvent e)
+    // Finish switching button
+    {
+
+    }
 
 
     public void loginBtnAction(ActionEvent e) {
@@ -92,22 +129,22 @@ public class Controller {
     }
 
     public void createAcctView(ActionEvent e) {
-        window = getEventWindow(createAcct);
+        window = getEventWindow(createAccount);
         updateScene(CREATE_ACCT, 600, 600);
     }
     public void delAcctView(ActionEvent e) {
-        window = getEventWindow(delAcct);
+        window = getEventWindow(deleteAccount);
         updateScene(DEL_ACCT, 600, 600);
     }
 
     public void newFinAcct(ActionEvent e) {
-        if (finAcctNameField.getText().equals("") || finAcctInitBalanceField.getText().equals("")) {
+        if (newAccountName.getText().equals("") || newBalance.getText().equals("")) {
             missingFields.setText("You must populate all fields.");
         }
         else {
-            String name = finAcctNameField.getText();
+            String name = newAccountName.getText();
             try {
-                double balance = (double) Double.parseDouble(finAcctInitBalanceField.getText()); System.out.println("1");
+                double balance = (double) Double.parseDouble(newBalance.getText()); System.out.println("1");
                 Account a = new Account(name, balance); System.out.println("2");
                 Account.addToAcctList(a); System.out.println(currentUser);
                 BeFinanced.getUser().addAccount(a); System.out.println("4");
