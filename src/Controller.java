@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.EventTarget;
 import javafx.event.ActionEvent;
+
+import java.awt.MenuItem;
+
 public class Controller {
     private User currentUser = null;
     private Stage window;
@@ -19,15 +22,19 @@ public class Controller {
 
     // private variables with FXML access
     @FXML
-    private Button newDepsoit
+    private ListView accountList
     @FXML
-    private Button newWithdrawal
+    private Button finishSwitch
     @FXML
-    private Button transactionDescription
+    private TextField newDepsoit
+    @FXML
+    private TextField newWithdrawal
+    @FXML
+    private TextField transactionDescription
     @FXML
     private Button finishTransaction
     @FXML
-    private Button switchAccounts
+    private MenuItem switchAccounts
     @FXML
     private Button loginBtn;
     @FXML
@@ -52,14 +59,22 @@ public class Controller {
     private Button finishCreate;
 
     public void finishCreateAction(ActionEvent e)
+    // Finish create account button
     {
 
     }
     public void finishTransactionAction(ActionEvent e)
+    // Finish transaction button
     {
 
     }
     public void switchAccountsAction(ActionEvent e)
+    // Menu item
+    {
+
+    }
+    public void finishAccountSwitch(ActionEvent e)
+    // Finish switching button
     {
 
     }
