@@ -88,7 +88,7 @@ public class Controller {
     {
 
     }
-    public void finishAccountSwitch(ActionEvent e)
+    public void finishSwitchAction(ActionEvent e)
     // Finish switching button
     {
 
