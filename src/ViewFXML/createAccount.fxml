@@ -24,17 +24,17 @@
          </menus>
       </MenuBar>
       <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <TextField fx:id="newAccountName" layoutX="159.0" layoutY="39.0" prefHeight="39.0" prefWidth="440.0" />
-      <TextField fx:id="newBalance" layoutX="160.0" layoutY="78.0" prefHeight="39.0" prefWidth="440.0" />
+      <TextField fx:id="createAccountName" layoutX="159.0" layoutY="39.0" prefHeight="39.0" prefWidth="440.0" />
+      <TextField fx:id="createAccountBalance" layoutX="160.0" layoutY="78.0" prefHeight="39.0" prefWidth="440.0" />
       <Label layoutX="18.0" layoutY="39.0" prefHeight="39.0" prefWidth="149.0" text="Account name" AnchorPane.leftAnchor="10.0" />
       <Label layoutX="18.0" layoutY="78.0" prefHeight="39.0" prefWidth="149.0" text="Starting balance" AnchorPane.leftAnchor="10.0" />
       <Label fx:id="missingFields" layoutX="159.0" layoutY="117.0" />
-      <Button fx:id="finishCreation" layoutX="510.0" layoutY="39.0" mnemonicParsing="false" onAction="#newFinAcct" text="Create" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="finishCreation" layoutX="516.0" layoutY="364.0" mnemonicParsing="false" onAction="#newFinAcct" text="Finish" AnchorPane.bottomAnchor="55.0" AnchorPane.rightAnchor="14.0" />
       <Label layoutX="10.0" layoutY="117.0" prefHeight="39.0" prefWidth="149.0" text="Description" />
-      <TextField fx:id="newPhone" layoutX="160.0" layoutY="276.0" prefHeight="39.0" prefWidth="440.0" />
-      <TextField fx:id="newEmail" layoutX="160.0" layoutY="315.0" prefHeight="39.0" prefWidth="440.0" />
+      <TextField fx:id="createAccountPhone" layoutX="160.0" layoutY="276.0" prefHeight="39.0" prefWidth="440.0" />
+      <TextField fx:id="createAccountEmail" layoutX="160.0" layoutY="315.0" prefHeight="39.0" prefWidth="440.0" />
       <Label layoutX="14.0" layoutY="276.0" prefHeight="39.0" prefWidth="149.0" text="Phone" />
       <Label layoutX="14.0" layoutY="315.0" prefHeight="39.0" prefWidth="149.0" text="Email" />
-      <TextArea fx:id="newDescription" layoutX="160.0" layoutY="117.0" prefHeight="160.0" prefWidth="440.0" />
+      <TextArea fx:id="createAccountDescription" layoutX="160.0" layoutY="117.0" prefHeight="160.0" prefWidth="440.0" />
    </children>
 </AnchorPane>

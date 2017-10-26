@@ -7,6 +7,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.EventTarget;
 import javafx.event.ActionEvent;
+
+import java.awt.MenuItem;
+
 public class Controller {
     private User currentUser = null;
     private Stage window;
@@ -17,17 +20,40 @@ public class Controller {
     private final String ACCT_VIEW = "accountView.fxml";
     private final String DEL_ACCT = "deleteAccount.fxml";
 
-    // private variables with FXML access
+    // Switch accounts
     @FXML
-    private Button newDepsoit
+    private ListView accountList
     @FXML
-    private Button newWithdrawal
+    private Button finishSwitch
+
+    // View accounts
+    // Transaction tab
     @FXML
-    private Button transactionDescription
+    private TextField transactionAmount
+    @FXML
+    private RadioButton makeDeposit
+    @FXML
+    private RadioButton makeWithdrawal
+    @FXML
+    private TextField transactionDescription
     @FXML
     private Button finishTransaction
+
+    // Create account
     @FXML
-    private Button switchAccounts
+    private TextField createAccountName;
+    @FXML
+    private TextField createAccountBalance;
+    @FXML
+    private TextField createAccountPhone;
+    @FXML
+    private TextField createAccountDescription;
+    @FXML
+    private TextField createAccountEmail;
+    @FXML
+    private Button finishCreate;
+
+    // Login
     @FXML
     private Button loginBtn;
     @FXML
@@ -36,30 +62,39 @@ public class Controller {
     private TextField usernameField;
     @FXML
     private Label failedLogIn, missingFields;
+
+    // File menu
     @FXML
     private MenuItem logout;
+
+    // Menu for account view, switch, and create
+    // Account menu
     @FXML
-    private MenuItem createAaccount;
+    private MenuItem createAccount;
     @FXML
     private MenuItem deleteAccount;
     @FXML
+    private MenuItem switchAccounts
+    @FXML
     private MenuBar menuBar;
-    @FXML
-    private TextField newAccountName;
-    @FXML
-    private TextField newBalance;
-    @FXML
-    private Button finishCreate;
 
     public void finishCreateAction(ActionEvent e)
+    // Finish create account button
     {
 
     }
     public void finishTransactionAction(ActionEvent e)
+    // Finish transaction button
     {
 
     }
     public void switchAccountsAction(ActionEvent e)
+    // Menu item
+    {
+
+    }
+    public void finishAccountSwitch(ActionEvent e)
+    // Finish switching button
     {
 
     }
