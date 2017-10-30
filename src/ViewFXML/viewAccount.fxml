@@ -78,7 +78,7 @@
                         <Button fx:id="finishTransaction" layoutX="7.0" layoutY="209.0" mnemonicParsing="false" text="Finish" />
                         <RadioButton fx:id="makeDeposit" layoutX="7.0" layoutY="103.0" mnemonicParsing="false" text="Deposit" />
                         <RadioButton fx:id="makeWithdrawal" layoutX="7.0" layoutY="143.0" mnemonicParsing="false" text="Withdrawal" />
-                        <TextArea fx:id="transactionDescription" layoutX="141.0" layoutY="48.0" prefHeight="200.0" prefWidth="459.0" />
+                        <TextArea fx:id="transDesc" layoutX="141.0" layoutY="48.0" prefHeight="200.0" prefWidth="459.0" />
                         <Label fx:id="newDescription" layoutX="6.0" layoutY="50.0" prefHeight="39.0" prefWidth="123.0" text="Description" />
                      </children>
                   </AnchorPane>
@@ -90,14 +90,14 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem fx:id="logout" mnemonicParsing="false" onAction="#logOutAction" text="Logout" /> 
+                         <MenuItem mnemonicParsing="false" text="Logout" onAction="#logOutAction"/> 
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Accounts">
                     <items>
-                        <MenuItem fx:id="createAccount" mnemonicParsing="false" onAction="#createAcctView" text="Create Account" />
-                        <MenuItem fx:id="deleteAccount" mnemonicParsing="false" onAction="#delAcctView" text="Delete Account" />
-                  <MenuItem fx:id="switchAccount" mnemonicParsing="false" text="Switch Accounts" />
+                         <MenuItem mnemonicParsing="false" onAction="#createAcctView" text="Create Account" />
+                         <MenuItem mnemonicParsing="false" onAction="#delAcctView" text="Delete Account" />
+                         <MenuItem mnemonicParsing="false" text="Switch Accounts" onAction="#switchAccountsView" />
                     </items>
                 </Menu>
             </menus>

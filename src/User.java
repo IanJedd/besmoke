@@ -27,6 +27,7 @@ public class User implements Serializable {
         this.address = address;
         this.username = username;
         this.password = password;
+        this.accounts = new String[accLimit];
     }
 
     public int[] hasInfo() {
@@ -203,7 +204,7 @@ public class User implements Serializable {
     
     public static void createInitialUserList() {
         ArrayList<User> users = new ArrayList<User>();
-        User u = new User("Temp", "User", "Missoula, MT", "test", "BeSmoke");
+        User u = new User("Temp", "User", "Missoula, MT", "csadmin", "csci323");
         users.add(u);
         try {
             FileOutputStream fOut = new FileOutputStream("./Data/users.ser");

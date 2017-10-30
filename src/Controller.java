@@ -7,38 +7,56 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.event.EventTarget;
 import javafx.event.ActionEvent;
-
 import java.awt.MenuItem;
 
+/*****************************************************************************
+ * public methods quickReference:
+ * finishCreateAction TODO: implement
+ * finishTransactionAction TODO: implement
+ * finishSwitchAction TODO: implement
+ * switchAccountsView
+ * loginBtnAction
+ * logOutAction
+ * createAcctView
+ * delAcctView
+ * newFinAcct
+ *
+*****************************************************************************/ 
+
 public class Controller {
-    private User currentUser = null;
+/*****************************************************************************
+ * instance variables
+*****************************************************************************/ 
+    private User currentUser = BeFinanced.getUser();
     private Stage window;
     private Scene currentScene;
     private final String FXML_DIR = "./ViewFXML/";
     private final String LOG_IN = "logIn.fxml";
     private final String CREATE_ACCT = "createAccount.fxml";
-    private final String ACCT_VIEW = "accountView.fxml";
+   // private final String ACCT_VIEW = "accountView.fxml"; supplanted by viewAccount????
     private final String DEL_ACCT = "deleteAccount.fxml";
-
+    private final String VIEW_ACCT = "viewAccount.fxml";
+    private final String CREATE_TRANSACTION = "createTransaction.fxml";
+    private final String SWITCH_ACCOUNTS =  "switchAccounts.fxml";
+/*****************************************************************************
+ * instance variables whose objects are instantiated by the FXMLLoader
+*****************************************************************************/ 
     // Switch accounts
     @FXML
-    private ListView accountList
+    private ListView accountList;
     @FXML
-    private Button finishSwitch
-
-    // View accounts
+    private Button finishSwitch;
     // Transaction tab
     @FXML
-    private TextField transactionAmount
+    private TextField transactionAmount;
     @FXML
-    private RadioButton makeDeposit
+    private RadioButton makeDeposit;
     @FXML
-    private RadioButton makeWithdrawal
+    private RadioButton makeWithdrawal;
     @FXML
-    private TextField transactionDescription
+    private TextField transactionDescription;
     @FXML
-    private Button finishTransaction
-
+    private Button finishTransaction;
     // Create account
     @FXML
     private TextField createAccountName;
@@ -51,8 +69,7 @@ public class Controller {
     @FXML
     private TextField createAccountEmail;
     @FXML
-    private Button finishCreate;
-
+    private Button finishCreation;
     // Login
     @FXML
     private Button loginBtn;
@@ -62,47 +79,38 @@ public class Controller {
     private TextField usernameField;
     @FXML
     private Label failedLogIn, missingFields;
-
-    // File menu
-    @FXML
-    private MenuItem logout;
-
-    // Menu for account view, switch, and create
-    // Account menu
-    @FXML
-    private MenuItem createAccount;
-    @FXML
-    private MenuItem deleteAccount;
-    @FXML
-    private MenuItem switchAccounts
+    // Universal MenuBar
     @FXML
     private MenuBar menuBar;
 
-    public void finishCreateAction(ActionEvent e)
-    // Finish create account button
-    {
+
+/***************************************************************************
+ * public methods
+***************************************************************************/
+   
+    public void finishCreateAction(ActionEvent e) {
 
     }
-    public void finishTransactionAction(ActionEvent e)
-    // Finish transaction button
-    {
+    public void finishTransactionAction(ActionEvent e) {
 
     }
-    public void finishSwitchAction(ActionEvent e)
-    // Finish switching button
-    {
+    public void finishSwitchAction(ActionEvent e) {
 
     }
 
+    public void switchAccountsView(ActionEvent e) {
+        window = getEventWindow();
+        updateScene(SWITCH_ACCOUNTS,600,600);
+    }
 
     public void loginBtnAction(ActionEvent e) {
-        window = getEventWindow(loginBtn);
+        window = getEventWindow();
         CharSequence pw = passwordField.getCharacters();
         String username = usernameField.getText();
         currentUser = User.logIn(username, pw);
         if (currentUser != null) {
             BeFinanced.setUser(currentUser);
-            updateScene(ACCT_VIEW, 600, 600);
+            updateScene(VIEW_ACCT, 600, 600);
             failedLogIn.setText(""); // potentially unnecessary
             
         }
@@ -111,59 +119,63 @@ public class Controller {
         }
     }
 
-    private Stage getEventWindow(Button b) {
-        return (Stage) b.getScene().getWindow();
-    }
-
-    private Stage getEventWindow(MenuItem m) {
-        return (Stage) menuBar.getScene().getWindow();
-    }
 
     public void logOutAction(ActionEvent e) {
-        window = getEventWindow(loginBtn);
-        BeFinanced.getUser().logOut();
+        window = getEventWindow();
+        currentUser.logOut();
         BeFinanced.setUser(null);
         updateScene(LOG_IN, 300, 400);
     }
 
-    public void updateScene(String fxmlFile, int width, int height) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource(FXML_DIR + fxmlFile));
-            currentScene = new Scene(root, width, height);
-            window.setScene(currentScene); System.out.println(currentUser);
-        }
-        catch (Exception e) {
-            System.out.println("Exception during Scene Update: " + e);
-        }
-    }
-
     public void createAcctView(ActionEvent e) {
-        window = getEventWindow(createAccount);
+        window = getEventWindow();
         updateScene(CREATE_ACCT, 600, 600);
     }
     public void delAcctView(ActionEvent e) {
-        window = getEventWindow(deleteAccount);
+        window = getEventWindow();
         updateScene(DEL_ACCT, 600, 600);
     }
 
     public void newFinAcct(ActionEvent e) {
-        if (newAccountName.getText().equals("") || newBalance.getText().equals("")) {
+        if (createAccountName.getText().equals("") || createAccountBalance.getText().equals("")) {
             missingFields.setText("You must populate all fields.");
         }
         else {
-            String name = newAccountName.getText();
+            String name = createAccountName.getText();
             try {
-                double balance = (double) Double.parseDouble(newBalance.getText()); System.out.println("1");
+                System.out.println(currentUser);
+                double balance = (double) Double.parseDouble(createAccountBalance.getText()); System.out.println("1");
                 Account a = new Account(name, balance); System.out.println("2");
-                Account.addToAcctList(a); System.out.println(currentUser);
-                BeFinanced.getUser().addAccount(a); System.out.println("4");
-                window = getEventWindow(createFinAcct); System.out.println(window);
-                updateScene(ACCT_VIEW, 600, 600);
+                Account.addToAcctList(a); System.out.println(a.getName());
+                currentUser.addAccount(a); System.out.println(finishCreation);
+                window = getEventWindow(); System.out.println(window);
+                updateScene(VIEW_ACCT, 600, 600);
             }
             catch (Exception ex) {
                 missingFields.setText("Balance must be numeric.");
                 System.out.println("newFinAcct Exception: " + ex);
             }
         }
+    }
+
+
+/***************************************************************************
+ * private methods
+****************************************************************************/
+    private void updateScene(String fxmlFile, int width, int height) {
+        try{
+            Parent root = FXMLLoader.load(getClass().getResource(FXML_DIR + fxmlFile)); System.out.println(root);
+            currentScene = new Scene(root, width, height); System.out.println(currentScene);
+            window.setScene(currentScene); System.out.println(BeFinanced.getUser());
+            currentUser = BeFinanced.getUser();
+            System.out.println(currentUser);
+        }
+        catch (Exception e) {
+            System.out.println("Exception during Scene Update: " + e);
+        }
+    }
+    
+    private Stage getEventWindow() {
+        return (Stage) menuBar.getScene().getWindow();
     }
 }

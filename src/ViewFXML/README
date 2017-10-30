@@ -1,0 +1,11 @@
+Things that need fx:ids: buttons, textfields, dynamic labels/text, the menubar
+
+
+Things that do not need fx:ids: MenuItems I don't know why but there is a
+load error when MenuItems have fx:ids.
+
+Don't forget to add "listeners" i.e. onAction="#ControllerMethodName" - I've added a quick reference to this at the
+top of the controller class. Please Add to the list with a TODO: implement flag when new functionality is needed
+
+Please make sure that every view includes a MenuBar with fx:id="menuBar". I've used this to simplify some code in the
+controller.
