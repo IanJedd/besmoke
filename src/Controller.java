@@ -8,6 +8,9 @@ import javafx.scene.control.*;
 import javafx.event.EventTarget;
 import javafx.event.ActionEvent;
 import java.awt.MenuItem;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import java.util.ArrayList;
 
 /*****************************************************************************
  * public methods quickReference:
@@ -43,7 +46,7 @@ public class Controller {
 *****************************************************************************/ 
     // Switch accounts
     @FXML
-    private ListView accountList;
+    private ListView<String> accountList;
     @FXML
     private Button finishSwitch;
     // Transaction tab
@@ -94,13 +97,11 @@ public class Controller {
     public void finishTransactionAction(ActionEvent e) {
 
     }
-    public void finishSwitchAction(ActionEvent e) {
-
-    }
 
     public void switchAccountsView(ActionEvent e) {
         window = getEventWindow();
-        updateScene(SWITCH_ACCOUNTS,600,600);
+       if ( updateScene(SWITCH_ACCOUNTS,600,600)){
+       }
     }
 
     public void loginBtnAction(ActionEvent e) {
@@ -144,11 +145,12 @@ public class Controller {
             String name = createAccountName.getText();
             try {
                 System.out.println(currentUser);
-                double balance = (double) Double.parseDouble(createAccountBalance.getText()); System.out.println("1");
+                double balance = Double.parseDouble(createAccountBalance.getText()); System.out.println("1");
                 Account a = new Account(name, balance); System.out.println("2");
                 Account.addToAcctList(a); System.out.println(a.getName());
-                currentUser.addAccount(a); System.out.println(finishCreation);
-                window = getEventWindow(); System.out.println(window);
+                currentUser.addAccount(a);
+                for(String s : currentUser.getAccounts()) { System.out.println(s); }
+                window = getEventWindow();
                 updateScene(VIEW_ACCT, 600, 600);
             }
             catch (Exception ex) {
@@ -162,16 +164,18 @@ public class Controller {
 /***************************************************************************
  * private methods
 ****************************************************************************/
-    private void updateScene(String fxmlFile, int width, int height) {
+    private boolean updateScene(String fxmlFile, int width, int height) {
         try{
-            Parent root = FXMLLoader.load(getClass().getResource(FXML_DIR + fxmlFile)); System.out.println(root);
-            currentScene = new Scene(root, width, height); System.out.println(currentScene);
-            window.setScene(currentScene); System.out.println(BeFinanced.getUser());
+            Parent root = FXMLLoader.load(getClass().getResource(FXML_DIR + fxmlFile));
+            currentScene = new Scene(root, width, height);
+            window.setScene(currentScene);
             currentUser = BeFinanced.getUser();
-            System.out.println(currentUser);
         }
         catch (Exception e) {
             System.out.println("Exception during Scene Update: " + e);
+        }
+        finally {
+            return true;
         }
     }
     

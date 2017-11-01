@@ -51,27 +51,27 @@ public class User implements Serializable {
         return output;		//for index 0,1,2 (fName, lName, address) default (0) or populated (1)
 
     }
-    public int hasAccount() {
+    public boolean hasAccount() {
         if(this.accounts[0] == null) {
-            return 0; //no accounts under this user
+            return false; //no accounts under this user
         }
-        return 1;
+        return true;
 	}
+
+    public String[] getAccounts() {
+        return accounts;
+    }
     
     public void addAccount(Account newAcc) {
         int i = 0;
-        boolean successful = false;
-        while(i < accLimit) {
-            if(this.accounts[i] != null) {
-                i += 1;
-            } else {
-                this.accounts[i] = newAcc.getName();
-                successful = true;
-            }
+        while(i < accLimit && this.accounts[i] != null) {
+            i++;
         }
-        
-        if (!successful) {
+        if(i == accLimit) {
             System.out.println("Error: maximum account limit exceeded.");
+        } 
+        else {
+            this.accounts[i] = newAcc.getName();
         }
 	}
     

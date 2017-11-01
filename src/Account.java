@@ -4,6 +4,7 @@ import java.io.Serializable;
 public class Account implements Serializable {
     private final String accountName;
     private double balance;
+    private ArrayList<Transaction> transactions;
 
     public Account(String initAccountName, double initBalance) {
         accountName = initAccountName;
@@ -15,6 +16,8 @@ public class Account implements Serializable {
     // public void setName(String newName) {accountName = newName;}
 
     public double getBalance() {return balance;}
+
+    public ArrayList<Transaction> getTransactions() {return transactions;}
 
     public void setBalance(double newBalance) {balance = newBalance;}
 
@@ -39,6 +42,18 @@ public class Account implements Serializable {
             System.out.println("Account.addToAccountList(Account a) exception: " + e);
         }
 
+    }
+
+    public void processTransaction(Transaction t) {
+        transactions.add(t);
+        switch(t.getType()) {
+            case DEPOSIT:
+                balance += t.getAmount();
+                break;
+            case WITHDRAWL:
+                balance -= t.getAmount();
+                break;
+        }
     }
 
     public static void deleteAccount(Account a) {
