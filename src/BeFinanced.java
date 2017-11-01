@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 public class BeFinanced extends Application {
     private Stage window;
@@ -18,6 +19,7 @@ public class BeFinanced extends Application {
     public void start(Stage primaryStage) {
         window = primaryStage;
         window.setTitle(SOFTWARE_NAME);
+        window.getIcons().add(new Image("./images/Logo.png"));
         updateScene(INIT_SCENE_FXML, INIT_WIDTH, INIT_HEIGHT);
         window.show();
     }
