@@ -3,6 +3,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 
 public class BeFinanced extends Application {
     private Stage window;
@@ -12,11 +13,13 @@ public class BeFinanced extends Application {
     private final String SOFTWARE_NAME = "BeFinanced";
     private final int INIT_WIDTH = 400;
     private final int INIT_HEIGHT = 300;
+    private static User cUser;
 
     @Override
     public void start(Stage primaryStage) {
         window = primaryStage;
         window.setTitle(SOFTWARE_NAME);
+        window.getIcons().add(new Image("./images/Logo.png"));
         updateScene(INIT_SCENE_FXML, INIT_WIDTH, INIT_HEIGHT);
         window.show();
     }
@@ -31,6 +34,15 @@ public class BeFinanced extends Application {
             System.out.println("Exception during Scene Update: " + e);
         }
     }
+
+    public static void setUser(User u) {
+        cUser = u;
+    }
+
+    public static User getUser() {
+        return cUser;
+    }
+
 
 
     public static void main(String[] args) {

@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
         <TabPane layoutY="39.0" prefHeight="366.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0">
             <tabs>
@@ -69,19 +69,38 @@
                         </AnchorPane>
                     </content>
                 </Tab>
+            <Tab text="Make Transaction">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="transactionAmount" layoutX="141.0" layoutY="8.0" prefHeight="39.0" prefWidth="196.0" />
+                        <Label layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="123.0" text="Amount" />
+                        <Button fx:id="finishTransaction" layoutX="7.0" layoutY="209.0" mnemonicParsing="false" text="Finish" />
+                        <RadioButton fx:id="makeDeposit" layoutX="7.0" layoutY="103.0" mnemonicParsing="false" text="Deposit">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="transactionType" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="makeWithdrawal" layoutX="7.0" layoutY="143.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType" />
+                        <TextArea fx:id="transDesc" layoutX="141.0" layoutY="48.0" prefHeight="200.0" prefWidth="459.0" />
+                        <Label fx:id="newDescription" layoutX="6.0" layoutY="50.0" prefHeight="39.0" prefWidth="123.0" text="Description" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
             </tabs>
         </TabPane>
         <MenuBar fx:id="menuBar" prefHeight="0.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem fx:id="logOut" mnemonicParsing="false" text="Logout" onAction="#logOutAction"/> 
+                         <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Logout" /> 
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Accounts">
                     <items>
-                        <MenuItem fx:id="createAcct" mnemonicParsing="false" text="Create Account" onAction="#createAcctView"/>
-                        <MenuItem fx:id="delAcct" mnemonicParsing="false" text="Delete Account" onAction="#delAcctView"/>
+                         <MenuItem mnemonicParsing="false" onAction="#createAcctView" text="Create Account" />
+                         <MenuItem mnemonicParsing="false" onAction="#delAcctView" text="Delete Account" />
+                         <MenuItem mnemonicParsing="false" onAction="#switchAccountsView" text="Switch Accounts" />
                     </items>
                 </Menu>
             </menus>
