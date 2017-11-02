@@ -12,7 +12,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
-public class DeleteController extends Controller {
+public class ViewAccountController extends Controller {
 /*****************************************************************************
  * Inherited instance variables
      User currentUser
@@ -38,33 +38,22 @@ public class DeleteController extends Controller {
 /*****************************************************************************
  * instance variables whose objects are instantiated by the FXMLLoader
 *****************************************************************************/ 
-    // Delete accounts
+    // Transaction tab
     @FXML
-    private ListView<String> accountList;
+    private TextField transactionAmount;
     @FXML
-    private Button finishDelete;
+    private RadioButton makeDeposit;
+    @FXML
+    private RadioButton makeWithdrawal;
+    @FXML
+    private TextField transactionDescription;
+    @FXML
+    private Button finishTransaction;
+
 /***************************************************************************
  * public methods
-***************************************************************************/    
-    public void finishDeleteAction(ActionEvent e) {
-        System.out.println("finishDeleteAction");
-        System.out.println(accountList);
-        updateAccountList();
-    }
-
-    private void updateAccountList() {
-        if (currentUser.hasAccount()) {
-            System.out.println("hasAccount");
-            ObservableList<String> accounts = FXCollections.observableArrayList();
-            for (String s : currentUser.getAccounts()) {
-                accounts.add(s);
-            }
-            accountList.setItems(accounts);
-        }
-    }
-
-    public void initialize() {
-        updateAccountList();
+***************************************************************************/
+    public void finishTransactionAction(ActionEvent e) {
 
     }
 }

@@ -12,21 +12,29 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
-public class SwitchController {
+public class SwitchController extends Controller {
 /*****************************************************************************
- * instance variables
+ * Inherited instance variables
+     User currentUser
+     Stage window
+     Scene currentScene
+     String FXML_DIR, LOG_IN, CREATE_ACCT, DEL_ACCT, VIEW_ACCT, CREATE_TRANSACTION, SWITCH_ACCOUNTS
+ 
+ * Inherited @FXML variables
+     MenuBar menuBar
+
+ * Inherited Public Methods
+     switchAccountsView(ActionEvent e)
+     logOutAction(ActionEvent e)
+     createAcctView(ActionEvent e)
+     delAcctView(ActionEvent e)
+
+ * Inherited Private Methods
+     updateScene(String fxmlFile, int width, int height)
+     getEventWindow()  :  returns Stage
+
 *****************************************************************************/ 
-    private User currentUser = BeFinanced.getUser();
-    private Stage window;
-    private Scene currentScene;
-    private final String FXML_DIR = "./ViewFXML/";
-    private final String LOG_IN = "logIn.fxml";
-    private final String CREATE_ACCT = "createAccount.fxml";
-   // private final String ACCT_VIEW = "accountView.fxml"; supplanted by viewAccount????
-    private final String DEL_ACCT = "deleteAccount.fxml";
-    private final String VIEW_ACCT = "viewAccount.fxml";
-    private final String CREATE_TRANSACTION = "createTransaction.fxml";
-    private final String SWITCH_ACCOUNTS =  "switchAccounts.fxml";
+
 /*****************************************************************************
  * instance variables whose objects are instantiated by the FXMLLoader
 *****************************************************************************/ 
@@ -35,26 +43,18 @@ public class SwitchController {
     private ListView<String> accountList;
     @FXML
     private Button finishSwitch;
-    // Universal MenuBar
-    @FXML
-    private MenuBar menuBar;
-
-
-    public void finishSwitchAction(ActionEvent e) {
-        System.out.println("finishSwithAction");
-        System.out.println(finishSwitch);
-        System.out.println(accountList);
+/***************************************************************************
+ * public methods
+***************************************************************************/
+    public void initialize() {
         updateAccountList();
-
     }
-
-    public void switchAccountsView(ActionEvent e) {
-        window = getEventWindow();
-       if ( updateScene(SWITCH_ACCOUNTS,600,600)){
-           updateAccountList();
-       }
+    
+    public void finishSwitchAction(ActionEvent e) {
     }
-
+/***************************************************************************
+ * private methods
+***************************************************************************/
     private void updateAccountList() {
         if (currentUser.hasAccount()) {
             System.out.println("hasAccount");
@@ -65,48 +65,5 @@ public class SwitchController {
             }
             accountList.setItems(accounts);
         }
-    }
-
-    public void initialize() {
-        updateAccountList();
-
-    }
-    
-    public void logOutAction(ActionEvent e) {
-        window = getEventWindow();
-        currentUser.logOut();
-        BeFinanced.setUser(null);
-        updateScene(LOG_IN, 300, 400);
-    }
-    
-    public void createAcctView(ActionEvent e) {
-        window = getEventWindow();
-        updateScene(CREATE_ACCT, 600, 600);
-    }
-    public void delAcctView(ActionEvent e) {
-        window = getEventWindow();
-        updateScene(DEL_ACCT, 600, 600);
-    }
-
-/***************************************************************************
- * private methods
-****************************************************************************/
-    private boolean updateScene(String fxmlFile, int width, int height) {
-        try{
-            Parent root = FXMLLoader.load(getClass().getResource(FXML_DIR + fxmlFile));
-            currentScene = new Scene(root, width, height);
-            window.setScene(currentScene);
-            currentUser = BeFinanced.getUser();
-        }
-        catch (Exception e) {
-            System.out.println("Exception during Scene Update: " + e);
-        }
-        finally {
-            return true;
-        }
-    }
-    
-    private Stage getEventWindow() {
-        return (Stage) menuBar.getScene().getWindow();
     }
 }
