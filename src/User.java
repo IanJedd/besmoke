@@ -95,8 +95,6 @@ public class User implements Serializable {
             fIn.close();
             User tempUser = null;
             for(User u : users) {
-                System.out.println(u.username);
-                System.out.println(username);
                 if (u.username.equals(username)) {
                     tempUser = u;
                     break;
@@ -221,7 +219,6 @@ public class User implements Serializable {
     private static boolean passwordsMatch(CharSequence p1, CharSequence p2) {
         if (p1.length() != p2.length()) { return false; }
         for (int i = 0; i < p1.length(); i++) {
-            System.out.println("p1 char: " + p1.charAt(i) +" p2 char: " + p2.charAt(i));
             if (p1.charAt(i) != p2.charAt(i)) { return false; }
         }
         return true;

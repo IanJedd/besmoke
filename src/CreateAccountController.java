@@ -46,36 +46,49 @@ public class CreateAccountController extends Controller {
     @FXML
     private TextField createAccountPhone;
     @FXML
-    private TextField createAccountDescription;
+    private TextArea createAccountDescription;
     @FXML
     private TextField createAccountEmail;
     @FXML
     private Button finishCreation;
     @FXML
-    private Label missingFields;
+    private Label errorMessage;
 /***************************************************************************
  * public methods
 ***************************************************************************/
     public void newFinAcct(ActionEvent e) {
-        if (createAccountName.getText().equals("") || createAccountBalance.getText().equals("")) {
-            missingFields.setText("You must populate all fields.");
-        }
-        else {
+        if (checkFields()) {
             String name = createAccountName.getText();
-            try {
-                System.out.println(currentUser);
-                double balance = Double.parseDouble(createAccountBalance.getText()); System.out.println("1");
-                Account a = new Account(name, balance); System.out.println("2");
-                Account.addToAcctList(a); System.out.println(a.getName());
-                currentUser.addAccount(a);
-                for(String s : currentUser.getAccounts()) { System.out.println(s); }
-                window = getEventWindow();
-                updateScene(VIEW_ACCT, 600, 600);
-            }
-            catch (Exception ex) {
-                missingFields.setText("Balance must be numeric.");
-                System.out.println("newFinAcct Exception: " + ex);
-            }
+            double balance = Double.parseDouble(createAccountBalance.getText());
+            Account a = new Account(name, balance);
+            Account.addToAcctList(a);
+            currentUser.addAccount(a);
+            window = getEventWindow();
+            updateScene(VIEW_ACCT, 600, 600);
         }
     }
+
+    private boolean checkFields() {
+        String aName = createAccountName.getText();
+        String aBalance = createAccountBalance.getText();
+        String aPhone = createAccountPhone.getText();
+        String aDesc = createAccountDescription.getText();
+        String aEmail = createAccountEmail.getText();
+
+        if(aName.equals("") || aBalance.equals("") || aPhone.equals("") || aDesc.equals("") || aEmail.equals("")) {
+            errorMessage.setText("You must populate all fields.");
+            return false;
+        }
+        try {
+            Double.parseDouble(aBalance);
+        }
+        catch (Exception ex) {
+            System.out.println(ex);
+            errorMessage.setText("Balance must be numeric.");
+            return false;
+        }
+        // TODO: implement more checks (is anyone good with Regular Expressions?)
+        return true;
+    }
+
 }

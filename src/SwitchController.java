@@ -60,8 +60,7 @@ public class SwitchController extends Controller {
             System.out.println("hasAccount");
             ObservableList<String> accounts = FXCollections.observableArrayList();
             for (String s : currentUser.getAccounts()) {
-                System.out.println(s);
-                accounts.add(s);
+                if (s != null) { accounts.add(s); }
             }
             accountList.setItems(accounts);
         }
