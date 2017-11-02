@@ -1,3 +1,4 @@
+package besmoke.src;
 import java.util.*;
 import java.io.*;
 import java.io.Serializable;
@@ -71,9 +72,18 @@ public class User implements Serializable {
             System.out.println("Error: maximum account limit exceeded.");
         } 
         else {
-            this.accounts[i] = newAcc.getName();
+            this.accounts[i] = newAcc.getAccountName();
         }
 	}
+
+    public void deleteAccount(String name) {
+        int i = 0;
+        while(i < accLimit && !this.accounts[i].equals(name)) {
+            i++;
+        }
+        this.accounts[i] = null;
+    }
+
     
     public void setName(String fNameI, String lNameI) {
         this.fName = fNameI;
@@ -88,7 +98,7 @@ public class User implements Serializable {
     public static User logIn(String username, CharSequence password) {
         ArrayList<User> users = new ArrayList<User>();
         try {
-            FileInputStream fIn = new FileInputStream("./Data/users.ser");
+            FileInputStream fIn = new FileInputStream("./besmoke/src/Data/users.ser");
             ObjectInputStream oIn = new ObjectInputStream(fIn);
             users = (ArrayList<User>) oIn.readObject();
             oIn.close();
@@ -124,13 +134,13 @@ public class User implements Serializable {
     public static void addToUserList(User u) {
         ArrayList<User> users = new ArrayList<User>();
         try {
-            FileInputStream fIn = new FileInputStream("./Data/users.ser");
+            FileInputStream fIn = new FileInputStream("./besmoke/src/Data/users.ser");
             ObjectInputStream oIn = new ObjectInputStream(fIn);
             users = (ArrayList<User>) oIn.readObject();
             oIn.close();
             fIn.close();
             users.add(u);
-            FileOutputStream fOut = new FileOutputStream("./Data/users.ser");
+            FileOutputStream fOut = new FileOutputStream("./besmoke/src/Data/users.ser");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             oOut.writeObject(users);
             oOut.close();
@@ -145,7 +155,7 @@ public class User implements Serializable {
     public static void deleteUser(User u) {
         ArrayList<User> users = new ArrayList<User>();
         try {
-            FileInputStream fIn = new FileInputStream("./Data/users.ser");
+            FileInputStream fIn = new FileInputStream("./besmoke/src/Data/users.ser");
             ObjectInputStream oIn = new ObjectInputStream(fIn);
             users = (ArrayList<User>) oIn.readObject();
             oIn.close();
@@ -157,7 +167,7 @@ public class User implements Serializable {
                     break;
                 }
             }
-            FileOutputStream fOut = new FileOutputStream("./Data/users.ser");
+            FileOutputStream fOut = new FileOutputStream("./besmoke/src/Data/users.ser");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             oOut.writeObject(users);
             oOut.close();
@@ -172,7 +182,7 @@ public class User implements Serializable {
     public static void updateUserList(User u) {
         ArrayList<User> users = new ArrayList<User>();
         try {
-            FileInputStream fIn = new FileInputStream("./Data/users.ser");
+            FileInputStream fIn = new FileInputStream("./besmoke/src/Data/users.ser");
             ObjectInputStream oIn = new ObjectInputStream(fIn);
             users = (ArrayList<User>) oIn.readObject();
             oIn.close();
@@ -185,7 +195,7 @@ public class User implements Serializable {
                     break;
                 }
             }
-            FileOutputStream fOut = new FileOutputStream("./Data/users.ser");
+            FileOutputStream fOut = new FileOutputStream("./besmoke/src/Data/users.ser");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             oOut.writeObject(users);
             oOut.close();
@@ -205,7 +215,7 @@ public class User implements Serializable {
         User u = new User("Temp", "User", "Missoula, MT", "csadmin", "csci323");
         users.add(u);
         try {
-            FileOutputStream fOut = new FileOutputStream("./Data/users.ser");
+            FileOutputStream fOut = new FileOutputStream("./besmoke/src/Data/users.ser");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);
             oOut.writeObject(users);
             oOut.close();

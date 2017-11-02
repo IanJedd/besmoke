@@ -1,3 +1,4 @@
+package besmoke.src;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,7 +20,7 @@ public class BeFinanced extends Application {
     public void start(Stage primaryStage) {
         window = primaryStage;
         window.setTitle(SOFTWARE_NAME);
-        window.getIcons().add(new Image("./images/Logo.png"));
+        window.getIcons().add(new Image("./besmoke/src/images/Logo.png"));
         updateScene(INIT_SCENE_FXML, INIT_WIDTH, INIT_HEIGHT);
         window.show();
     }
@@ -31,7 +32,7 @@ public class BeFinanced extends Application {
             window.setScene(currentScene);
         }
         catch (Exception e) {
-            System.out.println("Exception during Scene Update: " + e);
+            System.out.println("Exception during Scene Update1: " + e);
         }
     }
 

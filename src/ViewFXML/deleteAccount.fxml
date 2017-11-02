@@ -5,8 +5,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import besmoke.src.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DeleteController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="458.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="besmoke.src.DeleteController">
    <children>
       <MenuBar fx:id="menuBar" prefHeight="0.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <menus>
@@ -25,8 +26,9 @@
          </menus>
       </MenuBar>
       <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Label fx:id="missingFields" layoutX="159.0" layoutY="117.0" />
-      <Button fx:id="finishDeleteAction" layoutX="510.0" layoutY="39.0" mnemonicParsing="false" onAction="#finishDeleteAction" text="Delete" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="finishDelete" mnemonicParsing="false" onAction="#attemptDeletion" text="Delete" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="10.0" />
+      <Button fx:id="cancelButton" onAction="#cancel" mnemonicParsing="false" text="Cancel" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="80.0" />
+      <Label fx:id="confirmationLabel" AnchorPane.bottomAnchor="60.0" AnchorPane.rightAnchor="10.0"/>
       <ListView fx:id="accountList" layoutY="38.0" prefHeight="342.0" prefWidth="600.0">
           <items>
               <FXCollections fx:factory="observableArrayList">

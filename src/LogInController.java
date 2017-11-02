@@ -1,3 +1,4 @@
+package besmoke.src;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -47,7 +48,7 @@ public class LogInController extends Controller {
     @FXML
     private TextField usernameField;
     @FXML
-    private Label failedLogIn, missingFields;
+    private Label failedLogIn;
 /***************************************************************************
  * public methods
 ***************************************************************************/

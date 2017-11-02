@@ -1,3 +1,4 @@
+package besmoke.src;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -11,6 +12,8 @@ import java.awt.MenuItem;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.ArrayList;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.beans.property.*;
 
 public class ViewAccountController extends Controller {
 /*****************************************************************************
@@ -37,7 +40,14 @@ public class ViewAccountController extends Controller {
 
 /*****************************************************************************
  * instance variables whose objects are instantiated by the FXMLLoader
-*****************************************************************************/ 
+*****************************************************************************/
+    // Default tab
+    @FXML
+    private TableView<AccountW> tableAccData;
+    @FXML
+    private TableColumn<AccountW, StringProperty> nameCol, phoneCol, emailCol;
+    @FXML
+    private TableColumn<AccountW, DoubleProperty> balanceCol;
     // Transaction tab
     @FXML
     private TextField transactionAmount;
@@ -46,14 +56,43 @@ public class ViewAccountController extends Controller {
     @FXML
     private RadioButton makeWithdrawal;
     @FXML
-    private TextField transactionDescription;
+    private TextArea transactionDescription;
     @FXML
     private Button finishTransaction;
 
 /***************************************************************************
  * public methods
 ***************************************************************************/
-    public void finishTransactionAction(ActionEvent e) {
+    public void initialize() {
+        System.out.println("initialize");
+        nameCol.setCellValueFactory(new PropertyValueFactory<AccountW, StringProperty>("name"));
+        balanceCol.setCellValueFactory(new PropertyValueFactory<AccountW, DoubleProperty>("bal"));
+        phoneCol.setCellValueFactory(new PropertyValueFactory<AccountW, StringProperty>("phone"));
+        emailCol.setCellValueFactory(new PropertyValueFactory<AccountW, StringProperty>("email"));
+        /*
+        if (currentUser.hasAccount()) {
+            System.out.println("updataAccData");
+            updateAccData();
+        }
+        */
+    }
+    
 
+    
+    public void finishTransaction(ActionEvent e) {
+
+    }
+/***************************************************************************
+ * private methods
+***************************************************************************/
+    public void updateAccData() {
+        String[] accNames = currentUser.getAccounts();
+        ObservableList<AccountW> aList = FXCollections.observableArrayList();
+        for(String name : accNames) {
+            System.out.println("for");
+            if (name != null) {aList.add(new AccountW(Account.getAccount(name)));}
+        }
+        System.out.println("endfor");
+        tableAccData.setItems(aList);
     }
 }

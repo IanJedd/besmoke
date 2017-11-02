@@ -1,3 +1,4 @@
+package besmoke.src;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Parent;

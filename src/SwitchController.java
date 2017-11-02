@@ -1,3 +1,4 @@
+package besmoke.src;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -48,8 +49,7 @@ public class SwitchController extends Controller {
 ***************************************************************************/
     public void initialize() {
         updateAccountList();
-    }
-    
+    }    
     public void finishSwitchAction(ActionEvent e) {
     }
 /***************************************************************************
@@ -57,7 +57,6 @@ public class SwitchController extends Controller {
 ***************************************************************************/
     private void updateAccountList() {
         if (currentUser.hasAccount()) {
-            System.out.println("hasAccount");
             ObservableList<String> accounts = FXCollections.observableArrayList();
             for (String s : currentUser.getAccounts()) {
                 if (s != null) { accounts.add(s); }

@@ -1,3 +1,4 @@
+package besmoke.src;
 import java.io.Serializable;
 public class Transaction implements Serializable {
 	public enum Type {DEPOSIT, WITHDRAWL}

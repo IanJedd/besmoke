@@ -1,3 +1,4 @@
+package besmoke.src;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
@@ -60,7 +61,10 @@ public class CreateAccountController extends Controller {
         if (checkFields()) {
             String name = createAccountName.getText();
             double balance = Double.parseDouble(createAccountBalance.getText());
-            Account a = new Account(name, balance);
+            String phone = createAccountPhone.getText();
+            String desc = createAccountDescription.getText();
+            String email = createAccountEmail.getText();
+            Account a = new Account(name, balance, desc, phone, email);
             Account.addToAcctList(a);
             currentUser.addAccount(a);
             window = getEventWindow();
