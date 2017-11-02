@@ -12,7 +12,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
-public class DeleteController extends Controller {
+
+public class LogInController extends Controller {
 /*****************************************************************************
  * Inherited instance variables
      User currentUser
@@ -38,33 +39,39 @@ public class DeleteController extends Controller {
 /*****************************************************************************
  * instance variables whose objects are instantiated by the FXMLLoader
 *****************************************************************************/ 
-    // Delete accounts
+    // Login
     @FXML
-    private ListView<String> accountList;
+    private Button loginBtn;
     @FXML
-    private Button finishDelete;
+    private PasswordField passwordField;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private Label failedLogIn, missingFields;
 /***************************************************************************
  * public methods
-***************************************************************************/    
-    public void finishDeleteAction(ActionEvent e) {
-        System.out.println("finishDeleteAction");
-        System.out.println(accountList);
-        updateAccountList();
-    }
-
-    private void updateAccountList() {
-        if (currentUser.hasAccount()) {
-            System.out.println("hasAccount");
-            ObservableList<String> accounts = FXCollections.observableArrayList();
-            for (String s : currentUser.getAccounts()) {
-                accounts.add(s);
-            }
-            accountList.setItems(accounts);
+***************************************************************************/
+    public void loginBtnAction(ActionEvent e) {
+        window = getEventWindow();
+        CharSequence pw = passwordField.getCharacters();
+        String username = usernameField.getText();
+        currentUser = User.logIn(username, pw);
+        if (currentUser != null) {
+            BeFinanced.setUser(currentUser);
+            updateScene(VIEW_ACCT, 600, 600);
+            failedLogIn.setText(""); // potentially unnecessary
+            
+        }
+        else {
+           failedLogIn.setText("invalid username or password");
         }
     }
 
-    public void initialize() {
-        updateAccountList();
-
-    }
+/***************************************************************************
+ * Empty Overrides
+***************************************************************************/
+    public void logOutAction(ActionEvent e) {}
+    public void createAcctView(ActionEvent e) {}
+    public void delAcctView(ActionEvent e) {}
+    public void switchAccountsView(ActionEvent e) {}
 }
