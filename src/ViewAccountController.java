@@ -65,16 +65,16 @@ public class ViewAccountController extends Controller {
 ***************************************************************************/
     public void initialize() {
         System.out.println("initialize");
-        nameCol.setCellValueFactory(new PropertyValueFactory<AccountW, StringProperty>("name"));
-        balanceCol.setCellValueFactory(new PropertyValueFactory<AccountW, DoubleProperty>("bal"));
-        phoneCol.setCellValueFactory(new PropertyValueFactory<AccountW, StringProperty>("phone"));
-        emailCol.setCellValueFactory(new PropertyValueFactory<AccountW, StringProperty>("email"));
-        /*
+        nameCol.setCellValueFactory(new PropertyValueFactory("name"));
+        balanceCol.setCellValueFactory(new PropertyValueFactory("bal"));
+        phoneCol.setCellValueFactory(new PropertyValueFactory("phone"));
+        emailCol.setCellValueFactory(new PropertyValueFactory("email"));
+        
         if (currentUser.hasAccount()) {
             System.out.println("updataAccData");
             updateAccData();
         }
-        */
+        
     }
     
 
