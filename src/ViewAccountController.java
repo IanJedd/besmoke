@@ -89,10 +89,11 @@ public class ViewAccountController extends Controller {
         String[] accNames = currentUser.getAccounts();
         ObservableList<AccountW> aList = FXCollections.observableArrayList();
         for(String name : accNames) {
-            System.out.println("for");
-            if (name != null) {aList.add(new AccountW(Account.getAccount(name)));}
+            if (name != null) {
+                System.out.println("if");
+                aList.add(new AccountW(Account.getAccount(name)));}
         }
-        System.out.println("endfor");
+        System.out.println(tableAccData);
         tableAccData.setItems(aList);
     }
 }
