@@ -6,7 +6,7 @@ public class User implements Serializable {
     
     private int accLimit = 5;
 	private String fName, lName, address;
-    private CharSequence password;
+    private Passwardo passwardo;
     private final String username;
     // changed to string array of account names should be better for data storage/retrieval
 	private String[] accounts;
@@ -19,7 +19,7 @@ public class User implements Serializable {
 		this.address = "default";
 		this.accounts = new String[accLimit];
         this.username = "default";
-        this.password = (CharSequence) "default";
+        this.passwardo = new Passwardo("default");
     }
     // populating constructor
     public User(String fName, String lName, String address, String username, CharSequence password) {
@@ -27,7 +27,7 @@ public class User implements Serializable {
         this.lName = lName;
         this.address = address;
         this.username = username;
-        this.password = password;
+        this.passwardo = new Passwardo(password.toString());
         this.accounts = new String[accLimit];
     }
 
@@ -93,6 +93,8 @@ public class User implements Serializable {
         this.address = addressI;
     }
 
+    private Passwardo getPasswardo() {return passwardo;}
+
     //temporary static methods for logging in:
 
     public static User logIn(String username, CharSequence password) {
@@ -110,8 +112,7 @@ public class User implements Serializable {
                     break;
                 }
             }
-
-            if (tempUser != null && passwordsMatch(password, tempUser.password)) {
+            if (tempUser != null && tempUser.getPasswardo().checkPassword(password.toString())) {
                 return tempUser;
             }
             else {
@@ -119,7 +120,7 @@ public class User implements Serializable {
             }
         }
         catch (Exception e) {
-            System.out.println("User.existsUser() exception: " + e);
+            for (int i = 0; i < e.getStackTrace().length; i++) {System.out.println(".getStackTrace[" + i + "]: " + e.getStackTrace()[0]);}
             return null;
         }
     }
@@ -225,13 +226,6 @@ public class User implements Serializable {
             System.out.println("User.createUserList(User u) exception: " + e);
         }
 
-    }
-    private static boolean passwordsMatch(CharSequence p1, CharSequence p2) {
-        if (p1.length() != p2.length()) { return false; }
-        for (int i = 0; i < p1.length(); i++) {
-            if (p1.charAt(i) != p2.charAt(i)) { return false; }
-        }
-        return true;
     }
     //testing
     public static void main(String[] args) {
