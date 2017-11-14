@@ -51,6 +51,9 @@ public class SwitchController extends Controller {
         updateAccountList();
     }    
     public void finishSwitchAction(ActionEvent e) {
+       String acc = accountList.getSelectionModel().getSelectedItem();
+       
+
     }
 /***************************************************************************
  * private methods

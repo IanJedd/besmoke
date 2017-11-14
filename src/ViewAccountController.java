@@ -64,14 +64,12 @@ public class ViewAccountController extends Controller {
  * public methods
 ***************************************************************************/
     public void initialize() {
-        System.out.println("initialize");
         nameCol.setCellValueFactory(new PropertyValueFactory("name"));
         balanceCol.setCellValueFactory(new PropertyValueFactory("bal"));
         phoneCol.setCellValueFactory(new PropertyValueFactory("phone"));
         emailCol.setCellValueFactory(new PropertyValueFactory("email"));
         
         if (currentUser.hasAccount()) {
-            System.out.println("updataAccData");
             updateAccData();
         }
         
@@ -90,7 +88,6 @@ public class ViewAccountController extends Controller {
         ObservableList<AccountW> aList = FXCollections.observableArrayList();
         for(String name : accNames) {
             if (name != null) {
-                System.out.println("if");
                 aList.add(new AccountW(Account.getAccount(name)));}
         }
         System.out.println(tableAccData);
