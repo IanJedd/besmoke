@@ -42,6 +42,7 @@ public class Controller {
     protected final String VIEW_ACCT = "viewAccount.fxml";
     protected final String CREATE_TRANSACTION = "createTransaction.fxml";
     protected final String SWITCH_ACCOUNTS =  "switchAccounts.fxml";
+   // protected final String USER_GUIDE = "userGuide.fxml";
 /*****************************************************************************
  * instance variables whose objects are instantiated by the FXMLLoader
 *****************************************************************************/
@@ -79,6 +80,11 @@ public class Controller {
         window = getEventWindow();
         updateScene(DEL_ACCT, 600, 600);
     }
+
+   public void userGuideView(ActionEvent e){
+	window = getEventWindow();
+	updateScene(USER_GUIDE, 600, 600);
+}
 
 
 /***************************************************************************

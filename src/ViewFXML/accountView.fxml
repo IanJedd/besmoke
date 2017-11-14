@@ -87,9 +87,9 @@
                     </items>
                 </Menu>
             <Menu mnemonicParsing="false" text="Help">
-              <items>
-                  <MenuItem fx:id="userManual" mnemonicParsing="false" onAction="#accountViewHelp" text="User Manual" />
-              </items>
+               <items>
+                  <MenuItem mnemonicParsing="false" text="User Guide" />
+               </items>
             </Menu>
             </menus>
         </MenuBar>
