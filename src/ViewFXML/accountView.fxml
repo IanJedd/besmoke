@@ -76,7 +76,8 @@
             <menus>
                 <Menu mnemonicParsing="false" text="File">
                     <items>
-                        <MenuItem fx:id="logOut" mnemonicParsing="false" text="Logout" onAction="#logOutAction"/> 
+                        <MenuItem mnemonicParsing="false" onAction="#homeAction" text="Home" />
+                        <MenuItem fx:id="logOut" mnemonicParsing="false" text="Logout" onAction="#logOutAction"/>
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Accounts">

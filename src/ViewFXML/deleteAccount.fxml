@@ -13,6 +13,7 @@
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
+                  <MenuItem mnemonicParsing="false" onAction="#homeAction" text="Home" />
                   <MenuItem mnemonicParsing="false" onAction="#logOutAction" text="Logout" />
                </items>
             </Menu>
@@ -37,7 +38,7 @@
                   <String />
                   <String />
                   <String />
-                  
+
               </FXCollections>
           </items>
       </ListView>
