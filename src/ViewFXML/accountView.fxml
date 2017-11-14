@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import besmoke.src.*?>
 
-<AnchorPane fx:controller="Controller" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
         <TabPane layoutY="39.0" prefHeight="366.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0">
             <tabs>
@@ -77,15 +77,20 @@
                 <Menu mnemonicParsing="false" text="File">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#homeAction" text="Home" />
-                        <MenuItem fx:id="logOut" mnemonicParsing="false" text="Logout" onAction="#logOutAction"/>
+                        <MenuItem fx:id="logOut" mnemonicParsing="false" onAction="#logOutAction" text="Logout" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Accounts">
                     <items>
-                        <MenuItem fx:id="createAcct" mnemonicParsing="false" text="Create Account" onAction="#createAcctView"/>
-                        <MenuItem fx:id="delAcct" mnemonicParsing="false" text="Delete Account" onAction="#delAcctView"/>
+                        <MenuItem fx:id="createAcct" mnemonicParsing="false" onAction="#createAcctView" text="Create Account" />
+                        <MenuItem fx:id="delAcct" mnemonicParsing="false" onAction="#delAcctView" text="Delete Account" />
                     </items>
                 </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+              <items>
+                  <MenuItem fx:id="userManual" mnemonicParsing="false" onAction="#accountViewHelp" text="User Manual" />
+              </items>
+            </Menu>
             </menus>
         </MenuBar>
       <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
