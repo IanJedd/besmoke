@@ -1,5 +1,7 @@
 * javac *.java
-* java BeFinanced
+* cd ..
+* cd ..
+* java besmoke.src.BeFinanced
 
 ********************
 if you have issues with either .ser file run
