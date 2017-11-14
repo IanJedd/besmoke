@@ -25,12 +25,12 @@ import java.util.ArrayList;
  * delAcctView
  * newFinAcct
  *
-*****************************************************************************/ 
+*****************************************************************************/
 
 public class Controller {
 /*****************************************************************************
  * instance variables
-*****************************************************************************/ 
+*****************************************************************************/
     protected User currentUser = BeFinanced.getUser();
     protected Stage window;
     protected Scene currentScene;
@@ -44,7 +44,7 @@ public class Controller {
     protected final String SWITCH_ACCOUNTS =  "switchAccounts.fxml";
 /*****************************************************************************
  * instance variables whose objects are instantiated by the FXMLLoader
-*****************************************************************************/ 
+*****************************************************************************/
     // Universal @FXML tagged instance variables
     @FXML
     protected MenuBar menuBar;
@@ -53,7 +53,7 @@ public class Controller {
 /***************************************************************************
  * public methods
 ***************************************************************************/
-   
+
     public void switchAccountsView(ActionEvent e) {
         window = getEventWindow();
        updateScene(SWITCH_ACCOUNTS,600,600);
@@ -63,8 +63,13 @@ public class Controller {
         window = getEventWindow();
         currentUser.logOut();
         BeFinanced.setUser(null);
-        updateScene(LOG_IN, 300, 400);
+        updateScene(LOG_IN, 400, 300);
     }
+
+    public void homeAction(ActionEvent e) {
+       window = getEventWindow();
+       updateScene(VIEW_ACCT, 600, 600);
+   }
 
     public void createAcctView(ActionEvent e) {
         window = getEventWindow();
@@ -90,7 +95,7 @@ public class Controller {
             System.out.println("Exception during Scene Update: " + e);
         }
     }
-    
+
     protected Stage getEventWindow() {
         return (Stage) menuBar.getScene().getWindow();
     }
