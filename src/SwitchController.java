@@ -51,6 +51,12 @@ public class SwitchController extends Controller {
         updateAccountList();
     }    
     public void finishSwitchAction(ActionEvent e) {
+       String acc = accountList.getSelectionModel().getSelectedItem();
+       currentUser.setDefaultAccount(acc);
+       window = getEventWindow();
+       updateScene(VIEW_ACCT, 600, 600);
+       
+
     }
 /***************************************************************************
  * private methods
