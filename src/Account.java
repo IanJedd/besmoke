@@ -16,11 +16,13 @@ public class Account implements Serializable {
 
     public Account(String initAccountName, double initBalance, String d, String p, String e) {
         accountName = initAccountName;
-        balance = initBalance;
+        balance = 0;
         description = d;
         phone = p;
         email = e;
         transactions = new ArrayList<Transaction>();
+        processTransaction(new Transaction(TransType.DEPOSIT, initBalance));
+        processTransaction(new Transaction(TransType.WITHDRAWL, 0));
     }
 
     // Getters and Setters
