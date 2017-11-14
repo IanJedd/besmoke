@@ -50,11 +50,13 @@ public class ViewAccountController extends Controller {
     private TableColumn<AccountW, DoubleProperty> balanceCol;
     // Transaction tab
     @FXML
+    private ToggleGroup transactionType;
+    @FXML
     private TextField transactionAmount;
     @FXML
     private RadioButton makeDeposit;
     @FXML
-    private RadioButton makeWithdrawal;
+    private RadioButton makeWithdrawl;
     @FXML
     private TextArea transactionDescription;
     @FXML
@@ -107,12 +109,22 @@ public class ViewAccountController extends Controller {
     }
     
     public void finishTransaction(ActionEvent e) {
-
+        RadioButton r = (RadioButton) transactionType.getSelectedToggle();
+        double amt = Double.parseDouble(transactionAmount.getText());
+        Account a = Account.getAccount(currentUser.getAccounts()[0]);
+        if (r == makeDeposit) {
+            a.processTransaction(new Transaction(TransType.DEPOSIT, amt));
+        }
+        else {
+            a.processTransaction(new Transaction(TransType.WITHDRAWL, amt));
+        }
+        updateAccData();
+        updateTData();
     }
 /***************************************************************************
  * private methods
 ***************************************************************************/
-    public void updateAccData() {
+    private void updateAccData() {
         String[] accNames = currentUser.getAccounts();
         ObservableList<AccountW> aList = FXCollections.observableArrayList();
         for(String name : accNames) {
@@ -122,7 +134,7 @@ public class ViewAccountController extends Controller {
         tableAccData.setItems(aList);
     }
 
-    public void updateTData() {
+    private void updateTData() {
         Account a = Account.getAccount(currentUser.getAccounts()[0]);
         ObservableList<TransactionW> tList = FXCollections.observableArrayList();
         ObservableList<TransactionW> dList = FXCollections.observableArrayList();
@@ -140,4 +152,5 @@ public class ViewAccountController extends Controller {
         withdrawlsTable.setItems(wList);
         depositsTable.setItems(dList);
     }
+
 }

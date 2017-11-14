@@ -96,7 +96,7 @@
                            <toggleGroup>
                               <ToggleGroup fx:id="transactionType" />
                            </toggleGroup></RadioButton>
-                        <RadioButton fx:id="makeWithdrawal" layoutX="7.0" layoutY="143.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType" />
+                        <RadioButton fx:id="makeWithdrawl" layoutX="7.0" layoutY="143.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType" />
                         <TextArea fx:id="transactionDescription" layoutX="141.0" layoutY="48.0" prefHeight="200.0" prefWidth="459.0" />
                         <Label layoutX="6.0" layoutY="50.0" prefHeight="39.0" prefWidth="123.0" text="Description" />
                      </children>
