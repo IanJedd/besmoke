@@ -129,6 +129,21 @@ public class User implements Serializable {
         updateUserList(this);
     }
 
+    public void setDefaultAccount(String accName) {
+        if (accounts[0].equals(accName)) {
+            // do nothing
+        }
+        else {
+            int i = 1;
+            while(!accounts[i].equals(accName)) {
+                i++;
+            }
+            String swap = accounts[0];
+            accounts[0] = accounts[i];
+            accounts[i] = swap;
+        }
+    }
+
 
 
     public static void addToUserList(User u) {
