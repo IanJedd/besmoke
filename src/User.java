@@ -75,6 +75,15 @@ public class User implements Serializable {
             this.accounts[i] = newAcc.getAccountName();
         }
 	}
+    public void setDefaultAccount(String name) {
+        int i = 0;
+        while(i < accLimit && !this.accounts[i].equals(name)) {
+            i++;
+        }
+        String temp = this.accounts[0];
+        this.accounts[0] = this.accounts[i];
+        this.accounts[i] = temp;
+    }
 
     public void deleteAccount(String name) {
         int i = 0;

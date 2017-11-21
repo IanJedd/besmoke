@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import java.lang.*?>
 <?import javafx.collections.*?>
 <?import javafx.scene.control.*?>
@@ -87,7 +86,7 @@
                            <columns>
                               <TableColumn fx:id="wTableDateCol" prefWidth="114.0" text="Date" />
                               <TableColumn fx:id="wTableIDCol" prefWidth="75.0" text="ID" />
-                              <TableColumn fx:id="wTableAmountCol" prefWidth="115.0" text="Amount" />
+                              <TableColumn fx:id="wTableAmtCol" prefWidth="115.0" text="Amount" />
                               <TableColumn fx:id="wTableCodeCol" prefWidth="104.0" text="Code" />
                               <TableColumn fx:id="wTableDescriptionCol" prefWidth="491.0" text="Description" />
                            </columns>

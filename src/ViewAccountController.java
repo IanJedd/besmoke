@@ -41,47 +41,59 @@ public class ViewAccountController extends Controller {
 /*****************************************************************************
  * instance variables whose objects are instantiated by the FXMLLoader
 *****************************************************************************/
+    // universal?
+    @FXML
+    private Label accountName;
     // Default tab
     @FXML
     private TableView<AccountW> tableAccData;
     @FXML
     private TableColumn<AccountW, StringProperty> nameCol, phoneCol, emailCol;
     @FXML
-    private TableColumn<AccountW, DoubleProperty> balanceCol;
+    private TableColumn<AccountW, DoubleProperty> balanceCol, feesCol;
     // Transaction tab
     @FXML
     private ToggleGroup transactionType;
     @FXML
-    private TextField transactionAmount;
+    private TextField makeTransactionAmount, makeTransactionCode;
     @FXML
-    private RadioButton makeDeposit;
+    private RadioButton makeTransactionCheck, makeTransactionWithdrawal, makeTransactionCredit;
     @FXML
-    private RadioButton makeWithdrawl;
+    private TextArea makeTransactionDescription;
     @FXML
-    private TextArea transactionDescription;
-    @FXML
-    private Button finishTransaction;
+    private Button makeTransactionFinish;
     // Transactions Tab
     @FXML
     private TableView<TransactionW> transactionTable;
     @FXML
-    private TableColumn<TransactionW, StringProperty> tTableTransCol;
+    private TableColumn<TransactionW, StringProperty> tTableTransCol, tTableDateCol, tTableTypeCol, tTableCodeCol, tTableDescriptionCol;
     @FXML
-    private TableColumn<TransactionW, DoubleProperty> tTableAmtCol;
+    private TableColumn<TransactionW, DoubleProperty> tTableAmtCol, tTableFeesCol;
     // Deposits Tab
     @FXML
     private TableView<TransactionW> depositsTable;
     @FXML
-    private TableColumn<TransactionW, StringProperty> dTableTransCol;
+    private TableColumn<TransactionW, StringProperty> dTableTransCol, dTableDateCol, dTableIDCol, dTableDescriptionCol;
     @FXML
-    private TableColumn<TransactionW, DoubleProperty> dTableAmtCol;
-    // Withdrawl tab
+    private TableColumn<TransactionW, DoubleProperty> dTableAmtCol, dTableFeesCol;
+    // Withdrawal tab
     @FXML
     private TableView<TransactionW> withdrawlsTable;
     @FXML
-    private TableColumn<TransactionW, StringProperty> wTableTransCol;
+    private TableColumn<TransactionW, StringProperty> wTableTransCol, wTableDateCol, wTableIDCol, wTableCodeCol, wTableDescriptionCol;
     @FXML
     private TableColumn<TransactionW, DoubleProperty> wTableAmtCol;
+    // Edit Transaction Tab
+    @FXML
+    private TextField editTransactionAmount, editTransactionCode, editTransactionID;
+    @FXML
+    private Button finishTransaction1, editTransactionPopulate;
+    @FXML
+    private RadioButton editTransactionCheck, editTransactionWithdrawal, editTransactionCredit;
+    @FXML
+    private ToggleGroup transactionType1;
+    @FXML
+    private TextArea editTransactionDescription;
 
 
 /***************************************************************************
@@ -110,9 +122,9 @@ public class ViewAccountController extends Controller {
     
     public void finishTransaction(ActionEvent e) {
         RadioButton r = (RadioButton) transactionType.getSelectedToggle();
-        double amt = Double.parseDouble(transactionAmount.getText());
+        double amt = Double.parseDouble(makeTransactionAmount.getText());
         Account a = Account.getAccount(currentUser.getAccounts()[0]);
-        if (r == makeDeposit) {
+        if (r == makeTransactionCheck || r == makeTransactionCredit ) {
             a.processTransaction(new Transaction(TransType.DEPOSIT, amt));
         }
         else {
