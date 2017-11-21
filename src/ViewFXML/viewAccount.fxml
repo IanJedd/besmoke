@@ -102,17 +102,19 @@
                      <children>
                         <TextField fx:id="makeTransactionAmount" layoutX="170.0" layoutY="8.0" prefHeight="39.0" prefWidth="196.0" promptText="\$0.00" AnchorPane.topAnchor="10.0" />
                         <Label layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="123.0" text="Amount" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <Button fx:id="makeTransactionFinish" layoutX="10.0" layoutY="252.0" mnemonicParsing="false" onAction="#finishTransaction" text="Finish" AnchorPane.leftAnchor="10.0" />
-                        <RadioButton fx:id="makeTrasactionCheck" layoutX="10.0" layoutY="164.0" mnemonicParsing="false" text="Check Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="170.0">
+                        <Button fx:id="makeTransactionFinish" layoutX="10.0" layoutY="291.0" mnemonicParsing="false" onAction="#finishTransaction" text="Finish" AnchorPane.leftAnchor="10.0" />
+                        <RadioButton fx:id="makeTrasactionCheck" layoutX="10.0" layoutY="196.0" mnemonicParsing="false" text="Check Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="196.0">
                            <toggleGroup>
                               <ToggleGroup fx:id="transactionType" />
                            </toggleGroup></RadioButton>
-                        <RadioButton fx:id="makeTransactionWithdrawal" layoutX="11.0" layoutY="191.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="210.0" />
-                        <TextArea fx:id="makeTransactionDescription" layoutX="170.0" layoutY="91.0" prefHeight="200.0" prefWidth="459.0" AnchorPane.leftAnchor="170.0" />
-                        <Label layoutX="10.0" layoutY="85.0" prefHeight="39.0" prefWidth="123.0" text="Description" AnchorPane.leftAnchor="10.0" />
-                        <RadioButton fx:id="makeTransactionCredit" layoutX="10.0" layoutY="137.0" mnemonicParsing="false" text="Credit Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0" />
-                        <TextField fx:id="makeTransactionCode" layoutX="170.0" layoutY="50.0" prefHeight="39.0" prefWidth="196.0" promptText="0" />
+                        <RadioButton fx:id="makeTransactionWithdrawal" layoutX="11.0" layoutY="223.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="223.0" />
+                        <TextArea fx:id="makeTransactionDescription" layoutX="170.0" layoutY="130.0" prefHeight="200.0" prefWidth="459.0" AnchorPane.leftAnchor="170.0" />
+                        <Label layoutX="11.0" layoutY="130.0" prefHeight="39.0" prefWidth="123.0" text="Description" AnchorPane.leftAnchor="11.0" />
+                        <RadioButton fx:id="makeTransactionCredit" layoutX="10.0" layoutY="169.0" mnemonicParsing="false" text="Credit Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="169.0" />
                         <Label layoutX="10.0" layoutY="49.0" prefHeight="39.0" prefWidth="123.0" text="Code" />
+                        <ComboBox id="makeChooseDrawer" layoutX="170.0" layoutY="49.0" prefHeight="39.0" prefWidth="196.0" promptText="Choose Code" />
+                        <TextField id="makeNewCode" fx:id="makeTransactionAmount1" layoutX="170.0" layoutY="88.0" prefHeight="39.0" prefWidth="196.0" promptText="New Code" />
+                        <TextField id="makeNewCodeDescription" fx:id="makeTransactionAmount11" layoutX="366.0" layoutY="88.0" prefHeight="39.0" prefWidth="263.0" promptText="New Code Description" />
                      </children>
                   </AnchorPane>
               </content>
@@ -122,22 +124,24 @@
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
                         <TextField fx:id="editTransactionAmount" layoutX="170.0" layoutY="8.0" prefHeight="39.0" prefWidth="196.0" promptText="\$0.00" AnchorPane.topAnchor="10.0" />
-                        <Label layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="123.0" text="Amount" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
-                        <Button fx:id="finishTransaction1" layoutX="14.0" layoutY="290.0" mnemonicParsing="false" onAction="#finishTransaction" text="Finish" AnchorPane.leftAnchor="10.0" />
-                        <RadioButton fx:id="editTransactionCheck" layoutX="10.0" layoutY="261.0" mnemonicParsing="false" text="Check Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="210.0">
+                        <Label layoutX="11.0" layoutY="10.0" prefHeight="39.0" prefWidth="123.0" text="Amount" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="10.0" />
+                        <Button fx:id="finishTransaction1" layoutX="11.0" layoutY="289.0" mnemonicParsing="false" onAction="#finishTransaction" text="Finish" AnchorPane.leftAnchor="11.0" />
+                        <RadioButton fx:id="editTransactionCheck" layoutX="11.0" layoutY="194.0" mnemonicParsing="false" text="Check Deposit" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="194.0">
                            <toggleGroup>
                               <ToggleGroup fx:id="transactionType1" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="editTransactionWithdrawal" layoutX="11.0" layoutY="288.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType1" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="250.0" />
+                        <RadioButton fx:id="editTransactionWithdrawal" layoutX="12.0" layoutY="221.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType1" AnchorPane.leftAnchor="12.0" AnchorPane.topAnchor="221.0" />
                         <TextArea fx:id="editTransactionDescription" layoutX="170.0" layoutY="129.0" prefHeight="200.0" prefWidth="459.0" AnchorPane.leftAnchor="170.0" />
-                        <Label layoutX="10.0" layoutY="89.0" prefHeight="39.0" prefWidth="123.0" text="Transaction ID" AnchorPane.leftAnchor="10.0" />
-                        <RadioButton fx:id="editTransactionCredit" layoutX="10.0" layoutY="223.0" mnemonicParsing="false" text="Credit Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="170.0" />
-                        <TextField fx:id="editTransactionCode" layoutX="170.0" layoutY="50.0" prefHeight="39.0" prefWidth="196.0" promptText="0" />
-                        <Label layoutX="10.0" layoutY="49.0" prefHeight="39.0" prefWidth="123.0" text="Code" />
-                        <TextField fx:id="editTransactionID" layoutX="170.0" layoutY="89.0" prefHeight="39.0" prefWidth="196.0" promptText="0" />
-                        <Label layoutX="10.0" layoutY="128.0" prefHeight="39.0" prefWidth="123.0" text="Description" AnchorPane.leftAnchor="10.0" />
-                        <Button fx:id="editTransactionPopulate" layoutX="375.0" layoutY="89.0" mnemonicParsing="false" onAction="#finishTransaction" text="Populate" AnchorPane.leftAnchor="375.0" />
+                        <Label layoutX="12.0" layoutY="329.0" prefHeight="39.0" prefWidth="123.0" text="Transaction ID" AnchorPane.leftAnchor="12.0" />
+                        <RadioButton fx:id="editTransactionCredit" layoutX="11.0" layoutY="167.0" mnemonicParsing="false" text="Credit Deposit" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="167.0" />
+                        <Label layoutX="11.0" layoutY="49.0" prefHeight="39.0" prefWidth="123.0" text="Code" />
+                        <TextField fx:id="editTransactionID" layoutX="170.0" layoutY="329.0" prefHeight="39.0" prefWidth="196.0" promptText="0" />
+                        <Label layoutX="11.0" layoutY="128.0" prefHeight="39.0" prefWidth="123.0" text="Description" AnchorPane.leftAnchor="11.0" />
+                        <Button fx:id="editTransactionPopulate" layoutX="374.0" layoutY="329.0" mnemonicParsing="false" onAction="#finishTransaction" prefHeight="39.0" prefWidth="120.0" text="Populate" AnchorPane.leftAnchor="374.0" />
+                        <ComboBox id="editCodeDrawer" layoutX="170.0" layoutY="49.0" prefHeight="39.0" prefWidth="196.0" promptText="Choose Code" />
+                        <TextField id="editNewCode" fx:id="editTransactionAmount1" layoutX="170.0" layoutY="89.0" prefHeight="39.0" prefWidth="196.0" promptText="New Code" />
+                        <TextField id="editNewCodeDescription" fx:id="editTransactionAmount2" layoutX="366.0" layoutY="89.0" prefHeight="39.0" prefWidth="256.0" promptText="New Code Description" />
                      </children>
                   </AnchorPane>
                </content>
