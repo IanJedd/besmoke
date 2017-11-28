@@ -64,7 +64,7 @@ public class CreateAccountController extends Controller {
             String phone = createAccountPhone.getText();
             String desc = createAccountDescription.getText();
             String email = createAccountEmail.getText();
-            Account a = new Account(name, balance, desc, phone, email);
+            SubAccount a = new SubAccount(name, balance, desc, phone, email);
             Account.addToAcctList(a);
             currentUser.addAccount(a);
             window = getEventWindow();

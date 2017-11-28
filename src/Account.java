@@ -1,7 +1,6 @@
 package besmoke.src;
 import java.util.*;
 import java.io.*;
-import java.io.Serializable;
 import javafx.beans.property.StringProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.DoubleProperty;
@@ -9,20 +8,20 @@ import javafx.beans.property.SimpleDoubleProperty;
 public class Account implements Serializable {
     private final String accountName;
     private double balance;
+    private static final double UNI_FEE = .08;
+    private static final double CREDIT_FEE = .04;
+    private double creditCardFees;
+    private double universityFees;
     private String description;
     private String phone;
     private String email;
-    private ArrayList<Transaction> transactions;
 
     public Account(String initAccountName, double initBalance, String d, String p, String e) {
         accountName = initAccountName;
-        balance = 0;
+        balance = initBalance;
         description = d;
         phone = p;
         email = e;
-        transactions = new ArrayList<Transaction>();
-        processTransaction(new Transaction(TransType.DEPOSIT, initBalance));
-        processTransaction(new Transaction(TransType.WITHDRAWL, 0));
     }
 
     // Getters and Setters
@@ -41,23 +40,33 @@ public class Account implements Serializable {
     public String getEmail() {return email;}
     public StringProperty emailProperty() { return new SimpleStringProperty(email); }
 
-    public ArrayList<Transaction> getTransactions() {return transactions;}
     
     // Balance Editors
     public void changeBalance(double deltaB){balance += deltaB;}
 
     // Transaction Processing
     public void processTransaction(Transaction t) {
-        transactions.add(t);
+        double amt = t.getAmount();
+        double uniFee = amt * UNI_FEE;
+        double ccFee = amt * CREDIT_FEE;
         switch(t.getType()) {
-            case DEPOSIT:
-                changeBalance(t.getAmount());
+            case CC_DEPOSIT:
+                amt -= (ccFee + uniFee);
+                changeBalance(amt);
+                creditCardFees += ccFee;
+                universityFees += uniFee;
                 break;
-            case WITHDRAWL:
-                changeBalance(-t.getAmount());
+            case CHECK_DEPOSIT:
+                System.out.println(amt);
+                amt -= uniFee;
+                changeBalance(amt);
+                universityFees += uniFee;
+                break;
+            case WITHDRAWAL:
+                System.out.println("Withdrawal");
+                changeBalance(-1*amt);
                 break;
         }
-        updateAcctList(this);
     }
 
     // Static Methods 
@@ -154,7 +163,7 @@ public class Account implements Serializable {
             fOut.close();
         }
         catch (Exception e) {
-            System.out.println("Account.deleteAccount(Account a) exception: " + e);
+            System.out.println("Account.updateAcctList(Account a) exception: " + e);
         }
 
     }

@@ -109,7 +109,7 @@
                         <RadioButton fx:id="makeTransactionWithdrawal" layoutX="11.0" layoutY="223.0" mnemonicParsing="false" text="Withdrawal" toggleGroup="$transactionType" AnchorPane.leftAnchor="11.0" AnchorPane.topAnchor="223.0" />
                         <TextArea fx:id="makeTransactionDescription" layoutX="170.0" layoutY="130.0" prefHeight="200.0" prefWidth="459.0" AnchorPane.leftAnchor="170.0" />
                         <Label layoutX="11.0" layoutY="130.0" prefHeight="39.0" prefWidth="123.0" text="Description" AnchorPane.leftAnchor="11.0" />
-                        <RadioButton fx:id="makeTransactionCredit" layoutX="10.0" layoutY="169.0" mnemonicParsing="false" text="Credit Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="169.0" />
+                        <RadioButton fx:id="makeTransactionCredit" layoutX="10.0" layoutY="169.0" mnemonicParsing="false" text="Credit Deposit"  AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="169.0" />
                         <Label layoutX="10.0" layoutY="49.0" prefHeight="39.0" prefWidth="123.0" text="Code" />
                         <ComboBox id="makeChooseDrawer" layoutX="170.0" layoutY="49.0" prefHeight="39.0" prefWidth="196.0" promptText="Choose Code" />
                         <TextField id="makeNewCode" fx:id="makeTransactionAmount1" layoutX="170.0" layoutY="88.0" prefHeight="39.0" prefWidth="196.0" promptText="New Code" />

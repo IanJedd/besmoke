@@ -59,6 +59,8 @@ public class LogInController extends Controller {
         currentUser = User.logIn(username, pw);
         if (currentUser != null) {
             BeFinanced.setUser(currentUser);
+            System.out.println(Transaction.getTransactionList());
+            BeFinanced.setTList(Transaction.getTransactionList());
             updateScene(VIEW_ACCT, 600, 600);
             failedLogIn.setText(""); // potentially unnecessary
             

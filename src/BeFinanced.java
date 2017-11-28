@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
+import java.util.ArrayList;
 
 public class BeFinanced extends Application {
     private Stage window;
@@ -15,6 +16,7 @@ public class BeFinanced extends Application {
     private final int INIT_WIDTH = 400;
     private final int INIT_HEIGHT = 300;
     private static User cUser;
+    private static ArrayList<Transaction> tList;
 
     @Override
     public void start(Stage primaryStage) {
@@ -42,6 +44,18 @@ public class BeFinanced extends Application {
 
     public static User getUser() {
         return cUser;
+    }
+
+    public static void setTList(ArrayList<Transaction> tL) {
+        tList = tL;
+    }
+
+    public static ArrayList<Transaction> getTList() {
+        return tList;
+    }
+
+    public static Transaction getTransaction(int id) {
+        return tList.get(id);
     }
 
 

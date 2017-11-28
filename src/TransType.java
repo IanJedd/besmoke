@@ -1,5 +1,6 @@
 package besmoke.src;
 public enum TransType {
-        DEPOSIT,
-        WITHDRAWL
+        CC_DEPOSIT,
+        CHECK_DEPOSIT,
+        WITHDRAWAL
 }

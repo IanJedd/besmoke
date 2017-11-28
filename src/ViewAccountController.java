@@ -66,7 +66,7 @@ public class ViewAccountController extends Controller {
     @FXML
     private TableView<TransactionW> transactionTable;
     @FXML
-    private TableColumn<TransactionW, StringProperty> tTableTransCol, tTableDateCol, tTableTypeCol, tTableCodeCol, tTableDescriptionCol;
+    private TableColumn<TransactionW, StringProperty> tTableTransCol, tTableDateCol, tTableTypeCol, tTableCodeCol, tTableDescriptionCol, tTableIDCol;
     @FXML
     private TableColumn<TransactionW, DoubleProperty> tTableAmtCol, tTableFeesCol;
     // Deposits Tab
@@ -104,17 +104,35 @@ public class ViewAccountController extends Controller {
         balanceCol.setCellValueFactory(new PropertyValueFactory("bal"));
         phoneCol.setCellValueFactory(new PropertyValueFactory("phone"));
         emailCol.setCellValueFactory(new PropertyValueFactory("email"));
+       // feesCol.setCellValueFactory(new PropertyValueFactory("fees"));
+
 
         wTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         tTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         dTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
 
+        // Transaction Type Col
+        
+        /*
         wTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         tTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         dTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         
+
+        // Transaction Date Columns
+        wTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
+        tTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
+        dTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
+        
+        // Transaction ID Columns
+        wTableIDCol.setCellValueFactory(new PropertyValueFactory("amount"));
+        tTableIDCol.setCellValueFactory(new PropertyValueFactory("amount"));
+        dTableIDCol.setCellValueFactory(new PropertyValueFactory("amount"));
+        
+        */
         if (currentUser.hasAccount()) {
             updateAccData();
+            System.out.println("here");
             updateTData();
         }
         
@@ -122,13 +140,16 @@ public class ViewAccountController extends Controller {
     
     public void finishTransaction(ActionEvent e) {
         RadioButton r = (RadioButton) transactionType.getSelectedToggle();
+        String accName = currentUser.getAccounts()[0];
+        String code = "code place holder";
+        String desc = "desc place holder";
         double amt = Double.parseDouble(makeTransactionAmount.getText());
-        Account a = Account.getAccount(currentUser.getAccounts()[0]);
+        SubAccount a = (SubAccount) Account.getAccount(currentUser.getAccounts()[0]);
         if (r == makeTransactionCheck || r == makeTransactionCredit ) {
-            a.processTransaction(new Transaction(TransType.DEPOSIT, amt));
+            a.processTransaction(new Transaction(TransType.CHECK_DEPOSIT, amt, accName, code, desc));
         }
         else {
-            a.processTransaction(new Transaction(TransType.WITHDRAWL, amt));
+            a.processTransaction(new Transaction(TransType.WITHDRAWAL, amt, accName, code, desc));
         }
         updateAccData();
         updateTData();
@@ -147,17 +168,19 @@ public class ViewAccountController extends Controller {
     }
 
     private void updateTData() {
-        Account a = Account.getAccount(currentUser.getAccounts()[0]);
+        SubAccount a = (SubAccount) Account.getAccount(currentUser.getAccounts()[0]);
         ObservableList<TransactionW> tList = FXCollections.observableArrayList();
         ObservableList<TransactionW> dList = FXCollections.observableArrayList();
         ObservableList<TransactionW> wList = FXCollections.observableArrayList();
-        for(Transaction t : a.getTransactions()) {
-            tList.add(new TransactionW(t));
+        for(Integer id : a.getTransactions()) {
+            Transaction t = BeFinanced.getTransaction(id);
+            TransactionW tW = new TransactionW(t);
+            tList.add(tW);
             if (t.isDeposit()) {
-                dList.add(new TransactionW(t));
+                dList.add(tW);
             }
             else {
-                wList.add(new TransactionW(t));
+                wList.add(tW);
             }
         }
         transactionTable.setItems(tList);
