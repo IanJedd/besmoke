@@ -6,11 +6,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.image.Image;
 import java.util.ArrayList;
+import java.io.File;
 
 public class BeFinanced extends Application {
     private Stage window;
     private Scene currentScene;
-    private final String FXML_DIR = "./ViewFXML/";
+    private final String FXML_DIR = "ViewFXML/";
     private final String INIT_SCENE_FXML = "logIn.fxml";
     private final String SOFTWARE_NAME = "BeFinanced";
     private final int INIT_WIDTH = 400;
@@ -22,7 +23,7 @@ public class BeFinanced extends Application {
     public void start(Stage primaryStage) {
         window = primaryStage;
         window.setTitle(SOFTWARE_NAME);
-        window.getIcons().add(new Image("./besmoke/src/images/Logo.png"));
+        window.getIcons().add(new Image(URIString("./besmoke/src/images/Logo.png")));
         updateScene(INIT_SCENE_FXML, INIT_WIDTH, INIT_HEIGHT);
         window.show();
     }
@@ -57,7 +58,9 @@ public class BeFinanced extends Application {
     public static Transaction getTransaction(int id) {
         return tList.get(id);
     }
-
+    private String URIString(String s) {
+        return new File(s).toURI().toString();
+    }
 
 
     public static void main(String[] args) {

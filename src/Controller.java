@@ -34,7 +34,7 @@ public class Controller {
     protected User currentUser = BeFinanced.getUser();
     protected Stage window;
     protected Scene currentScene;
-    protected final String FXML_DIR = "./ViewFXML/";
+    protected final String FXML_DIR = "ViewFXML/";
     protected final String LOG_IN = "logIn.fxml";
     protected final String CREATE_ACCT = "createAccount.fxml";
    // private final String ACCT_VIEW = "accountView.fxml"; supplanted by viewAccount????
