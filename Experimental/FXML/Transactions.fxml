@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BeFinanced.TransactionsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BeFinanced.TransactionsController">
    <children>
       <Label layoutX="14.0" layoutY="14.0" text="Transactions" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
          <font>
@@ -16,26 +16,27 @@
       </Label>
       <JFXTreeTableView fx:id="table" layoutX="-2.0" layoutY="49.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
          <columns>
-            <TreeTableColumn fx:id="id" prefWidth="75.0" text="ID" />
-            <TreeTableColumn fx:id="date" prefWidth="100.0" text="Date" />
-            <TreeTableColumn fx:id="type" prefWidth="100.0" text="Type" />
-            <TreeTableColumn fx:id="code" prefWidth="100.0" text="Code" />
-            <TreeTableColumn fx:id="amount" prefWidth="100.0" text="Amount" />
-            <TreeTableColumn fx:id="fees" prefWidth="100.0" text="Fees" />
-            <TreeTableColumn fx:id="grossBalance" prefWidth="100.0" text="Gross Balance" />
-            <TreeTableColumn fx:id="netBalance" prefWidth="100.0" text="Net Balance" />
+            <TreeTableColumn fx:id="id" prefWidth="52.00003182888031" text="ID" />
+            <TreeTableColumn fx:id="date" prefWidth="104.00000381469727" text="Date" />
+            <TreeTableColumn fx:id="type" prefWidth="98.66661071777344" text="Type" />
+            <TreeTableColumn fx:id="code" prefWidth="111.33331298828125" text="Code" />
+            <TreeTableColumn fx:id="grossAmount" prefWidth="110.0" text="Gross Amount" />
+            <TreeTableColumn fx:id="netAmount" prefWidth="110.0" text="Net Amount" />
+            <TreeTableColumn fx:id="ccFee" prefWidth="100.0" text="CC Fee" />
+            <TreeTableColumn fx:id="umFee" prefWidth="75.0" text="UM Fee" />
+            <TreeTableColumn fx:id="benefitsFee" prefWidth="75.0" text="Benefits" />
          </columns></JFXTreeTableView>
-      <JFXButton fx:id="newButton" layoutX="14.0" layoutY="358.0" onAction="#transaction" text="New" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+      <JFXButton fx:id="newTransactionButton" layoutX="14.0" layoutY="358.0" onAction="#newTransaction" text="New" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="detailsButton" layoutX="65.0" layoutY="358.0" onAction="#transaction" text="Details" AnchorPane.bottomAnchor="10.0">
+      <JFXButton fx:id="viewTransactionButton" layoutX="65.0" layoutY="358.0" onAction="#viewTransaction" text="Details" AnchorPane.bottomAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="deleteButton" layoutX="130.0" layoutY="358.0" onAction="#delete" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <JFXButton fx:id="deleteTransactionButton" layoutX="130.0" layoutY="358.0" onAction="#deleteTransaction" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>

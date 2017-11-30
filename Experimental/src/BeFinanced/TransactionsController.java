@@ -5,9 +5,9 @@ import com.jfoenix.controls.JFXTreeTableView;
 
 public class TransactionsController
 {
-    public JFXButton newButton;
-    public JFXButton detailsButton;
-    public JFXButton deleteButton;
+    public JFXButton newTransactionButton;
+    public JFXButton viewTransactionButton;
+    public JFXButton deleteTransactionButton;
     public JFXButton backButton;
     public JFXTreeTableView table;
 
@@ -18,13 +18,19 @@ public class TransactionsController
         Model.previousWidth = Model.bigWidth;
     }
 
-    public void transaction() throws Exception
+    public void newTransaction() throws Exception
     {
         setPrevious();
         View.update(Main.window, Model.transaction, Model.bigHeight, Model.bigWidth);
     }
 
-    public void delete() throws Exception
+    public void viewTransaction() throws Exception
+    {
+        setPrevious();
+        View.update(Main.window, Model.transaction, Model.bigHeight, Model.bigWidth);
+    }
+
+    public void deleteTransaction() throws Exception
     {
         setPrevious();
         View.update(Main.window, Model.delete, Model.littleHeight, Model.littleWidth);

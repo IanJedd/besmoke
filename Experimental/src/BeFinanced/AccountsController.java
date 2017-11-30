@@ -2,6 +2,7 @@ package BeFinanced;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
+import javafx.scene.control.TreeTableColumn;
 
 public class AccountsController
 {
@@ -9,7 +10,12 @@ public class AccountsController
     public JFXButton newButton;
     public JFXButton detailsButton;
     public JFXButton selectButton;
+    public JFXButton deleteButton;
     public JFXTreeTableView table;
+    public TreeTableColumn id;
+    public TreeTableColumn username;
+    public TreeTableColumn grossBalance;
+    public TreeTableColumn netBalance;
 
     public void setPrevious()
     {
@@ -22,24 +28,24 @@ public class AccountsController
     {
         View.update(Main.window, Model.login, Model.littleHeight, Model.littleWidth);
     }
-    public void account() throws Exception
+    public void newAccount() throws Exception
     {
         setPrevious();
         View.update(Main.window, Model.account, Model.bigHeight, Model.bigWidth);
     }
-    public void select() throws Exception
+    public void viewAccount() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.transactions, Model.bigHeight, Model.bigWidth);
+        View.update(Main.window, Model.account, Model.bigHeight, Model.bigWidth);
     }
-    public void delete() throws Exception
+    public void deleteAccount() throws Exception
     {
         setPrevious();
         View.update(Main.window, Model.delete, Model.littleHeight, Model.littleWidth);
     }
-
-    public void tableSelection() throws Exception
+    public void viewTransactions() throws Exception
     {
-
+        setPrevious();
+        View.update(Main.window, Model.transactions, Model.bigHeight, Model.bigWidth);
     }
 }
