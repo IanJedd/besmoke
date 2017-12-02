@@ -36,7 +36,7 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="deleteTransactionButton" layoutX="130.0" layoutY="358.0" onAction="#deleteTransaction" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <JFXButton fx:id="deleteTransactionButton" layoutX="130.0" layoutY="358.0" onAction="#deleteTransaction" text="Delete Transaction" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>

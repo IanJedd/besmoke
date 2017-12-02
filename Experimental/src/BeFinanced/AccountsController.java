@@ -9,8 +9,8 @@ public class AccountsController
     public JFXButton backButton;
     public JFXButton newButton;
     public JFXButton detailsButton;
-    public JFXButton selectButton;
-    public JFXButton deleteButton;
+    public JFXButton transactionsButton;
+    public JFXButton deleteAccountButton;
     public JFXTreeTableView table;
     public TreeTableColumn id;
     public TreeTableColumn username;

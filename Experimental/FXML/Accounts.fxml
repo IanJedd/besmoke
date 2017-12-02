@@ -24,12 +24,12 @@
             <TreeTableColumn prefWidth="94.6666259765625" text="UM Balance" />
             <TreeTableColumn prefWidth="107.3333740234375" text="Benefits Balance" />
          </columns></JFXTreeTableView>
-      <JFXButton fx:id="selectButton" layoutX="125.0" layoutY="358.0" onAction="#viewTransactions" text="Select" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="125.0">
+      <JFXButton fx:id="transactionsButton" layoutX="125.0" layoutY="358.0" onAction="#viewTransactions" text="Transactions" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="125.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="deleteButton" layoutX="184.0" layoutY="358.0" onAction="#deleteAccount" text="Delete" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+      <JFXButton fx:id="deleteAccountButton" layoutX="184.0" layoutY="358.0" onAction="#deleteAccount" text="Delete Account" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>

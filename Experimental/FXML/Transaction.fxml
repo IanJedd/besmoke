@@ -26,7 +26,7 @@
       <JFXComboBox fx:id="codeDropdown" layoutX="14.0" layoutY="40.0" prefWidth="200.0" promptText="Code" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" />
       <JFXTextField fx:id="newCodeField" layoutX="220.0" layoutY="50.0" prefWidth="200.0" promptText="New Code" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="50.0" />
       <JFXTextArea fx:id="descriptionArea" layoutX="10.0" layoutY="183.0" prefHeight="97.0" prefWidth="669.0" promptText="Description" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="170.0" />
-      <JFXDatePicker fx:id="datePicker" layoutX="12.0" layoutY="132.0" prefWidth="236.0" promptText="Date" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0" />
+      <JFXDatePicker fx:id="datePicker" layoutX="12.0" layoutY="132.0" prefWidth="236.0" promptText="MM/DD/YYYY" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0" />
       <JFXRadioButton fx:id="creditRadio" layoutX="220.0" layoutY="94.0" text="Credit" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="94.0">
          <toggleGroup>
             <ToggleGroup fx:id="type" />
