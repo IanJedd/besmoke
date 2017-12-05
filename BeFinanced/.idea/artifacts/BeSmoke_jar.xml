@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="BeSmoke:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/BeSmoke_jar</output-path>
+    <root id="archive" name="BeSmoke.jar">
+      <element id="module-output" name="BeSmoke" />
+      <element id="dir-copy" path="$PROJECT_DIR$" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Libraries/sqlite-jdbc-3.21.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Libraries/jfoenix-9.0.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
