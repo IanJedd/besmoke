@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXRadioButton?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -23,24 +24,40 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXComboBox fx:id="codeDropdown" layoutX="14.0" layoutY="40.0" prefWidth="200.0" promptText="Code" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" />
-      <JFXTextField fx:id="newCodeField" layoutX="220.0" layoutY="50.0" prefWidth="200.0" promptText="New Code" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="50.0" />
-      <JFXTextArea fx:id="descriptionArea" layoutX="10.0" layoutY="183.0" prefHeight="97.0" prefWidth="669.0" promptText="Description" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="170.0" />
-      <JFXDatePicker fx:id="datePicker" layoutX="12.0" layoutY="132.0" prefWidth="236.0" promptText="MM/DD/YYYY" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0" />
-      <JFXRadioButton fx:id="creditRadio" layoutX="220.0" layoutY="94.0" text="Credit" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="94.0">
+      <JFXComboBox fx:id="codeDropdown" layoutX="212.0" layoutY="52.0" prefWidth="200.0" promptText="Code" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="50.0" />
+      <JFXTextField fx:id="newCodeField" layoutX="622.0" layoutY="50.0" prefWidth="200.0" promptText="New Code" AnchorPane.leftAnchor="440.0" AnchorPane.topAnchor="50.0" />
+      <JFXTextArea fx:id="descriptionArea" layoutX="10.0" layoutY="180.0" prefHeight="170.0" prefWidth="980.0" promptText="Description" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="180.0" />
+      <JFXDatePicker fx:id="datePicker" layoutX="10.0" layoutY="49.0" prefHeight="25.0" prefWidth="200.0" promptText="MM/DD/YYYY" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <JFXRadioButton fx:id="creditRadio" layoutX="220.0" layoutY="94.0" text="CC Deposit" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="94.0">
          <toggleGroup>
             <ToggleGroup fx:id="type" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="checkRadio" layoutX="293.0" layoutY="94.0" text="Check" toggleGroup="$type" AnchorPane.leftAnchor="275.0" />
-      <JFXRadioButton fx:id="withdrawalRadio" layoutX="367.0" layoutY="94.0" text="Withdrawal" toggleGroup="$type" AnchorPane.leftAnchor="345.0" />
+      <JFXRadioButton fx:id="checkRadio" layoutX="305.0" layoutY="94.0" text="Check Deposit" toggleGroup="$type" AnchorPane.leftAnchor="305.0" />
+      <JFXRadioButton fx:id="withdrawalRadio" layoutX="423.0" layoutY="94.0" text="Withdrawal" toggleGroup="$type" AnchorPane.leftAnchor="423.0" />
       <JFXTextField fx:id="amountField" layoutX="230.0" layoutY="60.0" prefWidth="200.0" promptText="Amount" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="90.0" />
       <JFXButton fx:id="backButton" layoutX="292.0" layoutY="9.0" onAction="#back" text="Back" AnchorPane.rightAnchor="10.0">
          <font>
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="deleteCodeButton" layoutX="884.0" layoutY="358.0" onAction="#deleteCode" text="Delete Code">
+      <JFXButton fx:id="deleteCodeButton" layoutX="884.0" layoutY="358.0" onAction="#deleteCode" text="Delete Code" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="creditCardField" layoutX="151.0" layoutY="140.0" prefHeight="25.0" prefWidth="40.0" text="3%" AnchorPane.leftAnchor="151.0" AnchorPane.topAnchor="140.0" />
+      <JFXTextField fx:id="benefitsField" layoutX="509.0" layoutY="140.0" prefHeight="25.0" prefWidth="40.0" text="25%" AnchorPane.leftAnchor="509.0" AnchorPane.topAnchor="140.0" />
+      <JFXTextField fx:id="universityField" layoutX="335.0" layoutY="140.0" prefHeight="25.0" prefWidth="40.0" text="8%" AnchorPane.leftAnchor="335.0" AnchorPane.topAnchor="140.0" />
+      <JFXToggleButton fx:id="creditCardToggle" layoutY="123.0" text="Credit Card Fee" AnchorPane.leftAnchor="0.0" />
+      <JFXToggleButton fx:id="universityToggle" layoutX="191.0" layoutY="123.0" text="University Fee" />
+      <JFXToggleButton fx:id="benefitsToggle" layoutX="375.0" layoutY="123.0" text="Benefits Fee" />
+      <JFXButton fx:id="addCodeButton" layoutX="61.0" layoutY="359.0" onAction="#addCode" text="Add Code" AnchorPane.bottomAnchor="10.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="defaultFeesButton" layoutX="140.0" layoutY="359.0" onAction="#defaultFees" text="Default Fees">
          <font>
             <Font size="15.0" />
          </font>
