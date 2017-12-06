@@ -2,7 +2,7 @@ package BeFinanced;
 
 public class Model
 {
-    static String title = "BeFinanced";
+    static String title = "BeFinanced by BeSmoke";
     static String login = "Login";
     static String accounts = "Accounts";
     static String account = "AccountManagement";
