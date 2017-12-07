@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXColorPicker?>
+<?import com.jfoenix.controls.JFXSlider?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXSlider indicatorPosition="RIGHT" layoutX="13.0" layoutY="34.0" prefHeight="16.0" prefWidth="575.0" value="-1.0" />
+      <JFXCheckBox layoutX="13.0" layoutY="5.0" text="\\n">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox layoutX="57.0" layoutY="5.0" text="\\n">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox checkedColor="#0f9b7e" layoutX="100.0" layoutY="5.0" text="\\n">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox layoutX="188.0" layoutY="5.0" text="\\n">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox checkedColor="#0f9b7e" layoutX="144.0" layoutY="5.0" text="\\n">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox layoutX="231.0" layoutY="5.0" text="\\n">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox checkedColor="#0f9b7e" layoutX="320.0" layoutY="5.0" text="\\n">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXCheckBox checkedColor="#0f9b7e" layoutX="275.0" layoutY="5.0" text="\\n">
+         <font>
+            <Font size="1.0" />
+         </font>
+      </JFXCheckBox>
+      <JFXColorPicker layoutX="352.0" layoutY="4.0" />
+      <JFXToggleButton layoutX="1.0" layoutY="83.0" text="0" toggleColor="#8f0000" toggleLineColor="#c27878">
+         <toggleGroup>
+            <ToggleGroup fx:id="b" />
+         </toggleGroup>
+      </JFXToggleButton>
+      <JFXToggleButton layoutX="1.0" layoutY="143.0" text="1">
+         <toggleGroup>
+            <ToggleGroup fx:id="c" />
+         </toggleGroup>
+      </JFXToggleButton>
+      <JFXToggleButton layoutX="1.0" layoutY="203.0" text="2" toggleColor="#8f0000" toggleLineColor="#c27878">
+         <toggleGroup>
+            <ToggleGroup fx:id="a" />
+         </toggleGroup>
+      </JFXToggleButton>
+      <JFXToggleButton layoutX="1.0" layoutY="263.0" text="3" toggleColor="#8f0000" toggleGroup="$a" toggleLineColor="#c27878" />
+      <JFXToggleButton layoutX="100.0" layoutY="143.0" text="5">
+         <toggleGroup>
+            <ToggleGroup fx:id="d" />
+         </toggleGroup>
+      </JFXToggleButton>
+      <JFXToggleButton layoutX="100.0" layoutY="83.0" text="4" toggleGroup="$b" />
+      <JFXToggleButton layoutX="100.0" layoutY="203.0" text="6" toggleColor="#8f0000" toggleGroup="$d" toggleLineColor="#c27878" />
+      <JFXToggleButton layoutX="100.0" layoutY="263.0" text="7" toggleGroup="$c" />
+      <LineChart layoutX="180.0" layoutY="93.0" prefHeight="242.0" prefWidth="407.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <JFXColorPicker layoutX="486.0" layoutY="4.0" />
+   </children>
+</AnchorPane>
