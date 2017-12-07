@@ -9,6 +9,7 @@ public class TransactionsController
     public JFXButton viewTransactionButton;
     public JFXButton deleteTransactionButton;
     public JFXButton backButton;
+
     public JFXTreeTableView table;
 
     public void setPrevious()
@@ -21,24 +22,24 @@ public class TransactionsController
     public void newTransaction() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.transaction, Model.bigHeight, Model.bigWidth);
+        View.update(Model.transaction, Model.bigHeight, Model.bigWidth);
     }
 
     public void viewTransaction() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.transaction, Model.bigHeight, Model.bigWidth);
+        View.update(Model.transaction, Model.bigHeight, Model.bigWidth);
     }
 
     public void deleteTransaction() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.delete, Model.littleHeight, Model.littleWidth);
+        View.update(Model.delete, Model.littleHeight, Model.littleWidth);
     }
 
     public void back() throws Exception
     {
-        View.update(Main.window, Model.accounts, Model.bigHeight, Model.bigWidth);
+        View.update(Model.accounts, Model.bigHeight, Model.bigWidth);
     }
 
     public void tableSelection() throws Exception

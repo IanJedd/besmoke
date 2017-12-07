@@ -11,7 +11,9 @@ public class AccountsController
     public JFXButton detailsButton;
     public JFXButton transactionsButton;
     public JFXButton deleteAccountButton;
+
     public JFXTreeTableView table;
+
     public TreeTableColumn id;
     public TreeTableColumn username;
     public TreeTableColumn grossBalance;
@@ -26,26 +28,26 @@ public class AccountsController
 
     public void back() throws Exception
     {
-        View.update(Main.window, Model.login, Model.littleHeight, Model.littleWidth);
+        View.update(Model.login, Model.littleHeight, Model.littleWidth);
     }
     public void newAccount() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.account, Model.bigHeight, Model.bigWidth);
+        View.update(Model.account, Model.bigHeight, Model.bigWidth);
     }
     public void viewAccount() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.account, Model.bigHeight, Model.bigWidth);
+        View.update(Model.account, Model.bigHeight, Model.bigWidth);
     }
     public void deleteAccount() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.delete, Model.littleHeight, Model.littleWidth);
+        View.update(Model.delete, Model.littleHeight, Model.littleWidth);
     }
     public void viewTransactions() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.transactions, Model.bigHeight, Model.bigWidth);
+        View.update(Model.transactions, Model.bigHeight, Model.bigWidth);
     }
 }

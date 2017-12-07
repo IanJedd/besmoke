@@ -9,8 +9,11 @@ import javafx.stage.Stage;
 public class LoginController
 {
     public JFXTextField usernameField;
+
     public JFXPasswordField passwordField;
+
     public JFXButton loginButton;
+
     static String username = "";
     static String password = "";
 
@@ -26,6 +29,6 @@ public class LoginController
         setPrevious();
         username = usernameField.getText();
         password = passwordField.getText();
-        View.update(Main.window, Model.accounts, Model.bigHeight, Model.bigWidth);
+        View.update(Model.accounts, Model.bigHeight, Model.bigWidth);
     }
 }

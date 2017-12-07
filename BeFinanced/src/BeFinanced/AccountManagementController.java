@@ -33,15 +33,15 @@ public class AccountManagementController
     public void done() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.accounts, Model.bigHeight, Model.bigWidth);
+        View.update(Model.accounts, Model.bigHeight, Model.bigWidth);
     }
     public void deleteUser() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.delete, Model.littleHeight, Model.littleWidth);
+        View.update(Model.delete, Model.littleHeight, Model.littleWidth);
     }
     public void back() throws Exception
     {
-        View.update(Main.window, Model.accounts, Model.bigHeight, Model.bigWidth);
+        View.update(Model.accounts, Model.bigHeight, Model.bigWidth);
     }
 }

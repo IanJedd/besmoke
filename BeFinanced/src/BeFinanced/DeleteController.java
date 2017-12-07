@@ -7,15 +7,16 @@ public class DeleteController
 {
     public JFXButton deleteButton;
     public JFXButton backButton;
+
     public JFXPasswordField passwordField;
 
     public void delete() throws Exception
     {
-        View.update(Main.window, Model.previousFXML, Model.previousHeight, Model.previousWidth);
+        View.update(Model.previousFXML, Model.previousHeight, Model.previousWidth);
     }
 
     public void back() throws Exception
     {
-        View.update(Main.window, Model.previousFXML, Model.previousHeight, Model.previousWidth);
+        View.update(Model.previousFXML, Model.previousHeight, Model.previousWidth);
     }
 }

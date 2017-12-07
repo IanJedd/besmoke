@@ -10,7 +10,7 @@ import java.net.URL;
 
 class View
 {
-    static void update(Stage window, String filename, int height, int width) throws Exception
+    static void update(String filename, int height, int width) throws Exception
     {
         View view = new View();
         Class viewClass = view.getClass();
@@ -18,6 +18,7 @@ class View
         URL url = viewClass.getResource(path);
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root, width, height);
+        Stage window = Model.window;
         window.setScene(scene);
         window.setTitle(Model.title);
         String imageURL = Model.imageDirectory + Model.logo;

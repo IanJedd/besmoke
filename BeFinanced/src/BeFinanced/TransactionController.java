@@ -49,18 +49,18 @@ public class TransactionController
     public void done() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.transactions, Model.bigHeight, Model.bigWidth);
+        View.update(Model.transactions, Model.bigHeight, Model.bigWidth);
     }
 
     public void deleteCode() throws Exception
     {
         setPrevious();
-        View.update(Main.window, Model.delete, Model.littleHeight, Model.littleWidth);
+        View.update(Model.delete, Model.littleHeight, Model.littleWidth);
     }
 
     public void back() throws Exception
     {
-        View.update(Main.window, Model.transactions, Model.bigHeight, Model.bigWidth);
+        View.update(Model.transactions, Model.bigHeight, Model.bigWidth);
     }
 
 }

@@ -1,7 +1,11 @@
 package BeFinanced;
 
+import javafx.stage.Stage;
+
 public class Model
 {
+    static Stage window;
+
     static String title = "BeFinanced by BeSmoke";
     static String login = "Login";
     static String accounts = "Accounts";
@@ -19,6 +23,7 @@ public class Model
     static String databaseExtension = ".db";
     static String databasePath = databasePrefix + databaseDirectory + databaseFilename + databaseExtension;
     static String previousFXML = login;
+
     static int littleHeight = 200;
     static int littleWidth = 300;
     static int bigHeight = 400;
