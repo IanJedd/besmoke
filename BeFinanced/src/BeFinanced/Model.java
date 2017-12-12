@@ -11,7 +11,9 @@ public class Model {
     static HashMap<String, Object> users;
     static HashMap<String, Object> user;
     static HashMap<String, Object> accounts;
+    static HashMap<String, Object> account;
     static HashMap<String, Object> transactions;
+    static HashMap<String, Object> transaction;
 
     static HashMap<String, Integer> dimensions;
     static HashMap<String, Integer> savedDimensions;

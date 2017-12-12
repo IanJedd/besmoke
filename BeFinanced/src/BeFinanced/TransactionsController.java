@@ -3,6 +3,8 @@ package BeFinanced;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTreeTableView;
 
+import java.util.HashMap;
+
 public class TransactionsController
 {
     public JFXButton newTransactionButton;
@@ -14,6 +16,7 @@ public class TransactionsController
 
     public void newTransaction() throws Exception
     {
+        Model.transaction = new HashMap<>();
         View.update("TransactionDetails");
     }
 

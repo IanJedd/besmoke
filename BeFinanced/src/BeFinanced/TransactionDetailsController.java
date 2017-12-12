@@ -2,9 +2,11 @@ package BeFinanced;
 
 import com.jfoenix.controls.*;
 
+import java.util.HashMap;
+
 public class TransactionDetailsController
 {
-    public JFXButton doneButton;
+    public  JFXButton doneButton;
     public JFXButton deleteCodeButton;
     public JFXButton backButton;
     public JFXButton defaultFeesButton;
