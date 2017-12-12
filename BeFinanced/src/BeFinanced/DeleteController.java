@@ -12,11 +12,11 @@ public class DeleteController
 
     public void delete() throws Exception
     {
-        View.update(Model.previousFXML, Model.previousHeight, Model.previousWidth);
+        View.update("Back");
     }
 
     public void back() throws Exception
     {
-        View.update(Model.previousFXML, Model.previousHeight, Model.previousWidth);
+        View.update("Back");
     }
 }

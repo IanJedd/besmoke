@@ -5,11 +5,10 @@ import javafx.stage.Stage;
 
 public class Main extends Application
 {
-    static Stage window;
     public void start(Stage window) throws Exception
     {
         Model.window = window;
-        View.update(Model.login, Model.littleHeight, Model.littleWidth);
+        View.update("Login");
     }
 
     public static void main(String[] args) {launch(args);}

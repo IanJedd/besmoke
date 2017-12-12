@@ -15,15 +15,7 @@
          </font>
       </Label>
       <JFXTreeTableView fx:id="table" layoutX="-2.0" layoutY="49.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
-         <columns>
-            <TreeTableColumn fx:id="id" prefWidth="75.0" text="ID" />
-            <TreeTableColumn fx:id="username" prefWidth="200.0" text="Account Name" />
-            <TreeTableColumn fx:id="grossBalance" prefWidth="100.0" text="Gross Balance" />
-            <TreeTableColumn fx:id="netBalance" prefWidth="98.66668701171875" text="Net Balance" />
-            <TreeTableColumn prefWidth="75.0" text="CC Balance" />
-            <TreeTableColumn prefWidth="94.6666259765625" text="UM Balance" />
-            <TreeTableColumn prefWidth="107.3333740234375" text="Benefits Balance" />
-         </columns></JFXTreeTableView>
+      </JFXTreeTableView>
       <JFXButton fx:id="transactionsButton" layoutX="10.0" layoutY="358.0" onAction="#viewTransactions" text="Transactions" AnchorPane.bottomAnchor="10.666666666666686" AnchorPane.leftAnchor="10.0">
          <font>
             <Font size="15.0" />

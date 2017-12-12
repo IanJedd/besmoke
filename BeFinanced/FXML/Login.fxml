@@ -15,7 +15,7 @@
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField id="password" fx:id="passwordField" layoutX="50.0" layoutY="100.0" prefWidth="200.0" promptText="Password" AnchorPane.topAnchor="75.0">
+      <JFXPasswordField id="password" fx:id="passwordField" layoutX="50.0" layoutY="100.0" onAction="#login" prefWidth="200.0" promptText="Password" AnchorPane.topAnchor="75.0">
          <font>
             <Font size="20.0" />
          </font>

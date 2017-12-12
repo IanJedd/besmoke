@@ -12,34 +12,25 @@ public class TransactionsController
 
     public JFXTreeTableView table;
 
-    public void setPrevious()
-    {
-        Model.previousFXML = Model.transactions;
-        Model.previousHeight = Model.bigHeight;
-        Model.previousWidth = Model.bigWidth;
-    }
-
     public void newTransaction() throws Exception
     {
-        setPrevious();
-        View.update(Model.transaction, Model.bigHeight, Model.bigWidth);
+        View.update("TransactionDetails");
     }
 
     public void viewTransaction() throws Exception
     {
-        setPrevious();
-        View.update(Model.transaction, Model.bigHeight, Model.bigWidth);
+        View.update("TransactionDetails");
     }
 
     public void deleteTransaction() throws Exception
     {
-        setPrevious();
-        View.update(Model.delete, Model.littleHeight, Model.littleWidth);
+        View.save("Transactions");
+        View.update("Delete");
     }
 
     public void back() throws Exception
     {
-        View.update(Model.accounts, Model.bigHeight, Model.bigWidth);
+        View.update("Accounts");
     }
 
     public void tableSelection() throws Exception
