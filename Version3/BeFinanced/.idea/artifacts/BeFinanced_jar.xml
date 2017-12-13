@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="BeFinanced:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/BeFinanced_jar</output-path>
-    <root id="archive" name="BeFinanced.jar">
-      <element id="module-output" name="BeFinanced" />
-    </root>
-  </artifact>
-</component>

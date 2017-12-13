@@ -19,7 +19,7 @@ public class Model {
     static HashMap<String, Integer> savedDimensions;
 
     static String title = "BeFinanced by BeSmoke";
-    static String imageDirectory = "./BeFinanced/Images/";
+    static String imageDirectory = "./befinanced/Images/";
     static String logo = "BeFinanced.png";
     static String fxmlDirectory = "./FXML/";
     static String fxmlExtension = ".fxml";
