@@ -16,16 +16,24 @@ public class Model {
     //One Table to bring them all, and in the darkness bind them,
     //In the Land of Mordor where the Shadows lie.
     static HashMap<String, Object> table;
-    //Users and user are loaded 
+    //The LoginController loads users, user, and accounts
     static HashMap<String, Object> users;
     static HashMap<String, Object> user;
     static HashMap<String, Object> accounts;
+    // The AccountsController makes a new, loads, and modifies a account. It also loads transactions.
     static HashMap<String, Object> account;
     static HashMap<String, Object> transactions;
+    // The TransactionsController makes a new, loads, and modifies a transaction.
     static HashMap<String, Object> transaction;
 
+    //The current and previous window dimensions to enable back functionality
     static HashMap<String, Integer> dimensions;
     static HashMap<String, Integer> savedDimensions;
+
+    static int height;
+    static int width;
+    static int savedHeight;
+    static int savedWidth;
 
     static String title = "BeFinanced by BeSmoke";
     static String tableDirectory = "./befinanced/Data/";
@@ -44,13 +52,9 @@ public class Model {
 
     static Passwardo passwardo;
 
+    //Administrator should be stored in the user hashtable
     static boolean administrator = false;
     static boolean goodPassword = false;
-
-    static int height;
-    static int width;
-    static int savedHeight;
-    static int savedWidth;
 
     static {
         //We need to make this method. Maybe serialize the object like Erik did.
