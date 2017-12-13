@@ -14,28 +14,33 @@ public class TransactionsController
 
     public JFXTreeTableView table;
 
+    //Done
     public void newTransaction() throws Exception
     {
         Model.transaction = new HashMap<>();
         View.update("TransactionDetails");
     }
 
+    //Done
     public void viewTransaction() throws Exception
     {
         View.update("TransactionDetails");
     }
 
+    //If Model.goodpassword is true, then delete the data. Needs work here.
     public void deleteTransaction() throws Exception
     {
         View.save("Transactions");
         View.update("Delete");
     }
 
+    //Done
     public void back() throws Exception
     {
         View.update("Accounts");
     }
 
+    //Needs work to make a selection on the table
     public void tableSelection() throws Exception
     {
 
