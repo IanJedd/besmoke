@@ -12,7 +12,7 @@ public class AccountsController {
     public JFXButton detailsButton;
     public JFXButton backButton;
 
-    //Done
+    //We needs a method here to save Model.table. Going back here logs out.
     public void back() throws Exception {
         View.update("Login");
     }
