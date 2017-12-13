@@ -18,7 +18,8 @@
                           <columns>
                             <TableColumn fx:id="nameCol" prefWidth="104.0" text="Name" />
                             <TableColumn fx:id="balanceCol" prefWidth="130.0" text="Balance" />
-                              <TableColumn fx:id="feesCol" prefWidth="130.0" text="Fees" />
+                            <TableColumn fx:id="uniFeesCol" prefWidth="130.0" text="University Fees" />
+                            <TableColumn fx:id="creditFeesCol" prefWidth="130.0" text="CreditCard Fees" />
                             <TableColumn fx:id="phoneCol" prefWidth="175.0" text="Phone" />
                             <TableColumn fx:id="emailCol" prefWidth="285.0" text="Email" />
                         </columns>
@@ -38,7 +39,7 @@
                         <TableView fx:id="transactionTable" layoutX="251.0" layoutY="30.0" prefHeight="286.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                           <columns>
                               <TableColumn fx:id="tTableDateCol" prefWidth="75.0" text="Date" />
-                            <TableColumn fx:id="tTableTypeCol" prefWidth="75.0" text="Type" />
+                              <TableColumn fx:id="tTableTransCol" prefWidth="75.0" text="Transaction Type" />
                               <TableColumn fx:id="tTableIDCol" prefWidth="75.0" text="ID" />
                               <TableColumn fx:id="tTableAmtCol" prefWidth="127.0" text="Amount" />
                               <TableColumn fx:id="tTableFeesCol" prefWidth="75.0" text="Fees" />
@@ -64,6 +65,7 @@
                             </FXCollections>
                         </items>
                            <columns>
+                              <TableColumn fx:id="dTableTransCol" prefWidth="114.0" text="Transaction Type" />
                               <TableColumn fx:id="dTableDateCol" prefWidth="75.0" text="Date" />
                               <TableColumn fx:id="dTableIDCol" prefWidth="75.0" text="ID" />
                               <TableColumn fx:id="dTableAmtCol" prefWidth="75.0" text="Amount" />
@@ -75,17 +77,18 @@
                         </AnchorPane>
                     </content>
                 </Tab>
-                <Tab text="Withdrawls">
+                <Tab text="Withdrawals">
                     <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                             <children>
-                                <TableView fx:id="withdrawlsTable" layoutY="79.0" prefHeight="288.0" prefWidth="600.0" AnchorPane.bottomAnchor="-12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <TableView fx:id="withdrawalsTable" layoutY="79.0" prefHeight="288.0" prefWidth="600.0" AnchorPane.bottomAnchor="-12.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                         <items>
                             <FXCollections fx:factory="observableArrayList">
                             </FXCollections>
                         </items>
                            <columns>
                               <TableColumn fx:id="wTableDateCol" prefWidth="114.0" text="Date" />
+                              <TableColumn fx:id="wTableTransCol" prefWidth="114.0" text="Transaction Type" />
                               <TableColumn fx:id="wTableIDCol" prefWidth="75.0" text="ID" />
                               <TableColumn fx:id="wTableAmtCol" prefWidth="115.0" text="Amount" />
                               <TableColumn fx:id="wTableCodeCol" prefWidth="104.0" text="Code" />
@@ -103,7 +106,7 @@
                         <TextField fx:id="makeTransactionAmount" layoutX="170.0" layoutY="8.0" prefHeight="39.0" prefWidth="196.0" promptText="\$0.00" AnchorPane.topAnchor="10.0" />
                         <Label layoutX="6.0" layoutY="8.0" prefHeight="39.0" prefWidth="123.0" text="Amount" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                         <Button fx:id="makeTransactionFinish" layoutX="10.0" layoutY="291.0" mnemonicParsing="false" onAction="#finishTransaction" text="Finish" AnchorPane.leftAnchor="10.0" />
-                        <RadioButton fx:id="makeTrasactionCheck" layoutX="10.0" layoutY="196.0" mnemonicParsing="false" text="Check Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="196.0">
+                        <RadioButton fx:id="makeTransactionCheck" layoutX="10.0" layoutY="196.0" mnemonicParsing="false" text="Check Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="196.0">
                            <toggleGroup>
                               <ToggleGroup fx:id="transactionType" />
                            </toggleGroup></RadioButton>

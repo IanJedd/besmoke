@@ -43,6 +43,10 @@ public class Account implements Serializable {
     public void setEmail(String s) { this.email = s; }
     public StringProperty emailProperty() { return new SimpleStringProperty(email); }
 
+    public DoubleProperty universityFeesProperty() { return new SimpleDoubleProperty(universityFees); }
+
+    public DoubleProperty creditCardFeesProperty() { return new SimpleDoubleProperty(creditCardFees); }
+
     
     // Balance Editors
     public void changeBalance(double deltaB){balance += deltaB;}

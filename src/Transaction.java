@@ -4,6 +4,7 @@ import java.io.*;
 public class Transaction implements Serializable {
 	private TransType type;
 	private double amount;
+    private double fees;
     private final int id;
     private String accountName;
     private Date date;
@@ -20,6 +21,10 @@ public class Transaction implements Serializable {
         this.description = description;
         this.id = BeFinanced.getTList().size();
         addToTransactionList(this);
+
+        if (type == TransType.WITHDRAWAL) { fees = 0.0; }
+        else if (type == TransType.CHECK_DEPOSIT) {  fees = .08 * initAmount; }
+        else { fees = .12 * initAmount; }
 	}
 	
     public String getAccountName() { return accountName; }
@@ -28,6 +33,8 @@ public class Transaction implements Serializable {
 	public void setAmount(double newAmount) {amount = newAmount;}
 	public TransType getType() {return type;}
     public int getID() { return id; }
+    public String getDescription() { return description; }
+    public double getFees() { return fees; }
 
     public boolean isDeposit() {
         switch(this.type) {
@@ -66,7 +73,6 @@ public class Transaction implements Serializable {
 
     private void addToTransactionList(Transaction t) {
         ArrayList<Transaction> transactions = BeFinanced.getTList();
-        System.out.println(transactions);
         transactions.add(t);
         try {
             FileOutputStream fOut = new FileOutputStream(DATA);

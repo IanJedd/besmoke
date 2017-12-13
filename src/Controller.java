@@ -37,7 +37,6 @@ public class Controller {
     protected final String FXML_DIR = "ViewFXML/";
     protected final String LOG_IN = "logIn.fxml";
     protected final String CREATE_ACCT = "createAccount.fxml";
-   // private final String ACCT_VIEW = "accountView.fxml"; supplanted by viewAccount????
     protected final String DEL_ACCT = "deleteAccount.fxml";
     protected final String VIEW_ACCT = "viewAccount.fxml";
     protected final String CREATE_TRANSACTION = "createTransaction.fxml";
@@ -93,6 +92,9 @@ public class Controller {
         }
         catch (Exception e) {
             System.out.println("Exception during Scene Update: " + e);
+            System.out.println(e.getCause());
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
         }
     }
 
