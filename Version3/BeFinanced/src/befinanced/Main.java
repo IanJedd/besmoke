@@ -3,6 +3,7 @@ package befinanced;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+//This class is Done!
 public class Main extends Application
 {
     public void start(Stage window) throws Exception

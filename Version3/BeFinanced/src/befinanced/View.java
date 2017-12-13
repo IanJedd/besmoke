@@ -9,12 +9,13 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.HashMap;
 
+//This class is DONE!
 class View
 {
     static void save(String fxmlFilename)
     {
         Model.savedFXMLFilename = fxmlFilename;
-        Model.savedDimensions = (HashMap) Model.value(fxmlFilename);
+        Model.savedDimensions = (HashMap) Model.get(fxmlFilename);
         Model.savedHeight = Model.savedDimensions.get("Height");
         Model.savedWidth = Model.savedDimensions.get("Width");
     }
@@ -32,7 +33,7 @@ class View
         else
         {
             Model.fxmlFilename = fxmlFilename;
-            Model.dimensions = (HashMap) Model.value(fxmlFilename);
+            Model.dimensions = (HashMap) Model.get(fxmlFilename);
             Model.height = Model.dimensions.get("Height");
             Model.width = Model.dimensions.get("Width");
         }

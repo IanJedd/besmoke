@@ -4,6 +4,7 @@ import javafx.stage.Stage;
 
 import java.util.HashMap;
 
+//Only load and save table methods left.
 public class Model {
     static Stage window;
 
@@ -88,6 +89,8 @@ public class Model {
         boolean success = false;
         if (!success) { table = new HashMap<>();}
     }
+
+    public static Object get(String key) {return table.get(key);}
 
     public static void saveTable()
     {
