@@ -79,6 +79,11 @@ public class CreateAccountController extends Controller {
         String aDesc = createAccountDescription.getText();
         String aEmail = createAccountEmail.getText();
 
+        if (Account.getAccount(aName) != null) {
+            errorMessage.setText("An Account with this name already exists.\nYou must use a new name for account creation.");
+            return false;
+        }
+
         if(aName.equals("") || aBalance.equals("") || aPhone.equals("") || aDesc.equals("") || aEmail.equals("")) {
             errorMessage.setText("You must populate all fields.");
             return false;
