@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="befinanced.AccountsController">
+   <children>
+      <Label fx:id="title" layoutX="19.0" layoutY="14.0" text="Accounts" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXTreeTableView fx:id="table" layoutX="-2.0" layoutY="49.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0">
+      </JFXTreeTableView>
+      <JFXButton fx:id="transactionsButton" layoutX="10.0" layoutY="358.0" onAction="#viewTransactions" text="Transactions" AnchorPane.bottomAnchor="10.666666666666686" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteAccountButton" layoutX="184.0" layoutY="358.0" onAction="#deleteAccount" text="Delete Account" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="newButton" layoutX="178.0" layoutY="358.0" onAction="#newAccount" text="New" AnchorPane.bottomAnchor="10.666666666666686" AnchorPane.leftAnchor="178.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="detailsButton" layoutX="113.0" layoutY="358.0" onAction="#viewAccount" text="Details" AnchorPane.bottomAnchor="10.666666666666686">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="backButton" layoutX="159.0" layoutY="9.0" onAction="#back" text="Back" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

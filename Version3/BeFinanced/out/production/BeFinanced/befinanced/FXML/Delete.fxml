@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="200" prefWidth="300" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="befinanced.DeleteController">
+   <children>
+      <JFXPasswordField fx:id="passwordField" layoutX="50.0" layoutY="78.0" prefWidth="200.0" promptText="Password" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="75.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton fx:id="deleteButton" layoutX="186.0" layoutY="100.0" onAction="#delete" text="Delete" AnchorPane.topAnchor="135.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </padding>
+      </JFXButton>
+      <Label fx:id="title" layoutX="58.0" layoutY="29.0" text="Confirm" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="backButton" layoutX="217.0" layoutY="9.0" onAction="#back" text="Back" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+         <padding>
+            <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
+         </padding>
+      </JFXButton>
+      <Label fx:id="tryAgainLabel" layoutX="51.0" layoutY="140.0" opacity="0.0" text="Try again">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

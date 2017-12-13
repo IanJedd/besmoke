@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="befinanced.AccountDetailsController">
+   <children>
+      <Label fx:id="title" layoutX="19.0" layoutY="14.0" text="Account Management" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="doneButton" layoutX="14.0" layoutY="354.0" onAction="#done" text="Done" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="allUsersDropdown" layoutX="14.0" layoutY="40.0" prefWidth="200.0" promptText="All Users" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <JFXPasswordField fx:id="newPasswordField" layoutX="8.0" layoutY="90.0" prefWidth="200.0" promptText="New Password" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="90.0" />
+      <JFXPasswordField fx:id="confirmPasswordField" layoutX="220.0" layoutY="90.0" prefWidth="200.0" promptText="Confirm Password" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="90.0" />
+      <JFXTextField fx:id="newUsernameField" layoutX="220.0" layoutY="50.0" prefWidth="200.0" promptText="New Username" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="50.0" />
+      <JFXTextField fx:id="zipField" layoutX="214.0" layoutY="158.0" prefWidth="200.0" promptText="Zip" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="170.0" />
+      <JFXTextField fx:id="streetField" layoutX="10.0" layoutY="158.0" prefWidth="200.0" promptText="Street" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="170.0" />
+      <JFXTextField fx:id="emailField" layoutX="10.0" layoutY="122.0" prefWidth="200.0" promptText="Email" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="130.0" />
+      <JFXTextField fx:id="phoneField" layoutX="214.0" layoutY="122.0" prefWidth="200.0" promptText="Phone" AnchorPane.leftAnchor="220.0" AnchorPane.topAnchor="130.0" />
+      <JFXTextField fx:id="accountField" layoutX="484.0" layoutY="237.0" prefWidth="200.0" promptText="Account Name" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="210.0" />
+      <JFXTextArea fx:id="descriptionArea" layoutX="10.0" layoutY="229.0" prefHeight="97.0" prefWidth="669.0" promptText="Description" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="250.0" />
+      <JFXButton fx:id="backButton" layoutX="231.0" layoutY="9.0" onAction="#back" text="Back" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteUserButton" layoutX="889.0" layoutY="358.0" onAction="#deleteUser" text="Delete User" AnchorPane.bottomAnchor="10.666666666666686">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
