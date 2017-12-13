@@ -32,12 +32,15 @@ public class Account implements Serializable {
     public DoubleProperty balanceProperty() { return new SimpleDoubleProperty(balance); }
 
     public String getDescription() {return description;}
+    public void setDescription(String s) { this.description = s; }
     public StringProperty descriptionProperty() { return new SimpleStringProperty(description); }
 
     public String getPhone() {return phone;}
+    public void setPhone(String s) { this.phone = s; }
     public StringProperty phoneProperty() { return new SimpleStringProperty(phone); }
 
     public String getEmail() {return email;}
+    public void setEmail(String s) { this.email = s; }
     public StringProperty emailProperty() { return new SimpleStringProperty(email); }
 
     
