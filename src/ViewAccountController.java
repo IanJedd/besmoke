@@ -138,10 +138,10 @@ public class ViewAccountController extends Controller {
             editTransactionCode.setText(t.getCode());
             editTransactionDescription.setText(t.getDescription());
             // handle new buttons
-            editTransactionPopulate.setDisable(true);
             editTransactionPopulate.setVisible(false);
-            populateCancel.setDisable(false);
+            editTransactionPopulate.setDisable(true);
             populateCancel.setVisible(true);
+            populateCancel.setDisable(false);
         }
     }
 
@@ -192,6 +192,7 @@ public class ViewAccountController extends Controller {
 
 
     public void initialize() {
+
         // Accounts Tab
         nameCol.setCellValueFactory(new PropertyValueFactory("name"));
         balanceCol.setCellValueFactory(new PropertyValueFactory("bal"));
@@ -258,6 +259,7 @@ public class ViewAccountController extends Controller {
         editDate.setEditable(false);
         
         if (currentUser.hasAccount()) {
+            accountName.setText(BeFinanced.getUser().getAccounts()[0]);
             updateAccData();
             updateTData();
         }
