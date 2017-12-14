@@ -1,3 +1,5 @@
+import java.text.DecimalFormat;
+
 public class Valid {
     static String unformatted;
 
@@ -112,6 +114,11 @@ public class Valid {
         }
     }
 
+    public static boolean round(double badBalance)
+    {
+        DecimalFormat format = new DecimalFormat("##.00");
+        String format.format()
+    }
     public static void main(String[] args) {
         Valid valid = new Valid();
 
