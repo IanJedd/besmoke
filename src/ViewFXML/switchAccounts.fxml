@@ -22,6 +22,7 @@
                   <MenuItem mnemonicParsing="false" text="Create Account" onAction="#createAcctView" />
                   <MenuItem mnemonicParsing="false" text="Delete Account" onAction="#delAcctView" />
                   <MenuItem mnemonicParsing="false" text="Switch Accounts" onAction="#switchAccountsView" />
+                  <MenuItem mnemonicParsing="false" text="Modify Account" onAction="#modifyAccountsView"/>
                </items>
             </Menu>
          </menus>
