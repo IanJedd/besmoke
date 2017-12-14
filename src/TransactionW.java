@@ -33,6 +33,9 @@ public class TransactionW {
         return this.isDeposit;
     }
 
+    public StringProperty codeProperty() { return code; }
+    public String getCode() { return codeProperty().get(); }
+
     public StringProperty dateProperty() { return date; }
     public String getDate() { return dateProperty().get(); }
 

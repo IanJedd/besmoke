@@ -124,6 +124,9 @@ public class ViewAccountController extends Controller {
         
         tTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
         dTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
+
+        tTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
+        wTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
        
 
         // Transaction Type Col
@@ -146,11 +149,9 @@ public class ViewAccountController extends Controller {
 
         // set default date for datepickers
         makeDate = new DatePicker(LocalDate.now());
-
         
         if (currentUser.hasAccount()) {
             updateAccData();
-            System.out.println("here");
             updateTData();
         }
         
@@ -166,16 +167,13 @@ public class ViewAccountController extends Controller {
         double amt = Double.parseDouble(makeTransactionAmount.getText());
         SubAccount a = (SubAccount) Account.getAccount(currentUser.getAccounts()[0]);
         if (rId.equals("makeTransactionCheck")) {
-            System.out.println("check deposit");
             a.processTransaction(new Transaction(TransType.CHECK_DEPOSIT, amt, accName, code, desc, date));
         }
         if (rId.equals("makeTransactionCredit")) {
-            System.out.println("credit deposit");
             a.processTransaction(new Transaction(TransType.CC_DEPOSIT, amt, accName, code, desc, date));
         }
 
         if (rId.equals("makeTransactionWithdrawal")) {
-            System.out.println("Withdrawal");
             a.processTransaction(new Transaction(TransType.WITHDRAWAL, amt, accName, code, desc, date));
         }
         updateAccData();

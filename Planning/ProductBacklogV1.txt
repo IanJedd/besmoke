@@ -1,12 +1,4 @@
-70% TODO list:
-    - Handle Dates and Codes for transactions:
-        - I would deal with adding these to Transaction.java
-        - handle it as well in the controller for creating transactions
-        - finally I would pass them as String Properties to the wrapper class
-        - this may need some view updating as well
-
 80% TODO list:
-    - Let's complete the 70% stuff first!
     - Entire Account Balance:
         - implement the MasterAccount class... this shouldn't be too hard.
     - benefits calculator:
