@@ -85,28 +85,30 @@ public class Valid {
         String s;
         int dotIndex = -1;
         StringBuilder digits = new StringBuilder();
-        int j = 0;
         if (badBalance.substring(0, 1).equals("$"))
         {
-            j++;
+            badBalance = badBalance.substring(1);
         }
-        for ( int i=j; i < badBalance.length(); i++) {
+        boolean goodChar = false;
+        for ( int i =0 ; i < badBalance.length(); i++) {
             c = badBalance.charAt(i);
             s = String.valueOf(c);
+            goodChar = false;
             if (Character.isDigit(c)) {
                 digits.append(s);
+                goodChar = true;
             }
-            else if (s.equals(".")) {
+            if (s.equals(".")) {
                 digits.append(s);
                 dotIndex = i;
-                if (j == 1) --dotIndex;
+                goodChar = true;
             }
-            else return false;
+            else if (goodChar == false) return false;
         }
         unformatted = digits.toString();
-        if (dotIndex == -1 || (dotIndex != 0 && dotIndex == unformatted.length() - 3)) {
+        if (dotIndex != 0 && dotIndex == unformatted.length() - 3) {
             unformatted = unformatted.substring(0, dotIndex + 3);
-        } else return false;
+        } else if (dotIndex != -1) return false;
         try {
             goodBalance = Double.parseDouble(unformatted);
             return true;
