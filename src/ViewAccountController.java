@@ -109,6 +109,7 @@ public class ViewAccountController extends Controller {
  * public methods
 ***************************************************************************/
     public void initialize() {
+        // Accounts Tab
         nameCol.setCellValueFactory(new PropertyValueFactory("name"));
         balanceCol.setCellValueFactory(new PropertyValueFactory("bal"));
         phoneCol.setCellValueFactory(new PropertyValueFactory("phone"));
@@ -116,39 +117,39 @@ public class ViewAccountController extends Controller {
         uniFeesCol.setCellValueFactory(new PropertyValueFactory("universityFees"));
         creditFeesCol.setCellValueFactory(new PropertyValueFactory("creditCardFees"));
 
-
+        // (Transactions / Withdrawals / Deposits) Amount
         wTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         tTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         dTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
 
-        
+        // (Transactions / Deposits) Fees
         tTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
         dTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
 
+        // (Transactions / Withdrawals / Deposits) Code
         tTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
         wTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
-       
-
-        // Transaction Type Col
+        // TODO: dTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
         
-        
+        // (Transactions / Withdrawals / Deposits) Transaction Type
         wTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         tTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         dTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         
         
-        // Transaction Date Columns
+        // (Transactions / Withdrawals / Deposits) Date
         wTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
         tTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
         dTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
  
-        // Transaction ID Columns
+        // (Transactions / Withdrawals / Deposits) ID
         wTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
         tTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
         dTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
 
         // set default date for datepickers
-        makeDate = new DatePicker(LocalDate.now());
+        makeDate.setValue(LocalDate.now());
+        makeDate.setEditable(false);
         
         if (currentUser.hasAccount()) {
             updateAccData();
