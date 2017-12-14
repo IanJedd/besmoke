@@ -1,4 +1,6 @@
 package besmoke.src;
+import java.text.DecimalFormat;
+
 public class Valid {
     static String unformatted;
 
@@ -95,9 +97,10 @@ public class Valid {
             if (Character.isDigit(c)) {
                 digits.append(s);
             }
-            if (s.equals(".")) {
+            else if (s.equals(".")) {
                 digits.append(s);
                 dotIndex = i;
+                if (j == 1) --dotIndex;
             }
             else return false;
         }
@@ -113,6 +116,17 @@ public class Valid {
         }
     }
 
+    public static double round(double badRound)
+    {
+        double goodRound = 0.0000000000000000000000001;
+        try {
+            DecimalFormat format = new DecimalFormat(".##");
+            String balanceString = format.format(badRound);
+            goodRound = Double.valueOf(balanceString);
+        }
+        catch (Exception e){}
+    return goodRound;
+    }
     public static void main(String[] args) {
         Valid valid = new Valid();
 
@@ -141,9 +155,13 @@ public class Valid {
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
 
-        balance = "200.00";
+        balance = "$200.00";
         System.out.println("Good balance " + balance);
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
+
+        double round = 200.234234234;
+        System.out.println("Rounding test " + balance);
+        System.out.println(valid.round(round));
     }
 }
