@@ -115,7 +115,7 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="makeTransactionAmount" layoutX="170.0" layoutY="8.0" prefHeight="40.0" prefWidth="150.0" promptText="\$0.00" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="makeTransactionAmount" layoutX="170.0" layoutY="8.0" prefHeight="40.0" prefWidth="150.0" promptText="\$0.00" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
                         <Label layoutX="6.0" layoutY="8.0" prefHeight="40.0" prefWidth="120.0" text="Amount" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                         <Button fx:id="makeTransactionFinish" layoutX="10.0" layoutY="291.0" mnemonicParsing="false" onAction="#finishTransaction" prefHeight="40.0" prefWidth="80.0" text="Finish" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="320.0" />
                         <RadioButton fx:id="makeTransactionCheck" layoutX="11.0" layoutY="170.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Check Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="180.0">
@@ -123,11 +123,11 @@
                               <ToggleGroup fx:id="transactionType" />
                            </toggleGroup></RadioButton>
                         <RadioButton fx:id="makeTransactionWithdrawal" layoutX="10.0" layoutY="202.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Withdrawal" toggleGroup="$transactionType" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="210.0" />
-                        <TextArea fx:id="makeTransactionDescription" layoutX="170.0" layoutY="130.0" prefHeight="250.0" prefWidth="400.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="110.0" />
+                        <TextArea fx:id="makeTransactionDescription" layoutX="170.0" layoutY="130.0" prefHeight="250.0" prefWidth="400.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="110.0" />
                         <Label layoutX="11.0" layoutY="130.0" prefHeight="40.0" prefWidth="120.0" text="Description" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" />
                         <RadioButton fx:id="makeTransactionCredit" layoutX="10.0" layoutY="169.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Credit Deposit" toggleGroup="$transactionType" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0" />
                         <Label layoutX="10.0" layoutY="49.0" prefHeight="40.0" prefWidth="120.0" text="Code" AnchorPane.topAnchor="60.0" />
-                        <TextField id="makeNewCode" fx:id="makeTransactionAmount1" layoutX="170.0" layoutY="88.0" prefHeight="40.0" prefWidth="400.0" promptText="Expense Code" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="60.0" />
+                        <TextField id="makeNewCode" fx:id="makeTransactionAmount1" layoutX="170.0" layoutY="88.0" prefHeight="40.0" prefWidth="400.0" promptText="Expense Code" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="60.0" />
                         <DatePicker fx:id="makeDate" layoutX="361.0" layoutY="17.0" prefHeight="40.0" prefWidth="150.0" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="10.0" />
                         <Label layoutX="330.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" text="Date" AnchorPane.leftAnchor="330.0" AnchorPane.topAnchor="10.0" />
                         <RadioButton fx:id="makeFeeWithdrawal" layoutX="14.0" layoutY="282.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Fee Withdrawal" toggleGroup="$transactionType" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="240.0" />
@@ -139,7 +139,7 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField fx:id="editTransactionAmount" layoutX="170.0" layoutY="14.0" prefHeight="39.0" prefWidth="150.0" promptText="\$0.00" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="10.0" />
+                        <TextField fx:id="editTransactionAmount" layoutX="170.0" layoutY="14.0" prefHeight="39.0" prefWidth="150.0" promptText="\$0.00" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="10.0" />
                         <Label layoutX="11.0" layoutY="10.0" prefHeight="40.0" prefWidth="120.0" text="Amount" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0" />
                         <Button fx:id="finishTransaction1" layoutX="11.0" layoutY="289.0" mnemonicParsing="false" onAction="#finishTransaction" prefHeight="40.0" prefWidth="80.0" text="Finish" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="320.0" />
                         <RadioButton fx:id="editTransactionCheck" layoutX="11.0" layoutY="194.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Check Deposit" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="180.0">
@@ -148,14 +148,14 @@
                            </toggleGroup>
                         </RadioButton>
                         <RadioButton fx:id="editTransactionWithdrawal" layoutX="12.0" layoutY="221.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Withdrawal" toggleGroup="$transactionType1" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="210.0" />
-                        <TextArea fx:id="editTransactionDescription" layoutX="170.0" layoutY="129.0" prefHeight="250.0" prefWidth="400.0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="110.0" />
+                        <TextArea fx:id="editTransactionDescription" layoutX="170.0" layoutY="129.0" prefHeight="250.0" prefWidth="400.0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="110.0" />
                         <Label layoutX="12.0" layoutY="329.0" prefHeight="40.0" prefWidth="120.0" text="Transaction ID" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="370.0" />
                         <RadioButton fx:id="editTransactionCredit" layoutX="11.0" layoutY="167.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Credit Deposit" toggleGroup="$transactionType1" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="150.0" />
                         <Label layoutX="11.0" layoutY="49.0" prefHeight="40.0" prefWidth="120.0" text="Code" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
-                        <TextField fx:id="editTransactionID" layoutX="170.0" layoutY="329.0" prefHeight="40.0" prefWidth="150.0" promptText="0" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="370.0" />
+                        <TextField fx:id="editTransactionID" layoutX="170.0" layoutY="329.0" prefHeight="40.0" prefWidth="150.0" promptText="0" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="370.0" />
                         <Label layoutX="11.0" layoutY="128.0" prefHeight="40.0" prefWidth="120.0" text="Description" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" />
-                        <Button fx:id="editTransactionPopulate" layoutX="374.0" layoutY="329.0" mnemonicParsing="false" onAction="#finishTransaction" prefHeight="39.0" prefWidth="120.0" text="Populate" AnchorPane.leftAnchor="290.0" AnchorPane.topAnchor="370.0" />
-                        <TextField id="editNewCode" fx:id="editTransactionAmount1" layoutX="170.0" layoutY="89.0" prefHeight="39.0" prefWidth="400.0" promptText="Expense Code" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="60.0" />
+                        <Button fx:id="editTransactionPopulate" layoutX="374.0" layoutY="329.0" mnemonicParsing="false" onAction="#finishTransaction" prefHeight="39.0" prefWidth="120.0" text="Populate" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="370.0" />
+                        <TextField id="editNewCode" fx:id="editTransactionAmount1" layoutX="170.0" layoutY="89.0" prefHeight="39.0" prefWidth="400.0" promptText="Expense Code" AnchorPane.leftAnchor="140.0" AnchorPane.topAnchor="60.0" />
                         <RadioButton fx:id="editFeeWithdrawal" layoutX="22.0" layoutY="231.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Fee Withdrawal" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="240.0">
                            <toggleGroup>
                               <ToggleGroup fx:id="transactionType11" />
@@ -186,7 +186,7 @@
                 </Menu>
             </menus>
         </MenuBar>
-      <Label fx:id="accountName" layoutX="231.0" layoutY="483.0" prefHeight="49.0" prefWidth="171.0" text="Account Name" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="483.0" />
-      <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="196.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="10.0" />
+      <Label fx:id="accountName" layoutX="231.0" layoutY="483.0" prefHeight="10.0" prefWidth="171.0" text="Account Name" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" />
+      <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="196.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
     </children>
 </AnchorPane>
