@@ -114,18 +114,16 @@ public class Valid {
         }
     }
 
-    static double goodRound = 0.000000000000001;
-    public static boolean round(double badRound)
+    public static double round(double badRound)
     {
+        double goodRound = 0.0000000000000000000000001;
         try {
             DecimalFormat format = new DecimalFormat(".##");
             String balanceString = format.format(badRound);
             goodRound = Double.valueOf(balanceString);
-            return true;
         }
-        catch (Exception e){
-            return false;
-    }
+        catch (Exception e){}
+    return goodRound;
     }
     public static void main(String[] args) {
         Valid valid = new Valid();
