@@ -108,6 +108,8 @@ public class ViewAccountController extends Controller {
     private Button finishTransaction1, editTransactionPopulate, deleteCancel, deleteTransaction, populateCancel;
     @FXML
     private TextArea editTransactionDescription;
+    @FXML
+    private DatePicker editDate;
 
 
 /***************************************************************************
@@ -135,7 +137,11 @@ public class ViewAccountController extends Controller {
 
     }
 
-    public void finishDelete() {
+    public void delete() {
+
+    }
+
+    public void deleteConfirmed() {
 
     }
 
@@ -224,6 +230,7 @@ public class ViewAccountController extends Controller {
         // set default date for datepickers
         makeDate.setValue(LocalDate.now());
         makeDate.setEditable(false);
+        editDate.setEditable(false);
         
         if (currentUser.hasAccount()) {
             updateAccData();
