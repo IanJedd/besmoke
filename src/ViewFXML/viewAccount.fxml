@@ -81,7 +81,7 @@
                               <TableColumn fx:id="dTableTransCol" prefWidth="114.0" text="Transaction Type" />
                               <TableColumn fx:id="dTableDateCol" prefWidth="75.0" text="Date" />
                               <TableColumn fx:id="dTableIDCol" prefWidth="75.0" text="ID" />
-                              <TableColumn fx:id="dTableAmtCol" prefWidth="75.0" text="Amount" />
+                              <TableColumn fx:id="dTableAmtCol" prefWidth="75.0" text="Gross" />
                               <TableColumn fx:id="dTableFeesCol" prefWidth="75.0" text="Fees" />
                               <TableColumn fx:id="dTableDescriptionCol" prefWidth="599.0" text="Description" />
                            </columns>
@@ -103,13 +103,13 @@
                               <TableColumn fx:id="wTableDateCol" prefWidth="114.0" text="Date" />
                               <TableColumn fx:id="wTableTransCol" prefWidth="114.0" text="Transaction Type" />
                               <TableColumn fx:id="wTableIDCol" prefWidth="75.0" text="ID" />
-                              <TableColumn fx:id="wTableAmtCol" prefWidth="115.0" text="Amount" />
+                              <TableColumn fx:id="wTableAmtCol" prefWidth="115.0" text="Gross" />
                               <TableColumn fx:id="wTableCodeCol" prefWidth="104.0" text="Code" />
-                              <TableColumn fx:id="wTableDescriptionCol" prefWidth="491.0" text="Description" />
                               <TableColumn fx:id="wTableCodeCol1" prefWidth="104.0" text="Faculty Benefits" />
                               <TableColumn fx:id="wTableCodeCol2" prefWidth="104.0" text="Faculty Net" />
                               <TableColumn fx:id="wTableCodeCol21" prefWidth="104.0" text="Student Benefits" />
                               <TableColumn fx:id="wTableCodeCol22" prefWidth="104.0" text="Student Net" />
+                              <TableColumn fx:id="wTableDescriptionCol" prefWidth="491.0" text="Description" />
                            </columns>
                                 </TableView>
                             </children>
