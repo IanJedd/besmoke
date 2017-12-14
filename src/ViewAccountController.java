@@ -105,12 +105,9 @@ public class ViewAccountController extends Controller {
     @FXML
     private TextField editTransactionAmount, editTransactionCode, editTransactionID;
     @FXML
-    private Button finishTransaction1, editTransactionPopulate, deleteCancel, deleteTransaction, populateCancel, confirmDelete;
+    private Button editTransactionPopulate, deleteCancel, deleteTransaction, confirmDelete;
     @FXML
     private TextArea editTransactionDescription;
-    @FXML
-    private DatePicker editDate;
-
 
 /***************************************************************************
  * public methods
@@ -118,17 +115,20 @@ public class ViewAccountController extends Controller {
     // editTrans
     //
     private void lockFields() {
-        editTransactionAmount.setDisable(true);
-        editTransactionCode.setDisable(true);
         editTransactionID.setDisable(true);
     }
     private void unlockFields() {
-        editTransactionAmount.setDisable(false);
-        editTransactionCode.setDisable(false);
         editTransactionID.setDisable(false);
+    }
+    private void clearFields() {
+        editTransactionAmount.setText("");
+        editTransactionCode.setText("");
+        editTransactionID.setText("");
+        editTransactionDescription.setText("");
     }
 
     public void populateEditTrans() {
+        lockFields();
         String idStr = editTransactionID.getText();
         if (checkID(idStr)) {
             int id = Integer.parseInt(idStr);
@@ -142,8 +142,8 @@ public class ViewAccountController extends Controller {
             // handle new buttons
             editTransactionPopulate.setVisible(false);
             editTransactionPopulate.setDisable(true);
-            populateCancel.setVisible(true);
-            populateCancel.setDisable(false);
+            deleteTransaction.setVisible(true);
+            deleteTransaction.setDisable(false);
         }
     }
 
@@ -153,12 +153,11 @@ public class ViewAccountController extends Controller {
         confirmDelete.setDisable(true);
         deleteCancel.setVisible(false);
         deleteCancel.setDisable(true);
-        deleteTransaction.setVisible(true);
-        deleteTransaction.setDisable(false);
+        editTransactionPopulate.setVisible(true);
+        editTransactionPopulate.setDisable(false);
     }
 
     public void delete() {
-        lockFields();
         confirmDelete.setVisible(true);
         confirmDelete.setDisable(false);
         deleteCancel.setVisible(true);
@@ -168,32 +167,34 @@ public class ViewAccountController extends Controller {
     }
 
     public void deleteConfirmed() {
-        System.out.println("deleteConfirmed");
-
-    }
-
-    public void editTransaction() {
-        System.out.println("edit Transaction");
-    }
-
-    public void cancelPopulate() {
-        editTransactionID.setEditable(true);
-        editTransactionAmount.setText("");
-        editTransactionCode.setText("");
-        editTransactionDescription.setText("");
-        // handle new buttons
-        editTransactionPopulate.setDisable(false);
+        int id = Integer.parseInt(editTransactionID.getText());
+        Transaction initT = BeFinanced.getTransaction(id);
+        if ( initT.isDeleted() ) { return; }
+        initT.makeDeleted();
+        String delDesc = "Delete Transaction for transaction id: " + id;
+        Transaction deleter = new Transaction(initT.getType(), -initT.getAmount(), initT.getAccountName(), initT.getCode(), delDesc, LocalDate.now());
+        deleter.makeDeleted();
+        Account a = Account.getAccount(deleter.getAccountName());
+        a.processTransaction(deleter);
+        MasterAccount ma = BeFinanced.getMaster();
+        ma.processTransaction(deleter);
+        clearFields();
+        unlockFields();
+        confirmDelete.setVisible(false);
+        confirmDelete.setDisable(true);
+        deleteCancel.setVisible(false);
+        deleteCancel.setDisable(true);
         editTransactionPopulate.setVisible(true);
-        populateCancel.setDisable(true);
-        populateCancel.setVisible(false);
+        editTransactionPopulate.setDisable(false);
+        updateAccData();
+        updateTData();
     }
-
-
-
-
-
 
     public void initialize() {
+        
+        editTransactionAmount.setDisable(true);
+        editTransactionCode.setDisable(true);
+        editTransactionDescription.setDisable(true);
 
         // Accounts Tab
         nameCol.setCellValueFactory(new PropertyValueFactory("name"));
@@ -258,7 +259,6 @@ public class ViewAccountController extends Controller {
         // set default date for datepickers
         makeDate.setValue(LocalDate.now());
         makeDate.setEditable(false);
-        editDate.setEditable(false);
         
         if (currentUser.hasAccount()) {
             accountName.setText(BeFinanced.getUser().getAccounts()[0]);

@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.*;
 import java.time.LocalDate;
 public class Transaction implements Serializable {
+    private boolean deleted;
 	private TransType type;
 	private double amount;
     private double fees;
@@ -26,6 +27,7 @@ public class Transaction implements Serializable {
         if (type == TransType.WITHDRAWAL) { fees = 0.0; }
         else if (type == TransType.CHECK_DEPOSIT) {  fees = .08 * initAmount; }
         else { fees = .12 * initAmount; }
+        this.deleted = false;
 	}
 	
     public String getAccountName() { return accountName; }
@@ -38,6 +40,8 @@ public class Transaction implements Serializable {
     public double getFees() { return fees; }
     public String getStringDate() { return date.toString(); }
     public LocalDate getDate() { return date; }
+    public boolean isDeleted() { return deleted; }
+    public void makeDeleted() { deleted = true; }
 
     public boolean isDeposit() {
         switch(this.type) {
