@@ -34,6 +34,7 @@
                             <TableColumn fx:id="creditFeesCol" prefWidth="130.0" text="CreditCard Fees" />
                             <TableColumn fx:id="phoneCol" prefWidth="175.0" text="Phone" />
                             <TableColumn fx:id="emailCol" prefWidth="285.0" text="Email" />
+                              <TableColumn fx:id="descriptionCol" prefWidth="285.0" text="Description" />
                         </columns>
                         <items>
                             <FXCollections fx:factory="observableArrayList">
@@ -105,6 +106,10 @@
                               <TableColumn fx:id="wTableAmtCol" prefWidth="115.0" text="Amount" />
                               <TableColumn fx:id="wTableCodeCol" prefWidth="104.0" text="Code" />
                               <TableColumn fx:id="wTableDescriptionCol" prefWidth="491.0" text="Description" />
+                              <TableColumn fx:id="wTableCodeCol1" prefWidth="104.0" text="Faculty Benefits" />
+                              <TableColumn fx:id="wTableCodeCol2" prefWidth="104.0" text="Faculty Net" />
+                              <TableColumn fx:id="wTableCodeCol21" prefWidth="104.0" text="Student Benefits" />
+                              <TableColumn fx:id="wTableCodeCol22" prefWidth="104.0" text="Student Net" />
                            </columns>
                                 </TableView>
                             </children>
@@ -187,6 +192,6 @@
             </menus>
         </MenuBar>
       <Label fx:id="accountName" layoutX="231.0" layoutY="483.0" prefHeight="10.0" prefWidth="171.0" text="Account Name" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" />
-      <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="196.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
+      <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="126.66668701171875" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
     </children>
 </AnchorPane>
