@@ -16,8 +16,8 @@ public class BeFinanced extends Application {
     private final String SOFTWARE_NAME = "BeFinanced";
     private final int INIT_WIDTH = 400;
     private final int INIT_HEIGHT = 300;
-    private static besmoke.src.User cUser;
-    private static ArrayList<besmoke.src.Transaction> tList;
+    private static User cUser;
+    private static ArrayList<Transaction> tList;
     private static MasterAccount ma = MasterAccount.getMasterAccount();
 
     @Override
@@ -28,6 +28,13 @@ public class BeFinanced extends Application {
         updateScene(INIT_SCENE_FXML, INIT_WIDTH, INIT_HEIGHT);
         window.show();
     }
+
+    @Override
+    public void stop() {
+        System.out.println("saving");
+        cUser.logOut();
+    }
+
 
     public void updateScene(String fxmlFile, int width, int height) {
         try{

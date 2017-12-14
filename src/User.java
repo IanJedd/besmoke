@@ -135,7 +135,6 @@ public class User implements Serializable {
     }
 
     public void logOut() {
-        // TODO: Handle FinancialAccountSaving
         updateUserList(this);
     }
 
