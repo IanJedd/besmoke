@@ -1,16 +1,15 @@
 public class Valid {
-    static String goodPhone;
     static String unformatted;
-    public static boolean phone(String badPhone)
-    {
+
+    static String goodPhone = "";
+
+    public static boolean phone(String badPhone) {
         char c;
         String s;
         StringBuilder digits = new StringBuilder();
-        for (int i = 0; i < badPhone.length(); i++)
-        {
+        for (int i = 0; i < badPhone.length(); i++) {
             c = badPhone.charAt(i);
-            if (Character.isDigit(badPhone.charAt(i)))
-            {
+            if (Character.isDigit(badPhone.charAt(i))) {
                 s = String.valueOf(c);
                 digits.append(s);
             }
@@ -21,52 +20,44 @@ public class Valid {
         String area = "";
         String first = "";
         String last = "";
-        if (unformatted.length() == 11)
-        {
+        if (unformatted.length() == 11) {
             country = unformatted.substring(0, 1) + "-";
             unformatted = unformatted.substring(1, 11);
         }
-        if (unformatted.length() == 10)
-        {
+        if (unformatted.length() == 10) {
             area = unformatted.substring(0, 3) + "-";
             unformatted = unformatted.substring(3, 10);
         }
-        if (unformatted.length() == 7)
-        {
+        if (unformatted.length() == 7) {
             first = unformatted.substring(0, 3) + "-";
             last = unformatted.substring(3, 7);
             unformatted = "";
         }
         goodPhone = country + area + first + last;
         if (goodPhone.length() > 0) return true;
-        else
-        {
+        else {
             goodPhone = "";
             return false;
         }
     }
+
     static String goodEmail = "";
-    public static boolean email(String badEmail)
-    {
+
+    public static boolean email(String badEmail) {
         boolean at = false;
         int atIndex = 0;
         boolean dot = false;
         int dotIndex = 0;
-        if (badEmail.length() >= 5)
-        {
+        if (badEmail.length() >= 5) {
             char c;
             String s;
-            for (int i = 0; i < badEmail.length(); i++)
-            {
+            for (int i = 0; i < badEmail.length(); i++) {
                 c = badEmail.charAt(i);
                 s = String.valueOf(c);
-                if (s.equals("@"))
-                {
+                if (s.equals("@")) {
                     at = true;
                     atIndex = i;
-                }
-                else if (s.equals("."))
-                {
+                } else if (s.equals(".")) {
                     dot = true;
                     dotIndex = i;
                 }
@@ -76,19 +67,48 @@ public class Valid {
                 dot = false;
             }
         }
-        if(at && dot)
-        {
+        if (at && dot) {
             goodEmail = badEmail;
             return true;
-        }
-        else return false;
-    }
-    public static void main(String[] args)
-    {
-        Valid valid = new Valid();
-        String phone = "234";
-        String email = "it@.com";
+        } else return false;
 
+
+    }
+
+    static double goodBalance = 0.0;
+
+    public static boolean balance(String badBalance) {
+        char c;
+        String s;
+        int dotIndex = -1;
+        StringBuilder digits = new StringBuilder();
+        for (int i = 0; i < badBalance.length(); i++) {
+            c = badBalance.charAt(i);
+            s = String.valueOf(c);
+            if (Character.isDigit(badBalance.charAt(i))) {
+                digits.append(s);
+            }
+            if (s.equals(".")) {
+                digits.append(s);
+                dotIndex = i;
+            }
+        }
+        unformatted = digits.toString();
+        if (dotIndex == -1 || (dotIndex != 0 && dotIndex == unformatted.length() - 3)) {
+            unformatted = unformatted.substring(0, dotIndex + 3);
+        } else return false;
+        try {
+            goodBalance = Double.parseDouble(unformatted);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public static void main(String[] args) {
+        Valid valid = new Valid();
+
+        String phone = "234";
         System.out.println("Bad Phone " + phone);
         System.out.println(valid.phone(phone));
         System.out.println(valid.goodPhone);
@@ -98,6 +118,7 @@ public class Valid {
         System.out.println(valid.phone(phone));
         System.out.println(valid.goodPhone);
 
+        String email = "it@.com";
         System.out.println("Bad email " + email);
         System.out.println(valid.email(email));
         System.out.println(valid.goodEmail);
@@ -106,5 +127,15 @@ public class Valid {
         System.out.println("Good email " + email);
         System.out.println(valid.email(email));
         System.out.println(valid.goodEmail);
+
+        String balance = "200.0";
+        System.out.println("Bad balance " + balance);
+        System.out.println(valid.balance(balance));
+        System.out.println(valid.goodBalance);
+
+        balance = "200.00";
+        System.out.println("Good balance " + balance);
+        System.out.println(valid.balance(balance));
+        System.out.println(valid.goodBalance);
     }
 }
