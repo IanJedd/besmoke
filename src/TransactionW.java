@@ -7,6 +7,8 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class TransactionW {
+    private static final Double FACULTY_BEN_PERCENT = 0.25;
+    private static final Double STUDENT_BEN_PERCENT = 0.12;
 
     private StringProperty sType;
     private DoubleProperty amount;
@@ -18,6 +20,12 @@ public class TransactionW {
     private StringProperty date;
     private StringProperty accountName;
 
+    // Benefits Calculator
+    private DoubleProperty facultyBen;
+    private DoubleProperty studentBen;
+    private DoubleProperty facultyNet;
+    private DoubleProperty studentNet;
+
     public TransactionW(Transaction t) {
         sType = new SimpleStringProperty(t.getStringType());
         amount = new SimpleDoubleProperty(t.getAmount());
@@ -27,7 +35,14 @@ public class TransactionW {
         id = new SimpleIntegerProperty(t.getID());
         date = new SimpleStringProperty(t.getStringDate());
         accountName = new SimpleStringProperty(t.getAccountName());
-
+        
+        // Benefits Calculator
+        double fb = t.getAmount()*FACULTY_BEN_PERCENT;
+        double sb = t.getAmount()*STUDENT_BEN_PERCENT;
+        facultyBen = new SimpleDoubleProperty(fb);
+        studentBen = new SimpleDoubleProperty(sb);
+        facultyNet = new SimpleDoubleProperty(t.getAmount()-fb);
+        studentNet = new SimpleDoubleProperty(t.getAmount()-sb);
     }
 
     public boolean isDeposit() {
