@@ -20,8 +20,8 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="521.0" prefWidth="825.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="besmoke.src.ViewAccountController">
     <children>
-      <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="126.66668701171875" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="10.0" />
-      <Label fx:id="accountName" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="811.0" text="Account Name" AnchorPane.bottomAnchor="471.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" />
+      <Label fx:id="accountName" layoutX="14.0" layoutY="25.0" prefHeight="25.0" prefWidth="811.0" text="Account Name" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0" />
+      <Text layoutX="37.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Developed by Besmoke" wrappingWidth="126.66668701171875" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
         <MenuBar fx:id="menuBar" prefHeight="0.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <menus>
                 <Menu mnemonicParsing="false" text="File">
