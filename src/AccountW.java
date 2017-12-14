@@ -18,12 +18,12 @@ public class AccountW {
 
     public AccountW(Account a) {
         name = a.accountNameProperty();
-        bal = a.balanceProperty();
+        bal = Valid.round(a.balanceProperty());
         desc = a.descriptionProperty();
         phone = a.phoneProperty();
         email = a.emailProperty();
-        universityFees = a.universityFeesProperty();
-        creditCardFees = a.creditCardFeesProperty();
+        universityFees = Valid.round(a.universityFeesProperty());
+        creditCardFees = Valid.round(a.creditCardFeesProperty());
     }
 
     public StringProperty nameProperty() { return name; }
