@@ -83,7 +83,12 @@ public class Valid {
         String s;
         int dotIndex = -1;
         StringBuilder digits = new StringBuilder();
-        for (int i = 0; i < badBalance.length(); i++) {
+        int j = 0;
+        if (badBalance.substring(0, 1).equals("$"))
+        {
+            j++;
+        }
+        for ( int i=j; i < badBalance.length(); i++) {
             c = badBalance.charAt(i);
             s = String.valueOf(c);
             if (Character.isDigit(c)) {
@@ -93,7 +98,7 @@ public class Valid {
                 digits.append(s);
                 dotIndex = i;
             }
-            else if (!s.equals("$")) return false;
+            else return false;
         }
         unformatted = digits.toString();
         if (dotIndex == -1 || (dotIndex != 0 && dotIndex == unformatted.length() - 3)) {
