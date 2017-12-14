@@ -105,11 +105,7 @@ public class ViewAccountController extends Controller {
     @FXML
     private TextField editTransactionAmount, editTransactionCode, editTransactionID;
     @FXML
-    private Button finishTransaction1, editTransactionPopulate;
-    @FXML
-    private RadioButton editTransactionCheck, editTransactionWithdrawal, editTransactionCredit;
-    @FXML
-    private ToggleGroup transactionType1;
+    private Button finishTransaction1, editTransactionPopulate, deleteCancel, deleteTransaction, populateCancel;
     @FXML
     private TextArea editTransactionDescription;
 
@@ -124,14 +120,45 @@ public class ViewAccountController extends Controller {
             int id = Integer.parseInt(idStr);
             editTransactionID.setEditable(false);
             Transaction t = BeFinanced.getTransaction(id);
-            editTransactionAmount.setText(t.getAmount());
+            editTransactionAmount.setText(((Double)t.getAmount()).toString());
             editTransactionCode.setText(t.getCode());
-            // handle new buttons  
+            editTransactionDescription.setText(t.getDescription());
+            // handle new buttons
+            editTransactionPopulate.setDisable(true);
+            editTransactionPopulate.setVisible(false);
+            populateCancel.setDisable(false);
+            populateCancel.setVisible(true);
         }
     }
 
+    public void cancelDelete() {
 
-        int id = Integer.parseInt(
+    }
+
+    public void finishDelete() {
+
+    }
+
+    public void editTransaction() {
+
+    }
+
+    public void cancelPopulate() {
+        editTransactionID.setEditable(true);
+        editTransactionAmount.setText("");
+        editTransactionCode.setText("");
+        editTransactionDescription.setText("");
+        // handle new buttons
+        editTransactionPopulate.setDisable(false);
+        editTransactionPopulate.setVisible(true);
+        populateCancel.setDisable(true);
+        populateCancel.setVisible(false);
+    }
+
+
+
+
+
 
     public void initialize() {
         // Accounts Tab
