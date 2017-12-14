@@ -29,7 +29,7 @@ public class Account implements Serializable {
     public StringProperty accountNameProperty() { return new SimpleStringProperty(accountName); }
 
     public double getBalance() {return balance;}
-    public DoubleProperty balanceProperty() { return new SimpleDoubleProperty(balance); }
+    public DoubleProperty balanceProperty() { return new SimpleDoubleProperty(Valid.round(balance)); }
 
     public String getDescription() {return description;}
     public void setDescription(String s) { this.description = s; }
@@ -43,9 +43,9 @@ public class Account implements Serializable {
     public void setEmail(String s) { this.email = s; }
     public StringProperty emailProperty() { return new SimpleStringProperty(email); }
 
-    public DoubleProperty universityFeesProperty() { return new SimpleDoubleProperty(universityFees); }
+    public DoubleProperty universityFeesProperty() { return new SimpleDoubleProperty(Valid.round(universityFees)); }
 
-    public DoubleProperty creditCardFeesProperty() { return new SimpleDoubleProperty(creditCardFees); }
+    public DoubleProperty creditCardFeesProperty() { return new SimpleDoubleProperty(Valid.round(creditCardFees)); }
 
     
     // Balance Editors
