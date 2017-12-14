@@ -96,9 +96,10 @@ public class Valid {
             if (Character.isDigit(c)) {
                 digits.append(s);
             }
-            if (s.equals(".")) {
+            else if (s.equals(".")) {
                 digits.append(s);
                 dotIndex = i;
+                if (j == 1) --dotIndex;
             }
             else return false;
         }
@@ -153,19 +154,13 @@ public class Valid {
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
 
-        balance = "200.00";
+        balance = "$200.00";
         System.out.println("Good balance " + balance);
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
 
-        double round = 200.000;
-        System.out.println("Truncated rounding " + round);
+        double round = 200.234234234;
+        System.out.println("Rounding test " + balance);
         System.out.println(valid.round(round));
-        System.out.println(valid.goodRound);
-
-        round = 200.234234234;
-        System.out.println("Good rounding " + balance);
-        System.out.println(valid.round(round));
-        System.out.println(valid.goodRound);
     }
 }
