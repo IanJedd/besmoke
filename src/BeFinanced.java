@@ -18,6 +18,7 @@ public class BeFinanced extends Application {
     private final int INIT_HEIGHT = 300;
     private static besmoke.src.User cUser;
     private static ArrayList<besmoke.src.Transaction> tList;
+    private static MasterAccount ma = MasterAccount.getMasterAccount();
 
     @Override
     public void start(Stage primaryStage) {
@@ -37,6 +38,10 @@ public class BeFinanced extends Application {
         catch (Exception e) {
             System.out.println("Exception during Scene Update1: " + e);
         }
+    }
+
+    public static MasterAccount getMaster() {
+        return ma;
     }
 
     public static void setUser(User u) {

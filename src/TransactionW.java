@@ -6,7 +6,6 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-// TODO: HANDLE DATES
 public class TransactionW {
 
     private StringProperty sType;
@@ -17,6 +16,7 @@ public class TransactionW {
     private boolean isDeposit;
     private IntegerProperty id;
     private StringProperty date;
+    private StringProperty accountName;
 
     public TransactionW(Transaction t) {
         sType = new SimpleStringProperty(t.getStringType());
@@ -26,12 +26,16 @@ public class TransactionW {
         code = new SimpleStringProperty(t.getCode());
         id = new SimpleIntegerProperty(t.getID());
         date = new SimpleStringProperty(t.getStringDate());
+        accountName = new SimpleStringProperty(t.getAccountName());
 
     }
 
     public boolean isDeposit() {
         return this.isDeposit;
     }
+
+    public StringProperty accountNameProperty() { return accountName; }
+    public String getAccountName() { return accountNameProperty().get(); }
 
     public StringProperty codeProperty() { return code; }
     public String getCode() { return codeProperty().get(); }

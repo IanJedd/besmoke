@@ -65,6 +65,15 @@ public class ViewAccountController extends Controller {
     private Button makeTransactionFinish;
     @FXML
     private DatePicker makeDate;
+    // AllTransactions Tab
+    @FXML
+    private TableView<TransactionW> transactionTable1;
+    @FXML
+    private TableColumn<TransactionW, StringProperty> allTTableTransCol, allTTableDateCol, allTTableTypeCol, allTTableCodeCol, allTTableDescriptionCol, allTTableAccNameCol;
+    @FXML
+    private TableColumn<TransactionW, IntegerProperty> allTTableIDCol;
+    @FXML
+    private TableColumn<TransactionW, DoubleProperty> allTTableAmtCol, allTTableFeesCol;
     // Transactions Tab
     @FXML
     private TableView<TransactionW> transactionTable;
@@ -78,7 +87,7 @@ public class ViewAccountController extends Controller {
     @FXML
     private TableView<TransactionW> depositsTable;
     @FXML
-    private TableColumn<TransactionW, StringProperty> dTableTransCol, dTableDateCol, dTableDescriptionCol;
+    private TableColumn<TransactionW, StringProperty> dTableTransCol, dTableDateCol, dTableDescriptionCol, dTableCodeCol;
     @FXML
     private TableColumn<TransactionW, IntegerProperty> dTableIDCol;
     @FXML
@@ -121,31 +130,46 @@ public class ViewAccountController extends Controller {
         wTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         tTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         dTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
+        allTTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
+        
+        // (Transactions / Withdrawals / Deposits) Description
+        wTableAmtCol.setCellValueFactory(new PropertyValueFactory("desc"));
+        tTableAmtCol.setCellValueFactory(new PropertyValueFactory("desc"));
+        dTableAmtCol.setCellValueFactory(new PropertyValueFactory("desc"));
+        allTTableAmtCol.setCellValueFactory(new PropertyValueFactory("desc"));
 
         // (Transactions / Deposits) Fees
         tTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
         dTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
+        allTTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
 
         // (Transactions / Withdrawals / Deposits) Code
         tTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
         wTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
-        // TODO: dTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
+        allTTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
+        dTableCodeCol.setCellValueFactory(new PropertyValueFactory("code"));
         
         // (Transactions / Withdrawals / Deposits) Transaction Type
         wTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         tTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         dTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
+        allTTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         
         
         // (Transactions / Withdrawals / Deposits) Date
         wTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
         tTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
         dTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
+        allTTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
  
         // (Transactions / Withdrawals / Deposits) ID
         wTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
         tTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
         dTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
+        allTTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
+
+        // AllTransactions AccountName
+        allTTableAccNameCol.setCellValueFactory(new PropertyValueFactory("accountName"));
 
         // set default date for datepickers
         makeDate.setValue(LocalDate.now());
@@ -160,6 +184,8 @@ public class ViewAccountController extends Controller {
     
     public void finishTransaction(ActionEvent e) {
         RadioButton r = (RadioButton) transactionType.getSelectedToggle();
+        Transaction t;
+        MasterAccount ma = BeFinanced.getMaster();
         String rId = r.getId();
         String accName = currentUser.getAccounts()[0];
         String code = getMakeTransCode();
@@ -168,14 +194,20 @@ public class ViewAccountController extends Controller {
         double amt = Double.parseDouble(makeTransactionAmount.getText());
         SubAccount a = (SubAccount) Account.getAccount(currentUser.getAccounts()[0]);
         if (rId.equals("makeTransactionCheck")) {
-            a.processTransaction(new Transaction(TransType.CHECK_DEPOSIT, amt, accName, code, desc, date));
+            t = new Transaction(TransType.CHECK_DEPOSIT, amt, accName, code, desc, date);
+            a.processTransaction(t);
+            ma.processTransaction(t);
         }
-        if (rId.equals("makeTransactionCredit")) {
-            a.processTransaction(new Transaction(TransType.CC_DEPOSIT, amt, accName, code, desc, date));
+        else if (rId.equals("makeTransactionCredit")) {
+            t = new Transaction(TransType.CC_DEPOSIT, amt, accName, code, desc, date);
+            a.processTransaction(t);
+            ma.processTransaction(t);
         }
 
-        if (rId.equals("makeTransactionWithdrawal")) {
-            a.processTransaction(new Transaction(TransType.WITHDRAWAL, amt, accName, code, desc, date));
+        else if (rId.equals("makeTransactionWithdrawal")) {
+            t = new Transaction(TransType.WITHDRAWAL, amt, accName, code, desc, date);
+            a.processTransaction(t);
+            ma.processTransaction(t);
         }
         updateAccData();
         updateTData();
@@ -186,6 +218,7 @@ public class ViewAccountController extends Controller {
     private void updateAccData() {
         String[] accNames = currentUser.getAccounts();
         ObservableList<AccountW> aList = FXCollections.observableArrayList();
+        aList.add(new AccountW(BeFinanced.getMaster()));
         for(String name : accNames) {
             if (name != null) {
                 aList.add(new AccountW(Account.getAccount(name)));}
@@ -198,6 +231,10 @@ public class ViewAccountController extends Controller {
         ObservableList<TransactionW> tList = FXCollections.observableArrayList();
         ObservableList<TransactionW> dList = FXCollections.observableArrayList();
         ObservableList<TransactionW> wList = FXCollections.observableArrayList();
+        ObservableList<TransactionW> allTList = FXCollections.observableArrayList();
+        for(Transaction t : BeFinanced.getTList()) {
+            allTList.add(new TransactionW(t));
+        }
         for(Integer id : a.getTransactions()) {
             System.out.println(id);
             Transaction t = BeFinanced.getTransaction(id);
@@ -210,6 +247,7 @@ public class ViewAccountController extends Controller {
                 wList.add(tW);
             }
         }
+        transactionTable1.setItems(allTList);
         transactionTable.setItems(tList);
         withdrawalsTable.setItems(wList);
         depositsTable.setItems(dList);

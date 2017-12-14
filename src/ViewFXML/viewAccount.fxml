@@ -71,14 +71,14 @@
                      <children>
                         <TableView fx:id="transactionTable1" layoutX="251.0" layoutY="30.0" prefHeight="286.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
-                              <TableColumn fx:id="allTTableTransCol11" prefWidth="99.99999749660492" text="Account Name" />
-                              <TableColumn fx:id="allTTableDateCol1" prefWidth="50.00000762939453" text="Date" />
-                              <TableColumn fx:id="allTTableTransCol1" prefWidth="74.66666412353516" text="Type" />
-                              <TableColumn fx:id="allTTableIDCol1" prefWidth="76.66665649414062" text="ID" />
-                              <TableColumn fx:id="allTTableAmtCol1" prefWidth="127.0" text="Amount" />
-                              <TableColumn fx:id="allTTableFeesCol1" prefWidth="75.0" text="Fees" />
-                              <TableColumn fx:id="allTTableCodeCol1" prefWidth="109.0" text="Code" />
-                              <TableColumn fx:id="allTTableDescriptionCol1" prefWidth="363.0" text="Description" />
+                              <TableColumn fx:id="allTTableAccNameCol" prefWidth="99.99999749660492" text="Account Name" />
+                              <TableColumn fx:id="allTTableDateCol" prefWidth="50.00000762939453" text="Date" />
+                              <TableColumn fx:id="allTTableTransCol" prefWidth="74.66666412353516" text="Type" />
+                              <TableColumn fx:id="allTTableIDCol" prefWidth="76.66665649414062" text="ID" />
+                              <TableColumn fx:id="allTTableAmtCol" prefWidth="127.0" text="Amount" />
+                              <TableColumn fx:id="allTTableFeesCol" prefWidth="75.0" text="Fees" />
+                              <TableColumn fx:id="allTTableCodeCol" prefWidth="109.0" text="Code" />
+                              <TableColumn fx:id="allTTableDescriptionCol" prefWidth="363.0" text="Description" />
                            </columns>
                            <items>
                               <FXCollections fx:factory="observableArrayList" />
@@ -126,6 +126,7 @@
                               <TableColumn fx:id="dTableIDCol" prefWidth="75.0" text="ID" />
                               <TableColumn fx:id="dTableAmtCol" prefWidth="75.0" text="Gross" />
                               <TableColumn fx:id="dTableFeesCol" prefWidth="75.0" text="Fees" />
+                              <TableColumn fx:id="dTableCodeCol" prefWidth="114.0" text="Code" />
                               <TableColumn fx:id="dTableDescriptionCol" prefWidth="599.0" text="Description" />
                            </columns>
                                 </TableView>

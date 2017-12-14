@@ -65,6 +65,7 @@ public class CreateAccountController extends Controller {
             String desc = createAccountDescription.getText();
             String email = createAccountEmail.getText();
             SubAccount a = new SubAccount(name, balance, desc, phone, email);
+            BeFinanced.getMaster().processNewAccount(a);
             Account.addToAcctList(a);
             currentUser.addAccount(a);
             window = getEventWindow();
