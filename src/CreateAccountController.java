@@ -72,7 +72,7 @@ public class CreateAccountController extends Controller {
             updateScene(VIEW_ACCT, 600, 600);
         }
     }
-
+    String a = "a";
     private boolean checkFields() {
         String aName = createAccountName.getText();
         String aBalance = createAccountBalance.getText();
@@ -80,13 +80,21 @@ public class CreateAccountController extends Controller {
         String aDesc = createAccountDescription.getText();
         String aEmail = createAccountEmail.getText();
 
+        Valid valid = new Valid();
+
+        validPhone = valid.phone(aPhone);
+
+        validEmail = valid.email(aEmail);
+
+        validBalance = valid.balance(aBalance);
+
         if (Account.getAccount(aName) != null) {
             errorMessage.setText("An Account with this name already exists.\nYou must use a new name for account creation.");
             return false;
         }
 
-        if(aName.equals("") || aBalance.equals("") || aPhone.equals("") || aDesc.equals("") || aEmail.equals("")) {
-            errorMessage.setText("You must populate all fields.");
+        if(aName.equals("") || !validBalance || !validPhone || aDesc.equals("") || !validEmail) {
+            errorMessage.setText("All fields must exist and be valid.");
             return false;
         }
         try {
