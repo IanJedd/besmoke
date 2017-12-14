@@ -13,6 +13,8 @@ public class AccountW {
     private StringProperty desc;
     private StringProperty phone;
     private StringProperty email;
+    private DoubleProperty universityFees;
+    private DoubleProperty creditCardFees;
 
     public AccountW(Account a) {
         name = a.accountNameProperty();
@@ -20,6 +22,8 @@ public class AccountW {
         desc = a.descriptionProperty();
         phone = a.phoneProperty();
         email = a.emailProperty();
+        universityFees = a.universityFeesProperty();
+        creditCardFees = a.creditCardFeesProperty();
     }
 
     public StringProperty nameProperty() { return name; }
@@ -27,6 +31,12 @@ public class AccountW {
 
     public DoubleProperty balProperty() { return bal; }
     public double getBal() { return balProperty().doubleValue(); }
+
+    public DoubleProperty universityFeesProperty() { return universityFees; }
+    public double getUniversityFees() { return universityFeesProperty().doubleValue(); }
+
+    public DoubleProperty creditCardFeesProperty() { return creditCardFees; }
+    public double getCreditCardFees() { return creditCardFeesProperty().doubleValue(); }
 
     public StringProperty descProperty() { return desc; }
     public String getDesc() { return descProperty().get(); }

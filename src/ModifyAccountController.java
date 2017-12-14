@@ -13,7 +13,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import java.util.ArrayList;
 
-public class CreateAccountController extends Controller {
+public class ModifyAccountController extends Controller {
 /*****************************************************************************
  * Inherited instance variables
      User currentUser
@@ -41,54 +41,55 @@ public class CreateAccountController extends Controller {
 *****************************************************************************/ 
     // Create account
     @FXML
-    private TextField createAccountName;
+    private TextField AccountName;
     @FXML
-    private TextField createAccountBalance;
+    private TextField AccountBalance;
     @FXML
-    private TextField createAccountPhone;
+    private TextField AccountPhone;
     @FXML
-    private TextArea createAccountDescription;
+    private TextArea AccountDescription;
     @FXML
-    private TextField createAccountEmail;
+    private TextField AccountEmail;
     @FXML
-    private Button finishCreation;
+    private Button finishModify;
     @FXML
     private Label errorMessage;
 /***************************************************************************
  * public methods
 ***************************************************************************/
-    public void newFinAcct(ActionEvent e) {
+    public void initialize() {
+        System.out.println("initialize");
+        Account a = Account.getAccount(currentUser.getAccounts()[0]);
+        System.out.println(a);
+        AccountName.setText(a.getAccountName());
+        AccountName.setEditable(false);
+        Double b = (Double) a.getBalance();
+        AccountBalance.setText(b.toString());
+        AccountBalance.setEditable(false);
+        AccountPhone.setText(a.getPhone());
+        AccountEmail.setText(a.getEmail());
+        AccountDescription.setText(a.getDescription());
+    }
+
+    public void modifyAcct(ActionEvent e) {
         if (checkFields()) {
-            String name = createAccountName.getText();
-            double balance = Double.parseDouble(createAccountBalance.getText());
-            String phone = createAccountPhone.getText();
-            String desc = createAccountDescription.getText();
-            String email = createAccountEmail.getText();
-            SubAccount a = new SubAccount(name, balance, desc, phone, email);
-            Account.addToAcctList(a);
-            currentUser.addAccount(a);
+            Account a = Account.getAccount(currentUser.getAccounts()[0]); 
+            a.setPhone(AccountPhone.getText());
+            a.setDescription(AccountDescription.getText());
+            a.setEmail(AccountEmail.getText());
+            Account.updateAcctList(a);
             window = getEventWindow();
             updateScene(VIEW_ACCT, 600, 600);
         }
     }
 
     private boolean checkFields() {
-        String aName = createAccountName.getText();
-        String aBalance = createAccountBalance.getText();
-        String aPhone = createAccountPhone.getText();
-        String aDesc = createAccountDescription.getText();
-        String aEmail = createAccountEmail.getText();
+        String aPhone = AccountPhone.getText();
+        String aDesc = AccountDescription.getText();
+        String aEmail = AccountEmail.getText();
 
-        if(aName.equals("") || aBalance.equals("") || aPhone.equals("") || aDesc.equals("") || aEmail.equals("")) {
+        if(aPhone.equals("") || aDesc.equals("") || aEmail.equals("")) {
             errorMessage.setText("You must populate all fields.");
-            return false;
-        }
-        try {
-            Double.parseDouble(aBalance);
-        }
-        catch (Exception ex) {
-            System.out.println(ex);
-            errorMessage.setText("Balance must be numeric.");
             return false;
         }
         // TODO: implement more checks (is anyone good with Regular Expressions?)

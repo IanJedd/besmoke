@@ -50,12 +50,12 @@ public class ViewAccountController extends Controller {
     @FXML
     private TableColumn<AccountW, StringProperty> nameCol, phoneCol, emailCol;
     @FXML
-    private TableColumn<AccountW, DoubleProperty> balanceCol, feesCol;
+    private TableColumn<AccountW, DoubleProperty> balanceCol, uniFeesCol, creditFeesCol;
     // Transaction tab
     @FXML
     private ToggleGroup transactionType;
     @FXML
-    private TextField makeTransactionAmount, makeTransactionCode;
+    private TextField makeTransactionAmount, makeTransactionCode, makeTransactionAmount1;
     @FXML
     private RadioButton makeTransactionCheck, makeTransactionWithdrawal, makeTransactionCredit;
     @FXML
@@ -66,21 +66,27 @@ public class ViewAccountController extends Controller {
     @FXML
     private TableView<TransactionW> transactionTable;
     @FXML
-    private TableColumn<TransactionW, StringProperty> tTableTransCol, tTableDateCol, tTableTypeCol, tTableCodeCol, tTableDescriptionCol, tTableIDCol;
+    private TableColumn<TransactionW, StringProperty> tTableTransCol, tTableDateCol, tTableTypeCol, tTableCodeCol, tTableDescriptionCol;
+    @FXML
+    private TableColumn<TransactionW, IntegerProperty> tTableIDCol;
     @FXML
     private TableColumn<TransactionW, DoubleProperty> tTableAmtCol, tTableFeesCol;
     // Deposits Tab
     @FXML
     private TableView<TransactionW> depositsTable;
     @FXML
-    private TableColumn<TransactionW, StringProperty> dTableTransCol, dTableDateCol, dTableIDCol, dTableDescriptionCol;
+    private TableColumn<TransactionW, StringProperty> dTableTransCol, dTableDateCol, dTableDescriptionCol;
+    @FXML
+    private TableColumn<TransactionW, IntegerProperty> dTableIDCol;
     @FXML
     private TableColumn<TransactionW, DoubleProperty> dTableAmtCol, dTableFeesCol;
     // Withdrawal tab
     @FXML
-    private TableView<TransactionW> withdrawlsTable;
+    private TableView<TransactionW> withdrawalsTable;
     @FXML
-    private TableColumn<TransactionW, StringProperty> wTableTransCol, wTableDateCol, wTableIDCol, wTableCodeCol, wTableDescriptionCol;
+    private TableColumn<TransactionW, StringProperty> wTableTransCol, wTableDateCol, wTableCodeCol, wTableDescriptionCol;
+    @FXML
+    private TableColumn<TransactionW, IntegerProperty> wTableIDCol;
     @FXML
     private TableColumn<TransactionW, DoubleProperty> wTableAmtCol;
     // Edit Transaction Tab
@@ -104,32 +110,37 @@ public class ViewAccountController extends Controller {
         balanceCol.setCellValueFactory(new PropertyValueFactory("bal"));
         phoneCol.setCellValueFactory(new PropertyValueFactory("phone"));
         emailCol.setCellValueFactory(new PropertyValueFactory("email"));
-       // feesCol.setCellValueFactory(new PropertyValueFactory("fees"));
+        uniFeesCol.setCellValueFactory(new PropertyValueFactory("universityFees"));
+        creditFeesCol.setCellValueFactory(new PropertyValueFactory("creditCardFees"));
 
 
         wTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         tTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         dTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
 
+        
+        tTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
+        dTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
+       
+
         // Transaction Type Col
         
-        /*
+        
         wTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         tTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         dTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         
-
+        /*
         // Transaction Date Columns
         wTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
         tTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
         dTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
-        
-        // Transaction ID Columns
-        wTableIDCol.setCellValueFactory(new PropertyValueFactory("amount"));
-        tTableIDCol.setCellValueFactory(new PropertyValueFactory("amount"));
-        dTableIDCol.setCellValueFactory(new PropertyValueFactory("amount"));
-        
         */
+        // Transaction ID Columns
+        wTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
+        tTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
+        dTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
+        
         if (currentUser.hasAccount()) {
             updateAccData();
             System.out.println("here");
@@ -140,15 +151,23 @@ public class ViewAccountController extends Controller {
     
     public void finishTransaction(ActionEvent e) {
         RadioButton r = (RadioButton) transactionType.getSelectedToggle();
+        String rId = r.getId();
         String accName = currentUser.getAccounts()[0];
-        String code = "code place holder";
-        String desc = "desc place holder";
+        String code = getMakeTransCode();
+        String desc = makeTransactionDescription.getText();
         double amt = Double.parseDouble(makeTransactionAmount.getText());
         SubAccount a = (SubAccount) Account.getAccount(currentUser.getAccounts()[0]);
-        if (r == makeTransactionCheck || r == makeTransactionCredit ) {
+        if (rId.equals("makeTransactionCheck")) {
+            System.out.println("check deposit");
             a.processTransaction(new Transaction(TransType.CHECK_DEPOSIT, amt, accName, code, desc));
         }
-        else {
+        if (rId.equals("makeTransactionCredit")) {
+            System.out.println("credit deposit");
+            a.processTransaction(new Transaction(TransType.CC_DEPOSIT, amt, accName, code, desc));
+        }
+
+        if (rId.equals("makeTransactionWithdrawal")) {
+            System.out.println("Withdrawal");
             a.processTransaction(new Transaction(TransType.WITHDRAWAL, amt, accName, code, desc));
         }
         updateAccData();
@@ -173,6 +192,7 @@ public class ViewAccountController extends Controller {
         ObservableList<TransactionW> dList = FXCollections.observableArrayList();
         ObservableList<TransactionW> wList = FXCollections.observableArrayList();
         for(Integer id : a.getTransactions()) {
+            System.out.println(id);
             Transaction t = BeFinanced.getTransaction(id);
             TransactionW tW = new TransactionW(t);
             tList.add(tW);
@@ -184,8 +204,16 @@ public class ViewAccountController extends Controller {
             }
         }
         transactionTable.setItems(tList);
-        withdrawlsTable.setItems(wList);
+        withdrawalsTable.setItems(wList);
         depositsTable.setItems(dList);
     }
+
+    private String getMakeTransCode() {
+        String retVal;
+        // TODO: deal with combo box first if we can get that up and running
+        retVal = makeTransactionAmount1.getText();
+        return retVal;
+    }
+
 
 }

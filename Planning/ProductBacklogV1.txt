@@ -1,0 +1,30 @@
+70% TODO list:
+    - Handle Dates and Codes for transactions:
+        - I would deal with adding these to Transaction.java
+        - handle it as well in the controller for creating transactions
+        - finally I would pass them as String Properties to the wrapper class
+        - this may need some view updating as well
+
+80% TODO list:
+    - Let's complete the 70% stuff first!
+    - Entire Account Balance:
+        - implement the MasterAccount class... this shouldn't be too hard.
+    - benefits calculator:
+        - we need a view:
+            - field to enter a dollar amount
+            - radio button to select student/faculty
+            - button to process field and display the appropriate value
+        - we need a controller:
+            - it needs access to the textfield, radio group, and one method for calculating benefits.... no interaction with the model here
+
+    - Users Guide... I believe we have the html done, and just need to figure out how to launch it in a browser when selected
+    - drop down list for codes: what are the codes? we need that and to populate it
+        - populating codes should be done in the appropriate initialize() controller method
+
+    - information is loaded on startup and saved during execution or shutdown:
+        - we mostly have this, logging out saves everything, we just need to duplicate that functionality a bit further
+
+    - Won't accept invalid data in fields: 
+        - who knows regular expressions?
+
+
