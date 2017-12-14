@@ -16,8 +16,8 @@ public class BeFinanced extends Application {
     private final String SOFTWARE_NAME = "BeFinanced";
     private final int INIT_WIDTH = 400;
     private final int INIT_HEIGHT = 300;
-    private static User cUser;
-    private static ArrayList<Transaction> tList;
+    private static besmoke.src.User cUser;
+    private static ArrayList<besmoke.src.Transaction> tList;
 
     @Override
     public void start(Stage primaryStage) {
