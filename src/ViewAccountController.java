@@ -135,6 +135,8 @@ public class ViewAccountController extends Controller {
             editTransactionID.setEditable(false);
             Transaction t = BeFinanced.getTransaction(id);
             editTransactionAmount.setText(((Double)t.getAmount()).toString());
+            System.out.println(t);
+            System.out.println(t.getCode());
             editTransactionCode.setText(t.getCode());
             editTransactionDescription.setText(t.getDescription());
             // handle new buttons

@@ -196,7 +196,7 @@
                         <Label layoutX="11.0" layoutY="49.0" prefHeight="40.0" prefWidth="120.0" text="Code" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="60.0" />
                         <TextField fx:id="editTransactionID" layoutX="170.0" layoutY="329.0" prefHeight="40.0" prefWidth="70.0" promptText="0" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="370.0" />
                         <Label layoutX="11.0" layoutY="128.0" prefHeight="40.0" prefWidth="120.0" text="Description" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="110.0" />
-                        <TextField id="editNewCode" fx:id="editTransactionAmount1" layoutX="170.0" layoutY="89.0" prefHeight="40.0" prefWidth="400.0" promptText="Expense Code" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="60.0" />
+                        <TextField id="editNewCode" fx:id="editTransactionCode" layoutX="170.0" layoutY="89.0" prefHeight="40.0" prefWidth="400.0" promptText="Expense Code" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="60.0" />
                         <Label layoutX="330.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" text="Date" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="10.0" />
                         <DatePicker fx:id="editDate" layoutX="435.0" layoutY="36.0" prefHeight="40.0" prefWidth="150.0" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="10.0" />
                         <Button fx:id="editTransactionPopulate" layoutX="250.0" layoutY="370.0" mnemonicParsing="false" onAction="#populateEditTrans" prefHeight="39.0" prefWidth="70.0" text="Populate" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="370.0" />
