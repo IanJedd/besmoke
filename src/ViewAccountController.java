@@ -105,7 +105,7 @@ public class ViewAccountController extends Controller {
     @FXML
     private TextField editTransactionAmount, editTransactionCode, editTransactionID;
     @FXML
-    private Button finishTransaction1, editTransactionPopulate, deleteCancel, deleteTransaction, populateCancel;
+    private Button finishTransaction1, editTransactionPopulate, deleteCancel, deleteTransaction, populateCancel, confirmDelete;
     @FXML
     private TextArea editTransactionDescription;
     @FXML
@@ -116,6 +116,18 @@ public class ViewAccountController extends Controller {
  * public methods
 ***************************************************************************/
     // editTrans
+    //
+    private void lockFields() {
+        editTransactionAmount.setDisable(true);
+        editTransactionCode.setDisable(true);
+        editTransactionID.setDisable(true);
+    }
+    private void unlockFields() {
+        editTransactionAmount.setDisable(false);
+        editTransactionCode.setDisable(false);
+        editTransactionID.setDisable(false);
+    }
+
     public void populateEditTrans() {
         String idStr = editTransactionID.getText();
         if (checkID(idStr)) {
@@ -134,19 +146,32 @@ public class ViewAccountController extends Controller {
     }
 
     public void cancelDelete() {
-
+        unlockFields();
+        confirmDelete.setVisible(false);
+        confirmDelete.setDisable(true);
+        deleteCancel.setVisible(false);
+        deleteCancel.setDisable(true);
+        deleteTransaction.setVisible(true);
+        deleteTransaction.setDisable(false);
     }
 
     public void delete() {
-
+        lockFields();
+        confirmDelete.setVisible(true);
+        confirmDelete.setDisable(false);
+        deleteCancel.setVisible(true);
+        deleteCancel.setDisable(false);
+        deleteTransaction.setVisible(false);
+        deleteTransaction.setDisable(true);
     }
 
     public void deleteConfirmed() {
+        System.out.println("deleteConfirmed");
 
     }
 
     public void editTransaction() {
-
+        System.out.println("edit Transaction");
     }
 
     public void cancelPopulate() {

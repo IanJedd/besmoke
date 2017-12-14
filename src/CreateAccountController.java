@@ -60,7 +60,7 @@ public class CreateAccountController extends Controller {
     public void newFinAcct(ActionEvent e) {
         if (checkFields()) {
             String name = createAccountName.getText();
-            double balance = Double.parseDouble(createAccountBalance.getText());
+            double balance = Valid.goodBalance;
             String phone = createAccountPhone.getText();
             String desc = createAccountDescription.getText();
             String email = createAccountEmail.getText();
@@ -96,15 +96,6 @@ public class CreateAccountController extends Controller {
             errorMessage.setText("All fields must exist and be valid.");
             return false;
         }
-        try {
-            Double.parseDouble(aBalance);
-        }
-        catch (Exception ex) {
-            System.out.println(ex);
-            errorMessage.setText("Balance must be numeric.");
-            return false;
-        }
-        // TODO: implement more checks (is anyone good with Regular Expressions?)
         return true;
     }
 
