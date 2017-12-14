@@ -16,7 +16,7 @@ public class TransactionW {
     private StringProperty code;
     private boolean isDeposit;
     private IntegerProperty id;
-    // private StringProperty date;
+    private StringProperty date;
 
     public TransactionW(Transaction t) {
         sType = new SimpleStringProperty(t.getStringType());
@@ -25,13 +25,16 @@ public class TransactionW {
         desc = new SimpleStringProperty(t.getDescription());
         code = new SimpleStringProperty(t.getCode());
         id = new SimpleIntegerProperty(t.getID());
-        // date = new SimpleStringProperty(t.getStringDate());
+        date = new SimpleStringProperty(t.getStringDate());
 
     }
 
     public boolean isDeposit() {
         return this.isDeposit;
     }
+
+    public StringProperty dateProperty() { return date; }
+    public String getDate() { return dateProperty().get(); }
 
     public StringProperty sTypeProperty() { return sType; }
     public String getSType() { return sTypeProperty().get(); }

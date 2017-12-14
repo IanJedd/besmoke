@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import java.util.ArrayList;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.*;
+import java.time.LocalDate;
 
 public class ViewAccountController extends Controller {
 /*****************************************************************************
@@ -57,11 +58,13 @@ public class ViewAccountController extends Controller {
     @FXML
     private TextField makeTransactionAmount, makeTransactionCode, makeTransactionAmount1;
     @FXML
-    private RadioButton makeTransactionCheck, makeTransactionWithdrawal, makeTransactionCredit;
+    private RadioButton makeTransactionCheck, makeTransactionWithdrawal, makeTransactionCredit, makeFeeWithdrawal;
     @FXML
     private TextArea makeTransactionDescription;
     @FXML
     private Button makeTransactionFinish;
+    @FXML
+    private DatePicker makeDate;
     // Transactions Tab
     @FXML
     private TableView<TransactionW> transactionTable;
@@ -130,16 +133,20 @@ public class ViewAccountController extends Controller {
         tTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         dTableTransCol.setCellValueFactory(new PropertyValueFactory("sType"));
         
-        /*
+        
         // Transaction Date Columns
-        wTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
-        tTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
-        dTableDateCol.setCellValueFactory(new PropertyValueFactory("amount"));
-        */
+        wTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
+        tTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
+        dTableDateCol.setCellValueFactory(new PropertyValueFactory("date"));
+ 
         // Transaction ID Columns
         wTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
         tTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
         dTableIDCol.setCellValueFactory(new PropertyValueFactory("id"));
+
+        // set default date for datepickers
+        makeDate = new DatePicker(LocalDate.now());
+
         
         if (currentUser.hasAccount()) {
             updateAccData();
@@ -155,20 +162,21 @@ public class ViewAccountController extends Controller {
         String accName = currentUser.getAccounts()[0];
         String code = getMakeTransCode();
         String desc = makeTransactionDescription.getText();
+        LocalDate date = makeDate.getValue();
         double amt = Double.parseDouble(makeTransactionAmount.getText());
         SubAccount a = (SubAccount) Account.getAccount(currentUser.getAccounts()[0]);
         if (rId.equals("makeTransactionCheck")) {
             System.out.println("check deposit");
-            a.processTransaction(new Transaction(TransType.CHECK_DEPOSIT, amt, accName, code, desc));
+            a.processTransaction(new Transaction(TransType.CHECK_DEPOSIT, amt, accName, code, desc, date));
         }
         if (rId.equals("makeTransactionCredit")) {
             System.out.println("credit deposit");
-            a.processTransaction(new Transaction(TransType.CC_DEPOSIT, amt, accName, code, desc));
+            a.processTransaction(new Transaction(TransType.CC_DEPOSIT, amt, accName, code, desc, date));
         }
 
         if (rId.equals("makeTransactionWithdrawal")) {
             System.out.println("Withdrawal");
-            a.processTransaction(new Transaction(TransType.WITHDRAWAL, amt, accName, code, desc));
+            a.processTransaction(new Transaction(TransType.WITHDRAWAL, amt, accName, code, desc, date));
         }
         updateAccData();
         updateTData();

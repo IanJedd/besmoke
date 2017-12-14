@@ -1,23 +1,24 @@
 package besmoke.src;
 import java.util.*;
 import java.io.*;
+import java.time.LocalDate;
 public class Transaction implements Serializable {
 	private TransType type;
 	private double amount;
     private double fees;
     private final int id;
     private String accountName;
-    private Date date;
+    private LocalDate date;
     private String code;
     private String description;
     private static final String DATA = "./besmoke/src/Data/transactions.ser";
 
-	public Transaction(TransType initType, double initAmount, String accountName, String code, String description) {
+	public Transaction(TransType initType, double initAmount, String accountName, String code, String description, LocalDate date) {
 		type = initType;
 		amount = initAmount;
         this.accountName = accountName;
         this.code = code;
-        this.date = new Date();
+        this.date = date;
         this.description = description;
         this.id = BeFinanced.getTList().size();
         addToTransactionList(this);
@@ -35,6 +36,8 @@ public class Transaction implements Serializable {
     public int getID() { return id; }
     public String getDescription() { return description; }
     public double getFees() { return fees; }
+    public String getStringDate() { return date.toString(); }
+    public LocalDate getDate() { return date; }
 
     public boolean isDeposit() {
         switch(this.type) {
