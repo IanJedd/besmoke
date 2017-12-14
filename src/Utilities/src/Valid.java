@@ -114,10 +114,16 @@ public class Valid {
         }
     }
 
-    public static boolean round(double badBalance)
+    public static double round(double badRound)
     {
-        DecimalFormat format = new DecimalFormat("##.00");
-        String format.format()
+        double goodRound = 0.0000000000000000000000001;
+        try {
+            DecimalFormat format = new DecimalFormat(".##");
+            String balanceString = format.format(badRound);
+            goodRound = Double.valueOf(balanceString);
+        }
+        catch (Exception e){}
+    return goodRound;
     }
     public static void main(String[] args) {
         Valid valid = new Valid();
@@ -151,5 +157,15 @@ public class Valid {
         System.out.println("Good balance " + balance);
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
+
+        double round = 200.000;
+        System.out.println("Truncated rounding " + round);
+        System.out.println(valid.round(round));
+        System.out.println(valid.goodRound);
+
+        round = 200.234234234;
+        System.out.println("Good rounding " + balance);
+        System.out.println(valid.round(round));
+        System.out.println(valid.goodRound);
     }
 }

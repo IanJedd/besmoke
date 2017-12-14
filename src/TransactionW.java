@@ -28,8 +28,8 @@ public class TransactionW {
 
     public TransactionW(Transaction t) {
         sType = new SimpleStringProperty(t.getStringType());
-        amount = new SimpleDoubleProperty(t.getAmount());
-        fees = new SimpleDoubleProperty(t.getFees());
+        amount = new SimpleDoubleProperty(Valid.round(t.getAmount()));
+        fees = new SimpleDoubleProperty(Valid.round(t.getFees()));
         desc = new SimpleStringProperty(t.getDescription());
         code = new SimpleStringProperty(t.getCode());
         id = new SimpleIntegerProperty(t.getID());
@@ -39,10 +39,10 @@ public class TransactionW {
         // Benefits Calculator
         double fb = t.getAmount()*FACULTY_BEN_PERCENT;
         double sb = t.getAmount()*STUDENT_BEN_PERCENT;
-        facultyBen = new SimpleDoubleProperty(fb);
-        studentBen = new SimpleDoubleProperty(sb);
-        facultyNet = new SimpleDoubleProperty(t.getAmount()-fb);
-        studentNet = new SimpleDoubleProperty(t.getAmount()-sb);
+        facultyBen = new SimpleDoubleProperty(Valid.round(fb));
+        studentBen = new SimpleDoubleProperty(Valid.round(sb));
+        facultyNet = new SimpleDoubleProperty(Valid.round(t.getAmount()-fb));
+        studentNet = new SimpleDoubleProperty(Valid.round(t.getAmount()-sb));
     }
 
     public boolean isDeposit() {
