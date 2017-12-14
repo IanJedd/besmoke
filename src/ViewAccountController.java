@@ -49,7 +49,7 @@ public class ViewAccountController extends Controller {
     @FXML
     private TableView<AccountW> tableAccData;
     @FXML
-    private TableColumn<AccountW, StringProperty> nameCol, phoneCol, emailCol;
+    private TableColumn<AccountW, StringProperty> nameCol, phoneCol, emailCol, descriptionCol;
     @FXML
     private TableColumn<AccountW, DoubleProperty> balanceCol, uniFeesCol, creditFeesCol;
     // Transaction tab
@@ -125,6 +125,7 @@ public class ViewAccountController extends Controller {
         emailCol.setCellValueFactory(new PropertyValueFactory("email"));
         uniFeesCol.setCellValueFactory(new PropertyValueFactory("universityFees"));
         creditFeesCol.setCellValueFactory(new PropertyValueFactory("creditCardFees"));
+        descriptionCol.setCellValueFactory(new PropertyValueFactory("desc"));
 
         // (Transactions / Withdrawals / Deposits) Amount
         wTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
@@ -133,10 +134,10 @@ public class ViewAccountController extends Controller {
         allTTableAmtCol.setCellValueFactory(new PropertyValueFactory("amount"));
         
         // (Transactions / Withdrawals / Deposits) Description
-        wTableAmtCol.setCellValueFactory(new PropertyValueFactory("desc"));
-        tTableAmtCol.setCellValueFactory(new PropertyValueFactory("desc"));
-        dTableAmtCol.setCellValueFactory(new PropertyValueFactory("desc"));
-        allTTableAmtCol.setCellValueFactory(new PropertyValueFactory("desc"));
+        wTableDescriptionCol.setCellValueFactory(new PropertyValueFactory("desc"));
+        tTableDescriptionCol.setCellValueFactory(new PropertyValueFactory("desc"));
+        dTableDescriptionCol.setCellValueFactory(new PropertyValueFactory("desc"));
+        allTTableDescriptionCol.setCellValueFactory(new PropertyValueFactory("desc"));
 
         // (Transactions / Deposits) Fees
         tTableFeesCol.setCellValueFactory(new PropertyValueFactory("fees"));
