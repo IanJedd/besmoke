@@ -81,11 +81,11 @@ public class CreateAccountController extends Controller {
 
         Valid valid = new Valid();
 
-        validPhone = valid.phone(aPhone);
+        boolean validPhone = valid.phone(aPhone);
 
-        validEmail = valid.email(aEmail);
+        boolean validEmail = valid.email(aEmail);
 
-        validBalance = valid.balance(aBalance);
+        boolean validBalance = valid.balance(aBalance);
 
         if (Account.getAccount(aName) != null) {
             errorMessage.setText("An Account with this name already exists.\nYou must use a new name for account creation.");

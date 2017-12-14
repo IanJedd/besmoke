@@ -180,8 +180,6 @@ public class Account implements Serializable {
     
     public static void createInitialAccountList() {
         ArrayList<Account> accounts = new ArrayList<Account>();
-        Account a = new Account("test", 500.0, "", "", "");
-        accounts.add(a);
         try {
             FileOutputStream fOut = new FileOutputStream("./besmoke/src/Data/accounts.ser");
             ObjectOutputStream oOut = new ObjectOutputStream(fOut);

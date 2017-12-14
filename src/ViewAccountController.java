@@ -100,7 +100,7 @@ public class ViewAccountController extends Controller {
     @FXML
     private TableColumn<TransactionW, IntegerProperty> wTableIDCol;
     @FXML
-    private TableColumn<TransactionW, DoubleProperty> wTableAmtCol;
+    private TableColumn<TransactionW, DoubleProperty> wTableAmtCol, wTableFBen, wTableFNet, wTableSBen, wTableSNet;
     // Edit Transaction Tab
     @FXML
     private TextField editTransactionAmount, editTransactionCode, editTransactionID;
@@ -171,6 +171,12 @@ public class ViewAccountController extends Controller {
 
         // AllTransactions AccountName
         allTTableAccNameCol.setCellValueFactory(new PropertyValueFactory("accountName"));
+
+        // Withdrawals Benefits Calculator
+        wTableFBen.setCellValueFactory(new PropertyValueFactory("facultyBen"));
+        wTableSBen.setCellValueFactory(new PropertyValueFactory("studentBen"));
+        wTableFNet.setCellValueFactory(new PropertyValueFactory("facultyNet"));
+        wTableSNet.setCellValueFactory(new PropertyValueFactory("studentNet"));
 
         // set default date for datepickers
         makeDate.setValue(LocalDate.now());

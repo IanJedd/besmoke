@@ -149,10 +149,10 @@
                               <TableColumn fx:id="wTableIDCol" prefWidth="75.0" text="ID" />
                               <TableColumn fx:id="wTableAmtCol" prefWidth="115.0" text="Gross" />
                               <TableColumn fx:id="wTableCodeCol" prefWidth="104.0" text="Code" />
-                              <TableColumn fx:id="wTableCodeCol1" prefWidth="104.0" text="Faculty Benefits" />
-                              <TableColumn fx:id="wTableCodeCol2" prefWidth="104.0" text="Faculty Net" />
-                              <TableColumn fx:id="wTableCodeCol21" prefWidth="104.0" text="Student Benefits" />
-                              <TableColumn fx:id="wTableCodeCol22" prefWidth="104.0" text="Student Net" />
+                              <TableColumn fx:id="wTableFBen" prefWidth="104.0" text="Faculty Benefits" />
+                              <TableColumn fx:id="wTableFNet" prefWidth="104.0" text="Faculty Net" />
+                              <TableColumn fx:id="wTableSBen" prefWidth="104.0" text="Student Benefits" />
+                              <TableColumn fx:id="wTableSNet" prefWidth="104.0" text="Student Net" />
                               <TableColumn fx:id="wTableDescriptionCol" prefWidth="491.0" text="Description" />
                            </columns>
                                 </TableView>

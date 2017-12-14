@@ -1,3 +1,4 @@
+package besmoke.src;
 public class Valid {
     static String unformatted;
 

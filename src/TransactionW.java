@@ -49,6 +49,16 @@ public class TransactionW {
         return this.isDeposit;
     }
 
+    // Benefits Calculator
+    public DoubleProperty facultyBenProperty() { return facultyBen; }
+    public double getFacultyBen() { return facultyBenProperty().doubleValue(); }
+    public DoubleProperty studentBenProperty() { return studentBen; } 
+    public double getStudentBen() { return studentBenProperty().doubleValue(); }
+    public DoubleProperty facultyNetProperty() { return facultyNet; }
+    public double getFacultyNet() { return facultyNetProperty().doubleValue(); }
+    public DoubleProperty studentNetProperty() { return studentNet; }
+    public double getStudentNet() { return studentNetProperty().doubleValue(); }
+
     public StringProperty accountNameProperty() { return accountName; }
     public String getAccountName() { return accountNameProperty().get(); }
 
@@ -65,11 +75,11 @@ public class TransactionW {
     public String getDesc() { return descProperty().get(); }
 
     public DoubleProperty feesProperty() { return fees; }
-    public Double getFees() { return feesProperty().doubleValue(); }
+    public double getFees() { return feesProperty().doubleValue(); }
 
     public DoubleProperty amountProperty() { return amount; }
     public double getAmount() { return amountProperty().doubleValue(); }
 
     public IntegerProperty idProperty() { return id; }
-    public Integer getId() { return idProperty().get(); }
+    public int getId() { return idProperty().get(); }
 }
