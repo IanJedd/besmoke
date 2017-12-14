@@ -117,6 +117,22 @@ public class ViewAccountController extends Controller {
 /***************************************************************************
  * public methods
 ***************************************************************************/
+    // editTrans
+    public void populateEditTrans() {
+        String idStr = editTransactionID.getText();
+        if (checkID(idStr)) {
+            int id = Integer.parseInt(idStr);
+            editTransactionID.setEditable(false);
+            Transaction t = BeFinanced.getTransaction(id);
+            editTransactionAmount.setText(t.getAmount());
+            editTransactionCode.setText(t.getCode());
+            // handle new buttons  
+        }
+    }
+
+
+        int id = Integer.parseInt(
+
     public void initialize() {
         // Accounts Tab
         nameCol.setCellValueFactory(new PropertyValueFactory("name"));
@@ -266,6 +282,22 @@ public class ViewAccountController extends Controller {
         retVal = makeTransactionAmount1.getText();
         return retVal;
     }
+
+    private boolean checkID(String s) {
+        try {
+            int i = Integer.parseInt(s);
+            if (BeFinanced.getTransaction(i) == null) {
+                return false;
+            }
+        }
+        catch (Exception e) {
+            System.out.println("ID Lookup Exception: " + e);
+            return false;
+        }
+        return true;
+    }
+
+
 
 
 }
