@@ -112,6 +112,10 @@ public class Valid {
         }
     }
 
+    public static boolean round(double badBalance)
+    {
+        String stringBalance = String.valueOf()
+    }
     public static void main(String[] args) {
         Valid valid = new Valid();
 
