@@ -1,12 +1,4 @@
 70% TODO list:
-    - Modify Account Info:
-        - I added some setters to Account.java
-        - We should be able to reuse the view we use to create an account
-        - this view should pre-populate with the current data, and have a
-          save and cancel button.
-        - save button should call setters on the account first
-        - next it should call Account.updateAcctList() with the account as argument
-
     - Handle Dates and Codes for transactions:
         - I would deal with adding these to Transaction.java
         - handle it as well in the controller for creating transactions
