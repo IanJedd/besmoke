@@ -84,7 +84,9 @@ public class Controller {
         window = getEventWindow();
         updateScene(MODIFY_ACCOUNT, 600, 600);
     }
-
+    public void launchGuide(ActionEvent e){
+        Launch.url("guide.html");
+    }
 
 /***************************************************************************
  * private methods
