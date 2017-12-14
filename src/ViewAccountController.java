@@ -105,18 +105,67 @@ public class ViewAccountController extends Controller {
     @FXML
     private TextField editTransactionAmount, editTransactionCode, editTransactionID;
     @FXML
-    private Button finishTransaction1, editTransactionPopulate;
-    @FXML
-    private RadioButton editTransactionCheck, editTransactionWithdrawal, editTransactionCredit;
-    @FXML
-    private ToggleGroup transactionType1;
+    private Button finishTransaction1, editTransactionPopulate, deleteCancel, deleteTransaction, populateCancel;
     @FXML
     private TextArea editTransactionDescription;
+    @FXML
+    private DatePicker editDate;
 
 
 /***************************************************************************
  * public methods
 ***************************************************************************/
+    // editTrans
+    public void populateEditTrans() {
+        String idStr = editTransactionID.getText();
+        if (checkID(idStr)) {
+            int id = Integer.parseInt(idStr);
+            editTransactionID.setEditable(false);
+            Transaction t = BeFinanced.getTransaction(id);
+            editTransactionAmount.setText(((Double)t.getAmount()).toString());
+            editTransactionCode.setText(t.getCode());
+            editTransactionDescription.setText(t.getDescription());
+            // handle new buttons
+            editTransactionPopulate.setDisable(true);
+            editTransactionPopulate.setVisible(false);
+            populateCancel.setDisable(false);
+            populateCancel.setVisible(true);
+        }
+    }
+
+    public void cancelDelete() {
+
+    }
+
+    public void delete() {
+
+    }
+
+    public void deleteConfirmed() {
+
+    }
+
+    public void editTransaction() {
+
+    }
+
+    public void cancelPopulate() {
+        editTransactionID.setEditable(true);
+        editTransactionAmount.setText("");
+        editTransactionCode.setText("");
+        editTransactionDescription.setText("");
+        // handle new buttons
+        editTransactionPopulate.setDisable(false);
+        editTransactionPopulate.setVisible(true);
+        populateCancel.setDisable(true);
+        populateCancel.setVisible(false);
+    }
+
+
+
+
+
+
     public void initialize() {
         // Accounts Tab
         nameCol.setCellValueFactory(new PropertyValueFactory("name"));
@@ -181,6 +230,7 @@ public class ViewAccountController extends Controller {
         // set default date for datepickers
         makeDate.setValue(LocalDate.now());
         makeDate.setEditable(false);
+        editDate.setEditable(false);
         
         if (currentUser.hasAccount()) {
             updateAccData();
@@ -266,6 +316,22 @@ public class ViewAccountController extends Controller {
         retVal = makeTransactionAmount1.getText();
         return retVal;
     }
+
+    private boolean checkID(String s) {
+        try {
+            int i = Integer.parseInt(s);
+            if (BeFinanced.getTransaction(i) == null) {
+                return false;
+            }
+        }
+        catch (Exception e) {
+            System.out.println("ID Lookup Exception: " + e);
+            return false;
+        }
+        return true;
+    }
+
+
 
 
 }
