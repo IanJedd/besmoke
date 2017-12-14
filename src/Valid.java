@@ -56,6 +56,7 @@ public class Valid {
                 c = badEmail.charAt(i);
                 s = String.valueOf(c);
                 if (s.equals("@")) {
+                    if (at) return false;
                     at = true;
                     atIndex = i;
                 } else if (s.equals(".")) {
@@ -83,16 +84,22 @@ public class Valid {
         String s;
         int dotIndex = -1;
         StringBuilder digits = new StringBuilder();
-        for (int i = 0; i < badBalance.length(); i++) {
+        int j = 0;
+        if (badBalance.substring(0, 1).equals("$"))
+        {
+            j++;
+        }
+        for ( int i=j; i < badBalance.length(); i++) {
             c = badBalance.charAt(i);
             s = String.valueOf(c);
-            if (Character.isDigit(badBalance.charAt(i))) {
+            if (Character.isDigit(c)) {
                 digits.append(s);
             }
             if (s.equals(".")) {
                 digits.append(s);
                 dotIndex = i;
             }
+            else return false;
         }
         unformatted = digits.toString();
         if (dotIndex == -1 || (dotIndex != 0 && dotIndex == unformatted.length() - 3)) {
@@ -129,7 +136,7 @@ public class Valid {
         System.out.println(valid.email(email));
         System.out.println(valid.goodEmail);
 
-        String balance = "200.0";
+        String balance = "200.";
         System.out.println("Bad balance " + balance);
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
