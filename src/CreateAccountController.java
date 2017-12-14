@@ -72,7 +72,6 @@ public class CreateAccountController extends Controller {
             updateScene(VIEW_ACCT, 600, 600);
         }
     }
-    String a = "a";
     private boolean checkFields() {
         String aName = createAccountName.getText();
         String aBalance = createAccountBalance.getText();
