@@ -1,10 +1,11 @@
+package besmoke.src;
 import java.awt.*;
 import java.io.File;
 
 public class Launch {
     public static void url(String filename)
     {
-        String path = System.getProperty("user.dir") + "/src/" + filename;
+        String path = System.getProperty("user.dir") + "/besmoke/src/" + filename;
         path = path.replace("\\", "/");
         System.out.println(path);
         try {
