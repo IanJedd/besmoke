@@ -128,7 +128,7 @@ public class Valid {
         System.out.println(valid.email(email));
         System.out.println(valid.goodEmail);
 
-        String balance = "200.0";
+        String balance = "200.";
         System.out.println("Bad balance " + balance);
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
