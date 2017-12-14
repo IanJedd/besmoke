@@ -179,7 +179,7 @@
                         <TextField id="makeNewCode" fx:id="makeTransactionAmount1" layoutX="170.0" layoutY="88.0" prefHeight="40.0" prefWidth="400.0" promptText="Expense Code" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="60.0" />
                         <DatePicker fx:id="makeDate" layoutX="361.0" layoutY="17.0" prefHeight="40.0" prefWidth="150.0" AnchorPane.leftAnchor="420.0" AnchorPane.topAnchor="10.0" />
                         <Label layoutX="330.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" text="Date" AnchorPane.leftAnchor="380.0" AnchorPane.topAnchor="10.0" />
-                        <RadioButton fx:id="makeFeeWithdrawal" layoutX="14.0" layoutY="282.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="120.0" text="Fee Withdrawal" toggleGroup="$transactionType" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="240.0" />
+                        <Label fx:id="invalidMakeAmt" layoutX="10.0" layoutY="369.0" prefHeight="40.0" prefWidth="120.0" text="Invalid amount" visible="false" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="270.0" />
                      </children>
                   </AnchorPane>
               </content>
