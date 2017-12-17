@@ -22,12 +22,11 @@ public class Transaction implements Serializable {
         this.date = date;
         this.description = description;
         this.id = BeFinanced.getTList().size();
-        addToTransactionList(this);
-
         if (type == TransType.WITHDRAWAL) { fees = 0.0; }
         else if (type == TransType.CHECK_DEPOSIT) {  fees = .08 * initAmount; }
         else { fees = .12 * initAmount; }
         this.deleted = false;
+        addToTransactionList(this);
 	}
 	
     public String getAccountName() { return accountName; }

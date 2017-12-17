@@ -35,6 +35,8 @@ public class TransactionW {
         id = new SimpleIntegerProperty(t.getID());
         date = new SimpleStringProperty(t.getStringDate());
         accountName = new SimpleStringProperty(t.getAccountName());
+
+        System.out.println("" + t.getID() +" " + t.getFees());
         
         // Benefits Calculator
         double fb = t.getAmount()*FACULTY_BEN_PERCENT;

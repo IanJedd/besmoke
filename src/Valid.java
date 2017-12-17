@@ -1,5 +1,4 @@
 package besmoke.src;
-
 import java.text.DecimalFormat;
 
 public class Valid {
@@ -92,7 +91,7 @@ public class Valid {
         {
             badBalance = badBalance.substring(1);
         }
-        if (badBalance.substring(0,1).equals("-")) {
+        if (badBalance.substring(0, 1).equals("-")) {
             isNegative = true;
             badBalance = badBalance.substring(1);
         }
@@ -121,7 +120,6 @@ public class Valid {
             if (isNegative) {
                 goodBalance *= -1;
             }
-
             return true;
         } catch (Exception e) {
             return false;
@@ -136,7 +134,7 @@ public class Valid {
             String balanceString = format.format(badRound);
             goodRound = Double.valueOf(balanceString);
         }
-        catch (Exception e){}
+        catch (Exception e){System.out.println(e);}
     return goodRound;
     }
     public static void main(String[] args) {
@@ -167,7 +165,7 @@ public class Valid {
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
 
-        balance = "-200.00";
+        balance = "$200.00";
         System.out.println("Good balance " + balance);
         System.out.println(valid.balance(balance));
         System.out.println(valid.goodBalance);
