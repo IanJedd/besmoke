@@ -56,7 +56,7 @@ public class ViewAccountController extends Controller {
     @FXML
     private ToggleGroup transactionType;
     @FXML
-    private TextField makeTransactionAmount, makeTransactionCode, makeTransactionAmount1;
+    private TextField makeTransactionAmount, makeTransactionCode;
     @FXML
     private RadioButton makeTransactionCheck, makeTransactionWithdrawal, makeTransactionCredit, makeFeeWithdrawal;
     @FXML
@@ -65,6 +65,8 @@ public class ViewAccountController extends Controller {
     private Button makeTransactionFinish;
     @FXML
     private DatePicker makeDate;
+    @FXML
+    private Label makeTransError;
     // AllTransactions Tab
     @FXML
     private TableView<TransactionW> transactionTable1;
@@ -114,18 +116,6 @@ public class ViewAccountController extends Controller {
 ***************************************************************************/
     // editTrans
     //
-    private void lockFields() {
-        editTransactionID.setEditable(false);
-    }
-    private void unlockFields() {
-        editTransactionID.setEditable(true);
-    }
-    private void clearFields() {
-        editTransactionAmount.setText("");
-        editTransactionCode.setText("");
-        editTransactionID.setText("");
-        editTransactionDescription.setText("");
-    }
 
     public void populateEditTrans() {
         lockFields();
@@ -187,6 +177,8 @@ public class ViewAccountController extends Controller {
     }
 
     public void initialize() {
+
+        makeTransactionCredit.setSelected(true);
         
         editTransactionAmount.setDisable(true);
         editTransactionCode.setDisable(true);
@@ -268,6 +260,14 @@ public class ViewAccountController extends Controller {
     }
     
     public void finishTransaction(ActionEvent e) {
+        if (!currentUser.hasAccount()) {
+            makeTransError.setText("You must create an account before making transactions.");
+            return;
+        }
+        if (!validTransactionFields()) {
+            return;
+        }
+
         RadioButton r = (RadioButton) transactionType.getSelectedToggle();
         Transaction t;
         MasterAccount ma = BeFinanced.getMaster();
@@ -300,6 +300,8 @@ public class ViewAccountController extends Controller {
 /***************************************************************************
  * private methods
 ***************************************************************************/
+    // for updating tables
+
     private void updateAccData() {
         ObservableList<AccountW> aList = FXCollections.observableArrayList();
         aList.add(new AccountW(BeFinanced.getMaster()));
@@ -326,7 +328,6 @@ public class ViewAccountController extends Controller {
             ObservableList<TransactionW> dList = FXCollections.observableArrayList();
             ObservableList<TransactionW> wList = FXCollections.observableArrayList();
             for(Integer id : a.getTransactions()) {
-                System.out.println(id);
                 Transaction t = BeFinanced.getTransaction(id);
                 TransactionW tW = new TransactionW(t);
                 tList.add(tW);
@@ -343,13 +344,14 @@ public class ViewAccountController extends Controller {
         }
     }
 
+    // for making a transaction
     private String getMakeTransCode() {
         String retVal;
-        // TODO: deal with combo box first if we can get that up and running
-        retVal = makeTransactionAmount1.getText();
+        retVal = makeTransactionCode.getText();
         return retVal;
     }
-
+    
+    // For Delete Transaction
     private boolean checkID(String s) {
         try {
             int i = Integer.parseInt(s);
@@ -364,7 +366,37 @@ public class ViewAccountController extends Controller {
         return true;
     }
 
+    private void lockFields() {
+        editTransactionID.setEditable(false);
+    }
+    private void unlockFields() {
+        editTransactionID.setEditable(true);
+    }
+    private void clearFields() {
+        editTransactionAmount.setText("");
+        editTransactionCode.setText("");
+        editTransactionID.setText("");
+        editTransactionDescription.setText("");
+    }
 
+    // For Making Transaction
+    // makeTransError.setText("");
+    private boolean validTransactionFields() {
+        if (!Valid.balance(makeTransactionAmount.getText())) {
+            makeTransError.setText("Invalid transaction amount.");
+            return false;
+        }
+        if (!Valid.validCode(getMakeTransCode())) {
+            makeTransError.setText("Invalid code: codes must be 5 digits.");
+            return false;
+        }
+        if (makeTransactionDescription.getText().trim().isEmpty()) {
+           makeTransError.setText("You must fill all fields.");
+           return false;
+        }
+        makeTransError.setText("");
+        return true;
+    }
 
 
 }

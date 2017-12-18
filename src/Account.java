@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 public class Account implements Serializable {
+    private static final long serialVersionUID = 1l;
     private final String accountName;
     private double balance;
     private static final double UNI_FEE = .08;
@@ -64,13 +65,11 @@ public class Account implements Serializable {
                 universityFees += uniFee;
                 break;
             case CHECK_DEPOSIT:
-                System.out.println(amt);
                 amt -= uniFee;
                 changeBalance(amt);
                 universityFees += uniFee;
                 break;
             case WITHDRAWAL:
-                System.out.println("Withdrawal");
                 changeBalance(-1*amt);
                 break;
         }

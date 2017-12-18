@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.*;
 import java.time.LocalDate;
 public class Transaction implements Serializable {
+    private static final long serialVersionUID = 1l;
     private boolean deleted;
 	private TransType type;
 	private double amount;

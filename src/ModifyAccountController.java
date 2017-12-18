@@ -58,9 +58,7 @@ public class ModifyAccountController extends Controller {
  * public methods
 ***************************************************************************/
     public void initialize() {
-        System.out.println("initialize");
         Account a = Account.getAccount(currentUser.getAccounts()[0]);
-        System.out.println(a);
         AccountName.setText(a.getAccountName());
         AccountName.setEditable(false);
         Double b = (Double) a.getBalance();

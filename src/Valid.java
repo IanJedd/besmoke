@@ -81,6 +81,18 @@ public class Valid {
 
     static double goodBalance = 0.0;
 
+    public static boolean validCode(String code) {
+        if (code.length() != 5) {
+            return false;
+        }
+        for(int i = 0; i < 5; i++) {
+            char c = code.charAt(i);
+            if(!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
+    }
     public static boolean balance(String badBalance) {
         char c;
         boolean isNegative = false;
