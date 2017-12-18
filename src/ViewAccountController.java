@@ -115,10 +115,10 @@ public class ViewAccountController extends Controller {
     // editTrans
     //
     private void lockFields() {
-        editTransactionID.setDisable(true);
+        editTransactionID.setEditable(false);
     }
     private void unlockFields() {
-        editTransactionID.setDisable(false);
+        editTransactionID.setEditable(true);
     }
     private void clearFields() {
         editTransactionAmount.setText("");
@@ -132,7 +132,6 @@ public class ViewAccountController extends Controller {
         String idStr = editTransactionID.getText();
         if (checkID(idStr)) {
             int id = Integer.parseInt(idStr);
-            editTransactionID.setEditable(false);
             Transaction t = BeFinanced.getTransaction(id);
             editTransactionAmount.setText(((Double)t.getAmount()).toString());
             editTransactionCode.setText(t.getCode());
@@ -171,7 +170,6 @@ public class ViewAccountController extends Controller {
         initT.makeDeleted();
         String delDesc = "Delete Transaction for transaction id: " + id;
         Transaction deleter = new Transaction(initT.getType(), -initT.getAmount(), initT.getAccountName(), initT.getCode(), delDesc, LocalDate.now());
-        deleter.makeDeleted();
         Account a = Account.getAccount(deleter.getAccountName());
         a.processTransaction(deleter);
         MasterAccount ma = BeFinanced.getMaster();
@@ -260,9 +258,12 @@ public class ViewAccountController extends Controller {
         
         if (currentUser.hasAccount()) {
             accountName.setText(BeFinanced.getUser().getAccounts()[0]);
-            updateAccData();
-            updateTData();
         }
+        else {
+            accountName.setText("");
+        }
+        updateAccData();
+        updateTData();
         
     }
     
@@ -300,41 +301,46 @@ public class ViewAccountController extends Controller {
  * private methods
 ***************************************************************************/
     private void updateAccData() {
-        String[] accNames = currentUser.getAccounts();
         ObservableList<AccountW> aList = FXCollections.observableArrayList();
         aList.add(new AccountW(BeFinanced.getMaster()));
-        for(String name : accNames) {
-            if (name != null) {
-                aList.add(new AccountW(Account.getAccount(name)));}
+        if (currentUser.hasAccount()) {
+            String[] accNames = currentUser.getAccounts();
+            for(String name : accNames) {
+                if (name != null) {
+                    aList.add(new AccountW(Account.getAccount(name)));}
+            }
         }
         tableAccData.setItems(aList);
     }
 
     private void updateTData() {
-        SubAccount a = (SubAccount) Account.getAccount(currentUser.getAccounts()[0]);
-        ObservableList<TransactionW> tList = FXCollections.observableArrayList();
-        ObservableList<TransactionW> dList = FXCollections.observableArrayList();
-        ObservableList<TransactionW> wList = FXCollections.observableArrayList();
         ObservableList<TransactionW> allTList = FXCollections.observableArrayList();
         for(Transaction t : BeFinanced.getTList()) {
             allTList.add(new TransactionW(t));
         }
-        for(Integer id : a.getTransactions()) {
-            System.out.println(id);
-            Transaction t = BeFinanced.getTransaction(id);
-            TransactionW tW = new TransactionW(t);
-            tList.add(tW);
-            if (t.isDeposit()) {
-                dList.add(tW);
-            }
-            else {
-                wList.add(tW);
-            }
-        }
         transactionTable1.setItems(allTList);
-        transactionTable.setItems(tList);
-        withdrawalsTable.setItems(wList);
-        depositsTable.setItems(dList);
+
+        if (currentUser.hasAccount()) {
+            SubAccount a = (SubAccount) Account.getAccount(currentUser.getAccounts()[0]);
+            ObservableList<TransactionW> tList = FXCollections.observableArrayList();
+            ObservableList<TransactionW> dList = FXCollections.observableArrayList();
+            ObservableList<TransactionW> wList = FXCollections.observableArrayList();
+            for(Integer id : a.getTransactions()) {
+                System.out.println(id);
+                Transaction t = BeFinanced.getTransaction(id);
+                TransactionW tW = new TransactionW(t);
+                tList.add(tW);
+                if (t.isDeposit()) {
+                    dList.add(tW);
+                }
+                else {
+                    wList.add(tW);
+                }
+            }
+            transactionTable.setItems(tList);
+            withdrawalsTable.setItems(wList);
+            depositsTable.setItems(dList);
+        }
     }
 
     private String getMakeTransCode() {
