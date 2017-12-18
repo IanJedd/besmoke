@@ -3,8 +3,9 @@ import java.util.*;
 import java.io.*;
 import java.io.Serializable;
 public class User implements Serializable {
+    private static final long serialVersionUID = 1l;
     
-    private int accLimit = 5;
+    private int accLimit = 50;
 	private String fName, lName, address;
     private Passwardo passwardo;
     private final String username;

@@ -3,6 +3,7 @@ import java.util.*;
 import java.io.*;
 import java.time.LocalDate;
 public class Transaction implements Serializable {
+    private static final long serialVersionUID = 1l;
     private boolean deleted;
 	private TransType type;
 	private double amount;
@@ -22,12 +23,11 @@ public class Transaction implements Serializable {
         this.date = date;
         this.description = description;
         this.id = BeFinanced.getTList().size();
-        addToTransactionList(this);
-
         if (type == TransType.WITHDRAWAL) { fees = 0.0; }
         else if (type == TransType.CHECK_DEPOSIT) {  fees = .08 * initAmount; }
         else { fees = .12 * initAmount; }
         this.deleted = false;
+        addToTransactionList(this);
 	}
 	
     public String getAccountName() { return accountName; }

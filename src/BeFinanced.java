@@ -31,8 +31,9 @@ public class BeFinanced extends Application {
 
     @Override
     public void stop() {
-        System.out.println("saving");
-        cUser.logOut();
+        if (cUser != null) {
+            cUser.logOut();
+        }
     }
 
 

@@ -4,6 +4,7 @@ import java.io.*;
 
 public class MasterAccount extends Account {
 
+    private static final long serialVersionUID = 1l;
     public MasterAccount(String accName, Double bal, String description, String phone, String email) {
         super(accName, bal, description, phone, email);
     }
