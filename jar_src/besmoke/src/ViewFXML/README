@@ -1,0 +1,5 @@
+Things that need fx:ids: buttons(maybe? I think we may be able to get away with assigning onAction methods), textfields, dynamic labels/text, the menubar
+
+* Can we delete AccountView (replaced by ViewAccount???) and createTransactionView (now part of ViewAccount as a tab???)
+
+
